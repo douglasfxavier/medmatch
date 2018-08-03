@@ -30,7 +30,7 @@ public class ObjectsToRDFConverter {
 		this.ontologyModel = ModelFactory.createOntologyModel();
 		this.ontologyURI = "http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology";
 		this.ontologyNamespace = ontologyURI + "/";
-		this.ontologyFile ="file:./resources/ontology/pharmacology.owl";
+		this.ontologyFile ="file:./src/main/resources/ontology/pharmacology.owl";
 		this.documentManager = ontologyModel.getDocumentManager();
 		this.documentManager.addAltEntry(this.ontologyURI, this.ontologyFile);
 		this.ontologyModel.read(ontologyURI);

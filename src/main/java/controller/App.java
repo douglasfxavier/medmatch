@@ -8,7 +8,7 @@ public class App
 {
     public static void main( String[] args ) throws FileNotFoundException
     {
-    	String path = "./resources/data/brazilian-dataset-anvisa.tsv";
+    	String path = "./src/main/resources/data/brazilian-dataset-anvisa.tsv";
 
     	ObjectsToRDFConverter converter = new ObjectsToRDFConverter();
     	RDFManager manager = new RDFManager();
@@ -21,7 +21,7 @@ public class App
     	
     	//Turtle syntax
     	manager.systemOutput(rdfModel, "turtle");
-    	manager.saveFile(rdfModel, "./resources/data/drugs.rdf", "turtle");
+    	manager.saveFile(rdfModel, "./src/main/resources/data/drugs.rdf", "turtle");
     	
     	
     	//JSON-LD syntax
