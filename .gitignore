@@ -3,3 +3,4 @@
 .project
 .settings/
 readme.md
+/target/

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	
+	<ui:composition template="/view/template/layout.xhtml">
+		<ui:define name="header-title">MedMatch</ui:define>
+		<ui:define name="content">
+			<h:form id="matching-form" class="form-login">
+				<div>
+					<h:outputLabel for="urlID">URL</h:outputLabel>
+					<h:inputText id="urlID" value="#{matchingBean.url}"/>
+				</div>				
+				<div>
+					<h:outputLabel for="countryID">Country</h:outputLabel>
+					<h:selectOneMenu id="countryID" value="#{matchingBean.selectedCountryCode}">
+						<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
+						<f:selectItems	 value="#{matchingBean.allCountries}" var="country" itemValue="#{country.numericCode}"
+							itemLabel="#{country.countryName}" />				
+					</h:selectOneMenu>
+				</div>
+				<div>
+					<h:commandButton class="" value="Load" action="#{matchingBean.loadMetadata}" />
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</html>

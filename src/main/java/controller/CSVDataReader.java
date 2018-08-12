@@ -40,7 +40,7 @@ public class CSVDataReader {
 	        	Manufacturer manufacturer = null;
 	        	Category category = null;
 	        	
-	        	Country country = new Country(55,"Brazil", "BR"); //It should be passed as parameter 
+	        	Country country = new Country(076,"BR","Brazil"); //It should be passed as parameter 
 	        	
 
 	  	

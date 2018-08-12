@@ -1,45 +1,64 @@
 package model;
 
 public class Country {
-	private int id;
-	private String name;
-	private String abbreviation;
+	private String uri;
+	private int numericCode; 
+	private String countryName;
+	private String alphaCode;
+
 	
-	public Country(int id, String name, String abbreviation) {
+	
+	public Country(int numericCode, String countryName,  String alphaCode) {
 		super();
-		this.id = id;
-		this.name = name;
-		this.abbreviation= abbreviation;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+		this.numericCode = numericCode;
+		this.countryName = countryName;
+		this.alphaCode= alphaCode;
 	}
 	
-	public String getAbbreviation() {
-		return abbreviation;
+	public Country(String uri, int numericCode, String countryName, String alphaCode) {
+		super();
+		this.uri = uri;
+		this.numericCode = numericCode;
+		this.countryName = countryName;
+		this.alphaCode = alphaCode;
 	}
 
-	public void setAbbreviation(String abbreviation) {
-		this.abbreviation = abbreviation;
+	public String getUri() {
+		return uri;
+	}
+
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
+
+	public int getNumericCode() {
+		return numericCode;
+	}
+
+	public void setNumericCode(int numericCode) {
+		this.numericCode = numericCode;
+	}
+
+	public String getCountryName() {
+		return countryName;
+	}
+
+	public void setCountryName(String countryName) {
+		this.countryName = countryName;
+	}
+
+	public String getAlphaCode() {
+		return alphaCode;
+	}
+
+	public void setAlphaCode(String alphaCode) {
+		this.alphaCode = alphaCode;
 	}
 
 	@Override
 	public String toString() {
-		return "Country [id=" + id + ", name=" + name + "]";
+		return "Country [uri=" + uri + ", numericCode=" + numericCode + ", countryName=" + countryName + ", alphaCode="
+				+ alphaCode + "]";
 	}
-	
 	
 }
