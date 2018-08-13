@@ -3,67 +3,33 @@ package bean;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-import controller.CountryController;
+import org.apache.jena.ontology.OntModel;
+
+import controller.ObjectsToRDFConverter;
+import controller.OntologyManager;
 import model.Country;
 
 @ManagedBean ( name = "matchingBean")
 @SessionScoped
-public class MatchingBean {
-	private ArrayList<Country> allCountries = new ArrayList<Country>();
-	private String selectedCountryCode;
-	private Country selectedCountry;
-	private String url;
-	//file
+public class MatchingBean{
+	@ManagedProperty (value ="#{uploadBean}")
+	private UploadBean uploadBean;
+	@ManagedProperty (value = "#{countryListBean}")
+	private CountryListBean countryListBean;
 	private HashMap<String,String> mathings;
 	
-	public MatchingBean() {
-		super();		
-		CountryController countryController = new CountryController();
-		this.allCountries = countryController.getAllContries();
-
-	}
 
 	public Country getSelectedCountry() {
-		CountryController countryController = new CountryController();
-		Country country = countryController.
-				findCountry(Integer.parseInt(this.selectedCountryCode), allCountries);
-		this.selectedCountry = country;
-		
+		int numericCode = Integer.parseInt(uploadBean.getSelectedCountryNumericCode());
+		Country selectedCountry = countryListBean.getCountry(numericCode);
 		return selectedCountry;
 	}
-	
-	
-	
-	public String getSelectedCountryCode() {
-		return selectedCountryCode;
-	}
 
-	public void setSelectedCountryCode(String selectedCountryCode) {
-		this.selectedCountryCode = selectedCountryCode;
-	}
-
-
-	public void setAllCountries(ArrayList<Country> allCountries) {
-		this.allCountries = allCountries;
-	}
-
-
-
-	public ArrayList<Country> getAllCountries() {
-		return allCountries;
-	}
-
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
 
 	public HashMap<String, String> getMathings() {
 		return mathings;
@@ -73,9 +39,54 @@ public class MatchingBean {
 		this.mathings = mathings;
 	}
 	
-	public String loadMetadata() {
-		return "matching?faces-redirect=true";
 
+	public CountryListBean getCountryListBean() {
+		return countryListBean;
 	}
 
+
+	public void setCountryListBean(CountryListBean countryListBean) {
+		this.countryListBean = countryListBean;
+	}
+
+
+	public UploadBean getUploadBean() {
+		return uploadBean;
+	}
+
+
+	public void setUploadBean(UploadBean uploadBean) {
+		this.uploadBean = uploadBean;
+	}
+
+
+	public String convert() {
+		return "Converted";
+	}
+	
+	
+/*	public String getDatasetFile() {
+		String content = null;
+		
+        if (uploadedfile != null) {
+            try {
+                InputStream inputStream = uploadedfile.getInputStream();
+                content = new Scanner(inputStream).nextLine();
+            } catch (IOException ex) {
+            }
+        }
+        return content;
+    }*/
+	
+	
+	public ArrayList<String> loadMetadata() {
+		OntologyManager ontologyManager = new OntologyManager();
+		OntModel ontologyModel = ontologyManager.getOntologyModel();
+		
+		
+		//ObjectsToRDFConverter objectsToRDFConverter = new ObjectsToRDFConverter(uploadBean.getUrl());
+		return ontologyManager.getClassesNames(ontologyModel);
+
+	}
 }
+

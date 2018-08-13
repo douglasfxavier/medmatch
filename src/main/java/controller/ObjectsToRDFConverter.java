@@ -3,7 +3,6 @@ package controller;
 import java.io.FileNotFoundException;
 
 import org.apache.jena.ontology.OntClass;
-import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.rdf.model.Model;
@@ -16,29 +15,22 @@ import model.Manufacturer;
 import model.Category;
 
 public class ObjectsToRDFConverter {
-	private final Model rdfModel;			
+	private final Model rdfModel;
 	private final OntModel ontologyModel;
-	private final String ontologyURI;
-	private final String ontologyNamespace;
-	private final String ontologyFile;	
-	private final OntDocumentManager documentManager;
-	private final String URL;
+	private final String url;
 	
-	public ObjectsToRDFConverter() {
-		this.URL = "http://wwww.anvisa.gov.br/";
+	public ObjectsToRDFConverter(String url) {
+		this.url = url;
+		OntologyManager ontologyManager = new OntologyManager();
+		this.ontologyModel = ontologyManager.getOntologyModel();
 		this.rdfModel = ModelFactory.createDefaultModel();
-		this.ontologyModel = ModelFactory.createOntologyModel();
-		this.ontologyURI = "http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology";
-		this.ontologyNamespace = ontologyURI + "/";
-		this.ontologyFile ="file:./src/main/resources/ontology/pharmacology.owl";
-		this.documentManager = ontologyModel.getDocumentManager();
-		this.documentManager.addAltEntry(this.ontologyURI, this.ontologyFile);
-		this.ontologyModel.read(ontologyURI);
-		this.rdfModel.setNsPrefix("pharm", ontologyNamespace);
+		this.rdfModel.setNsPrefix("pharm", ontologyManager.getOntologyNamespace());
 		this.rdfModel.setNsPrefix("foaf", "http://xmlns.com/foaf/0.1/");
 		this.rdfModel.setNsPrefix("dcterms", "http://purl.org/dc/terms/");
 	
 	}
+	
+	
 	
 	public Model convertDataToRDF(String path) throws FileNotFoundException {
         
@@ -48,10 +40,10 @@ public class ObjectsToRDFConverter {
         OntClass manufacturerClass = OntologyManager.findClass("Manufacturer",this.ontologyModel);
         OntClass compoundClass = OntologyManager.findClass("Compound", this.ontologyModel);
         OntClass categoryClass = OntologyManager.findClass("Category", this.ontologyModel);
-        String drugURL = this.URL + "drug/";
-        String compoundURL = this.URL + "compound/";
-        String manufactureURL = this.URL + "manufacturer/";
-        String categoryURL = this.URL + "category/";
+        String drugURL = this.url + "drug/";
+        String compoundURL = this.url + "compound/";
+        String manufactureURL = this.url + "manufacturer/";
+        String categoryURL = this.url + "category/";
         
         //Converting objects from Manufacturer class to resources
         for(Manufacturer m: csvDataReader.manufacturerList) {
@@ -100,7 +92,6 @@ public class ObjectsToRDFConverter {
         
 		return rdfModel;
 	}
-    
-	
+   	
 
 }

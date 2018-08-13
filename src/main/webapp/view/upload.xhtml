@@ -5,27 +5,32 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-
+	
 	
 	<ui:composition template="/view/template/layout.xhtml">
 		<ui:define name="header-title">MedMatch</ui:define>
 		<ui:define name="content">
-			<h:form id="matching-form" class="form-login">
+			<h:form id="matching-form" class="form-login" enctype="multipart/form-data">
 				<div>
 					<h:outputLabel for="urlID">URL</h:outputLabel>
-					<h:inputText id="urlID" value="#{matchingBean.url}"/>
+					<h:inputText id="urlID" value="#{uploadBean.url}"/>
 				</div>				
 				<div>
 					<h:outputLabel for="countryID">Country</h:outputLabel>
-					<h:selectOneMenu id="countryID" value="#{matchingBean.selectedCountryCode}">
+					<h:selectOneMenu id="countryID" value="#{uploadBean.selectedCountryNumericCode}">
 						<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
-						<f:selectItems	 value="#{matchingBean.allCountries}" var="country" itemValue="#{country.numericCode}"
-							itemLabel="#{country.countryName}" />				
+						<f:selectItems value="#{countryListBean.getAllCountries()}" 
+							var="country" 
+							itemValue="#{country.numericCode}"
+							itemLabel="#{country.countryName}" />	
 					</h:selectOneMenu>
 				</div>
 				<div>
-					<h:commandButton class="" value="Load" action="#{matchingBean.loadMetadata}" />
+					<h:inputFile id="dataset-file"></h:inputFile>
 				</div>
+				<div>
+					<h:commandButton class="" id="loadButton" value="Load" action="#{uploadBean.uploadFile()}" />
+				</div>				
 			</h:form>
 		</ui:define>
 	</ui:composition>

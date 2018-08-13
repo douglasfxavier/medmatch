@@ -23,7 +23,7 @@ public class RDFManager {
 			model.write(rdf, rdfFormat);
 			file.close();
 		} catch (IOException e) {
-			System.out.println("Problema com o Arquivo");
+			System.out.println("Something wrong happened. File not saved.");
 		}
 	}
 	/*

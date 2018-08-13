@@ -6,14 +6,16 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<ui:composition template="/view/template/layout.xhtml">
-		<ui:define name="header-title">MedMatch</ui:define>
-		<ui:define name="content">
-			<p>#{matchingBean.url}</p>
-			<p>#{matchingBean.selectedCountry.countryName}</p>
-		</ui:define>
-</ui:composition>
-
-
+	<ui:composition template="/view/template/layout.xhtml">
+			<ui:define name="header-title">MedMatch</ui:define>
+			<ui:define name="content">
+				<p>#{matchingBean.uploadBean.url}</p>
+				<p>#{matchingBean.getSelectedCountry().countryName}</p>
+				<ui:repeat var="className" value="#{matchingBean.loadMetadata()}">
+					<p>#{className}</p>
+				</ui:repeat>
+	
+			</ui:define>
+	</ui:composition>
 </html>
 
