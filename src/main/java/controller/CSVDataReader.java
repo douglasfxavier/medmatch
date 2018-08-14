@@ -3,9 +3,15 @@ package controller;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.util.ArrayList;
 
+import com.opencsv.CSVParser;
+import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 
 import model.Category;
 import model.Compound;
@@ -21,15 +27,45 @@ public class CSVDataReader {
 	protected ArrayList<Category> categoryList = new ArrayList<Category>();
 	protected IDGenerator idCompoundGenerator = new IDGenerator();
 	protected IDGenerator idCategoryGenerator = new IDGenerator();
+	protected String csvData;
+	protected char delimiter;
+	protected CSVParser parser;
+	protected CSVReader reader;
 	
+	
+	public CSVDataReader(String csvData, char delimiter) {
+		super();
+		this.csvData = csvData;
+		this.delimiter = delimiter;
+		this.parser = new CSVParserBuilder()
+						.withSeparator(this.delimiter)
+						.withIgnoreQuotations(true)
+						.build();
+		this.reader = new CSVReaderBuilder(new StringReader(this.csvData))
+						.withSkipLines(0)
+						.withCSVParser(parser)
+						.build();		
+	}
 
-	public boolean loadData(String path) throws FileNotFoundException {
-	    CSVReader reader = new CSVReader(new FileReader(path),'\t','\"',1);
+	public String[] getMetadata() throws FileNotFoundException{
+		try {
+			String[] header = this.reader.readNext();
 
+			return header;
+			
+		}catch (IOException e) {
+	        e.printStackTrace();
+	        
+	        return null;
+	    }		
+	}
+
+	public boolean loadData() throws FileNotFoundException {
 	    try {
+
 	        String[] line;
 	        
-	        while ((line = reader.readNext()) != null) {      
+	        while ((line = reader.readNext()) != null) {
 	        	String drugCode = line [5];
 	        	String compoundName = line[0];
 	        	String brandName = line[6];

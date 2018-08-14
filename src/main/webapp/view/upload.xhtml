@@ -26,7 +26,7 @@
 					</h:selectOneMenu>
 				</div>
 				<div>
-					<h:inputFile id="dataset-file"></h:inputFile>
+					<h:inputFile id="dataset-file" value="#{uploadBean.uploadedfile}"></h:inputFile>
 				</div>
 				<div>
 					<h:commandButton class="" id="loadButton" value="Load" action="#{uploadBean.uploadFile()}" />

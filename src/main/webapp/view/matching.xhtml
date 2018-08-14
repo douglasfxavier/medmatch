@@ -11,6 +11,9 @@
 			<ui:define name="content">
 				<p>#{matchingBean.uploadBean.url}</p>
 				<p>#{matchingBean.getSelectedCountry().countryName}</p>
+				<ui:repeat var="fieldName" value="#{matchingBean.csvDataReader.getMetadata()}">
+					<p>#{fieldName}</p>
+				</ui:repeat>				
 				<ui:repeat var="className" value="#{matchingBean.ontologyManager.getClassesNames()}">
 					<p>#{className}</p>
 				</ui:repeat>	

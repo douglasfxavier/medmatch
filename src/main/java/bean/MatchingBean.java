@@ -1,14 +1,12 @@
 package bean;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-
-import com.opencsv.CSVReader;
-
 import controller.CSVDataReader;
 import controller.OntologyManager;
 import model.Country;
@@ -25,12 +23,6 @@ public class MatchingBean{
 	private CSVDataReader csvDataReader;
 	
 
-/*	public String getPath() {
-		FacesContext fc= FacesContext.getCurrentInstance();
-		String path = fc.getExternalContext().getRealPath("WEB-INF\\classes\\ontology\\pharmacology.owl");
-		return path;
-	}*/
-	
 	public OntologyManager getOntologyManager() {
 		FacesContext fc= FacesContext.getCurrentInstance();
 		String path = fc.getExternalContext().getRealPath("WEB-INF\\classes\\ontology\\pharmacology.owl");
@@ -39,12 +31,10 @@ public class MatchingBean{
 	}
 	
 	
-	public CSVDataReader getCsvDataReader() {
-		this.csvDataReader = new CSVDataReader();
+	public CSVDataReader getCsvDataReader() throws IOException {
+		this.csvDataReader = new CSVDataReader(this.uploadBean.getCsvData(),'\t');
 		return csvDataReader;
 	}
-
-
 
 
 	public void setOntologyManager(OntologyManager ontologyManager) {
