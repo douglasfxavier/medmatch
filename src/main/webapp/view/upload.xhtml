@@ -10,36 +10,38 @@
 	<ui:composition template="/view/template/layout.xhtml">
 		<ui:define name="header-title">MedMatch</ui:define>
 		<ui:define name="content">
-			<h:form id="matching-form" class="form-group" enctype="multipart/form-data">
-				<div class="form-row">
-					<div class="col-md-4 mb-3">
-						<h:outputLabel for="urlID">URL</h:outputLabel>
-						<h:inputText class="form-control" id="urlID" value="#{uploadBean.url}"/>
+			<div class="container">
+				<h:form id="matching-form" class="form-group" enctype="multipart/form-data">
+					<div class="form-row">
+						<div class="col-md-4 mb-3">
+							<h:outputLabel for="urlID">Website URL</h:outputLabel>
+							<h:inputText class="form-control" id="urlID" value="#{uploadBean.url}"/>
+						</div>
+					</div>				
+					<div class="form-row">
+						<div class="col-md-4 mb-3">
+							<h:outputLabel for="countryID">Country</h:outputLabel>
+							<h:selectOneMenu class = "custom-select custom-select-md" id="countryID" value="#{uploadBean.selectedCountryNumericCode}">
+								<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
+								<f:selectItems value="#{countryListBean.getAllCountries()}" 
+									var="country" 
+									itemValue="#{country.numericCode}"
+									itemLabel="#{country.countryName}" />	
+							</h:selectOneMenu>
+						</div>
 					</div>
-				</div>				
-				<div class="form-row">
-					<div class="col-md-4 mb-3">
-						<h:outputLabel for="countryID">Country</h:outputLabel>
-						<h:selectOneMenu class = "custom-select custom-select-md" id="countryID" value="#{uploadBean.selectedCountryNumericCode}">
-							<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
-							<f:selectItems value="#{countryListBean.getAllCountries()}" 
-								var="country" 
-								itemValue="#{country.numericCode}"
-								itemLabel="#{country.countryName}" />	
-						</h:selectOneMenu>
+					<div class="form-row">
+						<div class="col-md-4 mb-3">
+							<h:inputFile id="dataset-file" value="#{uploadBean.uploadedfile}"></h:inputFile>
+						</div>
 					</div>
-				</div>
-				<div class="form-row">
-					<div class="col-md-4 mb-3">
-						<h:inputFile id="dataset-file" value="#{uploadBean.uploadedfile}"></h:inputFile>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="col-md-4 mb-3">
-						<h:commandButton class="btn btn-primary" id="loadButton" value="Load" action="#{uploadBean.uploadFile()}" />
-					</div>
-				</div>				
-			</h:form>
+					<div class="form-row">
+						<div class="col-md-4 mb-3">
+							<h:commandButton class="btn btn-primary" id="loadButton" value="Load" action="#{uploadBean.uploadFile()}" />
+						</div>
+					</div>				
+				</h:form>
+			</div>
 		</ui:define>
 	</ui:composition>
 

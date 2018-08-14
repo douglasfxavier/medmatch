@@ -14,7 +14,7 @@
 				<ui:repeat var="fieldName" value="#{matchingBean.csvDataReader.getMetadata()}">
 					<p>#{fieldName}</p>
 				</ui:repeat>				
-				<ui:repeat var="className" value="#{matchingBean.ontologyManager.getClassesNames()}">
+				<ui:repeat var="className" value="#{ontologyBean.ontologyManager.getOntologyClasses()}">
 					<p>#{className}</p>
 				</ui:repeat>	
 			</ui:define>

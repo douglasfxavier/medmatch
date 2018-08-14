@@ -1,7 +1,7 @@
 package controller;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntDocumentManager;
@@ -50,14 +50,11 @@ public class OntologyManager {
 		return null;
 	}
 	
-	public ArrayList<String> getClassesNames(){
-		ArrayList<String> classesNames = new ArrayList<String>();
+	public List<OntClass> getOntologyClasses(){
+
 		ExtendedIterator<OntClass> classes = this.ontologyModel.listClasses();
-		while (classes.hasNext()) {
-			classesNames.add(classes.next().getLocalName());
-		}
 		
-		return classesNames;
+		return classes.toList();
 	}
 
 	public OntModel getOntologyModel() {

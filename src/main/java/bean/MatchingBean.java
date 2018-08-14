@@ -6,9 +6,7 @@ import java.util.HashMap;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import controller.CSVDataReader;
-import controller.OntologyManager;
 import model.Country;
 
 @ManagedBean ( name = "matchingBean")
@@ -18,27 +16,25 @@ public class MatchingBean{
 	private UploadBean uploadBean;
 	@ManagedProperty (value = "#{countryListBean}")
 	private CountryListBean countryListBean;
-	private HashMap<String,String> mathings;
-	private OntologyManager ontologyManager;
+	@ManagedProperty (value = "#{ontologyBean}")
+	private OntologyBean ontologyBean;
+	private HashMap<String,String> mathings; 
 	private CSVDataReader csvDataReader;
 	
 
-	public OntologyManager getOntologyManager() {
-		FacesContext fc= FacesContext.getCurrentInstance();
-		String path = fc.getExternalContext().getRealPath("WEB-INF\\classes\\ontology\\pharmacology.owl");
-		this.ontologyManager = new OntologyManager(path);
-		return this.ontologyManager;
+	public OntologyBean getOntologyBean() {
+		return ontologyBean;
 	}
-	
-	
+
+	public void setOntologyBean(OntologyBean ontologyBean) {
+		this.ontologyBean = ontologyBean;
+	}
+
+
+
 	public CSVDataReader getCsvDataReader() throws IOException {
 		this.csvDataReader = new CSVDataReader(this.uploadBean.getCsvData(),'\t');
 		return csvDataReader;
-	}
-
-
-	public void setOntologyManager(OntologyManager ontologyManager) {
-		this.ontologyManager = ontologyManager;
 	}
 
 
