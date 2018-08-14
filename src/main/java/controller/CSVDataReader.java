@@ -22,6 +22,7 @@ public class CSVDataReader {
 	protected IDGenerator idCompoundGenerator = new IDGenerator();
 	protected IDGenerator idCategoryGenerator = new IDGenerator();
 	
+
 	public boolean loadData(String path) throws FileNotFoundException {
 	    CSVReader reader = new CSVReader(new FileReader(path),'\t','\"',1);
 

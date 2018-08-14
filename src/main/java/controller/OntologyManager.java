@@ -1,4 +1,5 @@
 package controller;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -11,6 +12,7 @@ import org.apache.jena.util.iterator.ExtendedIterator;
 
 
 public class OntologyManager {
+	private final String test = "This is a test";
 	private final OntModel ontologyModel;
 	private final String ontologyURI;
 	private final String ontologyNamespace;
@@ -19,12 +21,12 @@ public class OntologyManager {
 	
 	
 
-	public OntologyManager() {
+	public OntologyManager(String ontologyFile) {
 		super();
+		this.ontologyFile = "file:" + ontologyFile;
 		this.ontologyModel = ModelFactory.createOntologyModel();
 		this.ontologyURI = "http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology";
 		this.ontologyNamespace = ontologyURI + "/";
-		this.ontologyFile ="file:/resources/ontology/pharmacology.owl";
 		this.documentManager = ontologyModel.getDocumentManager();
 		this.documentManager.addAltEntry(this.ontologyURI, this.ontologyFile);
 		this.ontologyModel.read(ontologyURI);
@@ -48,9 +50,9 @@ public class OntologyManager {
 		return null;
 	}
 	
-	public ArrayList<String> getClassesNames(OntModel ontModel){
+	public ArrayList<String> getClassesNames(){
 		ArrayList<String> classesNames = new ArrayList<String>();
-		ExtendedIterator<OntClass> classes = ontModel.listClasses();
+		ExtendedIterator<OntClass> classes = this.ontologyModel.listClasses();
 		while (classes.hasNext()) {
 			classesNames.add(classes.next().getLocalName());
 		}
@@ -77,5 +79,11 @@ public class OntologyManager {
 	public OntDocumentManager getDocumentManager() {
 		return documentManager;
 	}
+
+	public String getTest() {
+		return test;
+	}
+	
+	
 		
 }

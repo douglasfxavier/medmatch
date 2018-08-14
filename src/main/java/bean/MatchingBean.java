@@ -1,16 +1,15 @@
 package bean;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
-import org.apache.jena.ontology.OntModel;
+import com.opencsv.CSVReader;
 
-import controller.ObjectsToRDFConverter;
+import controller.CSVDataReader;
 import controller.OntologyManager;
 import model.Country;
 
@@ -22,7 +21,36 @@ public class MatchingBean{
 	@ManagedProperty (value = "#{countryListBean}")
 	private CountryListBean countryListBean;
 	private HashMap<String,String> mathings;
+	private OntologyManager ontologyManager;
+	private CSVDataReader csvDataReader;
 	
+
+/*	public String getPath() {
+		FacesContext fc= FacesContext.getCurrentInstance();
+		String path = fc.getExternalContext().getRealPath("WEB-INF\\classes\\ontology\\pharmacology.owl");
+		return path;
+	}*/
+	
+	public OntologyManager getOntologyManager() {
+		FacesContext fc= FacesContext.getCurrentInstance();
+		String path = fc.getExternalContext().getRealPath("WEB-INF\\classes\\ontology\\pharmacology.owl");
+		this.ontologyManager = new OntologyManager(path);
+		return this.ontologyManager;
+	}
+	
+	
+	public CSVDataReader getCsvDataReader() {
+		this.csvDataReader = new CSVDataReader();
+		return csvDataReader;
+	}
+
+
+
+
+	public void setOntologyManager(OntologyManager ontologyManager) {
+		this.ontologyManager = ontologyManager;
+	}
+
 
 	public Country getSelectedCountry() {
 		int numericCode = Integer.parseInt(uploadBean.getSelectedCountryNumericCode());
@@ -79,7 +107,7 @@ public class MatchingBean{
     }*/
 	
 	
-	public ArrayList<String> loadMetadata() {
+/*	public ArrayList<String> loadMetadata() {
 		OntologyManager ontologyManager = new OntologyManager();
 		OntModel ontologyModel = ontologyManager.getOntologyModel();
 		
@@ -87,6 +115,6 @@ public class MatchingBean{
 		//ObjectsToRDFConverter objectsToRDFConverter = new ObjectsToRDFConverter(uploadBean.getUrl());
 		return ontologyManager.getClassesNames(ontologyModel);
 
-	}
+	}*/
 }
 

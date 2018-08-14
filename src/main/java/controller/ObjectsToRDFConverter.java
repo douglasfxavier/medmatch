@@ -9,6 +9,7 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 
+import controller.OntologyManager;
 import model.Compound;
 import model.Drug;
 import model.Manufacturer;

@@ -11,10 +11,9 @@
 			<ui:define name="content">
 				<p>#{matchingBean.uploadBean.url}</p>
 				<p>#{matchingBean.getSelectedCountry().countryName}</p>
-				<ui:repeat var="className" value="#{matchingBean.loadMetadata()}">
+				<ui:repeat var="className" value="#{matchingBean.ontologyManager.getClassesNames()}">
 					<p>#{className}</p>
-				</ui:repeat>
-	
+				</ui:repeat>	
 			</ui:define>
 	</ui:composition>
 </html>
