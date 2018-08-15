@@ -9,15 +9,88 @@
 	<ui:composition template="/view/template/layout.xhtml">
 			<ui:define name="header-title">MedMatch</ui:define>
 			<ui:define name="content">
-				<p>#{matchingBean.uploadBean.url}</p>
-				<p>#{matchingBean.getSelectedCountry().countryName}</p>
-				<ui:repeat var="fieldName" value="#{matchingBean.csvDataReader.getMetadata()}">
-					<p>#{fieldName}</p>
-				</ui:repeat>				
-				<ui:repeat var="className" value="#{ontologyBean.ontologyManager.getOntologyClasses()}">
-					<p>#{className}</p>
-				</ui:repeat>	
+				<div class="container">
+					<h3>COUNTRY: <strong>#{matchingBean.getSelectedCountry().countryName}</strong></h3>
+					<h3>WEBSITE: <strong>#{matchingBean.uploadBean.url}</strong></h3>					
+					<ui:param name="csvFields" value="#{matchingBean.csvDataReader.getMetadata()}" />
+					<h:form id="matching-form" class="form-group">
+						<div class="col-md-5 mb-3">	
+							<div class="row mb-3 input-group-prepend">
+								<h:outputLabel class="input-group-text col-md-5" for="Category">Category</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="Category">
+									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
+									<f:selectItems value="#{csvFields}" 
+										var="field" 
+										itemValue="#{field}"
+										itemLabel="#{field}" />	
+								</h:selectOneMenu>
+							</div>
+							<div class="row mb-3 input-group-prepend">	
+								<h:outputLabel class="input-group-text col-md-5" for="CompoundName">Compound name</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="CompoundName">
+									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
+									<f:selectItems value="#{csvFields}" 
+										var="field" 
+										itemValue="#{field}"
+										itemLabel="#{field}" />	
+								</h:selectOneMenu>
+							</div>
+							<div class="row mb-3 input-group-prepend">		
+								<h:outputLabel class="input-group-text col-md-5" for="DrugCode">Drug code</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="DrugCode">
+									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
+									<f:selectItems value="#{csvFields}" 
+										var="field" 
+										itemValue="#{field}"
+										itemLabel="#{field}" />	
+								</h:selectOneMenu>
+							</div>
+							<div class="row mb-3 input-group-prepend">
+								<h:outputLabel class="input-group-text col-md-5" for="DrugName">Drug name</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="DrugName">
+									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
+									<f:selectItems value="#{csvFields}" 
+										var="field" 
+										itemValue="#{field}"
+										itemLabel="#{field}" />	
+								</h:selectOneMenu>
+							</div>	
+							<div class="row mb-3 input-group-prepend">
+	    						<h:outputLabel class="input-group-text col-md-5" for="ManufacturerID">Manufacturer ID</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="ManufacturerID">
+									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
+									<f:selectItems value="#{csvFields}" 
+										var="field" 
+										itemValue="#{field}"
+										itemLabel="#{field}" />	
+								</h:selectOneMenu>
+							</div>	
+							<div class="row mb-3 input-group-prepend">
+	    						<h:outputLabel class="input-group-text col-md-5" for="ManufacturerName">Manufacturer name</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="ManufacturerName">
+									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
+									<f:selectItems value="#{csvFields}" 
+										var="field" 
+										itemValue="#{field}"
+										itemLabel="#{field}" />	
+								</h:selectOneMenu>
+							</div>	
+							<div class="row mb-3 input-group-prepend">
+	    						<h:outputLabel class="input-group-text col-md-5" for="Strength">Strength</h:outputLabel>
+	  							<h:selectOneMenu class="custom-select col-md-7" id="Strength">
+									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
+									<f:selectItems value="#{csvFields}" 
+										var="field" 
+										itemValue="#{field}"
+										itemLabel="#{field}" />	
+								</h:selectOneMenu>
+							</div>																																	
+							<div class="text-right">
+								<h:commandButton class="btn btn-primary" id="convertButton" value="Convert" action="#{matchingBean.convert()}" />
+							</div>
+						</div>
+					</h:form>					
+				</div>				
 			</ui:define>
 	</ui:composition>
 </html>
-
