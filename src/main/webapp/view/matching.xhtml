@@ -12,12 +12,12 @@
 				<div class="container">
 					<h3>COUNTRY: <strong>#{matchingBean.getSelectedCountry().countryName}</strong></h3>
 					<h3>WEBSITE: <strong>#{matchingBean.uploadBean.url}</strong></h3>					
-					<ui:param name="csvFields" value="#{matchingBean.csvDataReader.getMetadata()}" />
+					<ui:param name="csvFields" value="#{matchingBean.csvDataReaderBean.csvDataReader.getMetadata()}" />
 					<h:form id="matching-form" class="form-group">
 						<div class="col-md-5 mb-3">	
 							<div class="row mb-3 input-group-prepend">
-								<h:outputLabel class="input-group-text col-md-5" for="Category">Category</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="Category">
+								<h:outputLabel class="input-group-text col-md-5" for="CategorySelect">Category</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="CategorySelect">
 									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
 									<f:selectItems value="#{csvFields}" 
 										var="field" 
@@ -26,8 +26,8 @@
 								</h:selectOneMenu>
 							</div>
 							<div class="row mb-3 input-group-prepend">	
-								<h:outputLabel class="input-group-text col-md-5" for="CompoundName">Compound name</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="CompoundName">
+								<h:outputLabel class="input-group-text col-md-5" for="CompoundNameSelect">Compound name</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="CompoundNameSelect">
 									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
 									<f:selectItems value="#{csvFields}" 
 										var="field" 
@@ -36,8 +36,8 @@
 								</h:selectOneMenu>
 							</div>
 							<div class="row mb-3 input-group-prepend">		
-								<h:outputLabel class="input-group-text col-md-5" for="DrugCode">Drug code</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="DrugCode">
+								<h:outputLabel class="input-group-text col-md-5" for="DrugCodeSelect">Drug code</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="DrugCodeSelect">
 									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
 									<f:selectItems value="#{csvFields}" 
 										var="field" 
@@ -46,8 +46,8 @@
 								</h:selectOneMenu>
 							</div>
 							<div class="row mb-3 input-group-prepend">
-								<h:outputLabel class="input-group-text col-md-5" for="DrugName">Drug name</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="DrugName">
+								<h:outputLabel class="input-group-text col-md-5" for="DrugNameSelect">Drug name</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="DrugNameSelect">
 									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
 									<f:selectItems value="#{csvFields}" 
 										var="field" 
@@ -56,8 +56,8 @@
 								</h:selectOneMenu>
 							</div>	
 							<div class="row mb-3 input-group-prepend">
-	    						<h:outputLabel class="input-group-text col-md-5" for="ManufacturerID">Manufacturer ID</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="ManufacturerID">
+	    						<h:outputLabel class="input-group-text col-md-5" for="ManufacturerIDSelect">Manufacturer ID</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="ManufacturerIDSelect">
 									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
 									<f:selectItems value="#{csvFields}" 
 										var="field" 
@@ -66,8 +66,8 @@
 								</h:selectOneMenu>
 							</div>	
 							<div class="row mb-3 input-group-prepend">
-	    						<h:outputLabel class="input-group-text col-md-5" for="ManufacturerName">Manufacturer name</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="ManufacturerName">
+	    						<h:outputLabel class="input-group-text col-md-5" for="ManufacturerNameSelect">Manufacturer name</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="ManufacturerNameSelect">
 									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
 									<f:selectItems value="#{csvFields}" 
 										var="field" 
@@ -76,8 +76,8 @@
 								</h:selectOneMenu>
 							</div>	
 							<div class="row mb-3 input-group-prepend">
-	    						<h:outputLabel class="input-group-text col-md-5" for="Strength">Strength</h:outputLabel>
-	  							<h:selectOneMenu class="custom-select col-md-7" id="Strength">
+	    						<h:outputLabel class="input-group-text col-md-5" for="StrengthSelect">Strength</h:outputLabel>
+	  							<h:selectOneMenu class="custom-select col-md-7" id="StrengthSelect">
 									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
 									<f:selectItems value="#{csvFields}" 
 										var="field" 

@@ -52,7 +52,7 @@ public class UploadBean {
 	     if (this.uploadedfile != null) {
 	            try {
 	                InputStream inputStream = this.uploadedfile.getInputStream();
-	                this.csvData = new Scanner(inputStream).useDelimiter("\\A").next();
+	                this.csvData = new Scanner(inputStream,"utf-8").useDelimiter("\\A").next();
 	            } catch (IOException ex) {
 	            }
 	        }

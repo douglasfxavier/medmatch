@@ -1,8 +1,5 @@
 package bean;
 
-import java.io.IOException;
-import java.util.HashMap;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -18,10 +15,10 @@ public class MatchingBean{
 	private CountryListBean countryListBean;
 	@ManagedProperty (value = "#{ontologyBean}")
 	private OntologyBean ontologyBean;
-	private HashMap<String,String> mathings; 
-	private CSVDataReader csvDataReader;
+	@ManagedProperty (value ="#{csvDataReaderBean}")
+	private CSVDataReaderBean csvDataReaderBean;
 	
-
+	
 	public OntologyBean getOntologyBean() {
 		return ontologyBean;
 	}
@@ -29,30 +26,23 @@ public class MatchingBean{
 	public void setOntologyBean(OntologyBean ontologyBean) {
 		this.ontologyBean = ontologyBean;
 	}
-
-
-
-	public CSVDataReader getCsvDataReader() throws IOException {
-		this.csvDataReader = new CSVDataReader(this.uploadBean.getCsvData(),'\t');
-		return csvDataReader;
+	
+	public void setCsvDataReaderBean(CSVDataReaderBean csvDataReaderBean) {
+		this.csvDataReaderBean = csvDataReaderBean;
 	}
 
+	public CSVDataReaderBean getCsvDataReaderBean() {
+		CSVDataReader csvDataReader = new CSVDataReader(this.uploadBean.getCsvData(),'\t');
+		this.csvDataReaderBean = new CSVDataReaderBean();
+		this.csvDataReaderBean.setCsvDataReader(csvDataReader);
+		return csvDataReaderBean;
+	}
 
 	public Country getSelectedCountry() {
 		int numericCode = Integer.parseInt(uploadBean.getSelectedCountryNumericCode());
 		Country selectedCountry = countryListBean.getCountry(numericCode);
 		return selectedCountry;
 	}
-
-
-	public HashMap<String, String> getMathings() {
-		return mathings;
-	}
-
-	public void setMathings(HashMap<String, String> mathings) {
-		this.mathings = mathings;
-	}
-	
 
 	public CountryListBean getCountryListBean() {
 		return countryListBean;
@@ -72,35 +62,6 @@ public class MatchingBean{
 	public void setUploadBean(UploadBean uploadBean) {
 		this.uploadBean = uploadBean;
 	}
-
-
-	public String convert() {
-		return "Converted";
-	}
 	
-	
-/*	public String getDatasetFile() {
-		String content = null;
-		
-        if (uploadedfile != null) {
-            try {
-                InputStream inputStream = uploadedfile.getInputStream();
-                content = new Scanner(inputStream).nextLine();
-            } catch (IOException ex) {
-            }
-        }
-        return content;
-    }*/
-	
-	
-/*	public ArrayList<String> loadMetadata() {
-		OntologyManager ontologyManager = new OntologyManager();
-		OntModel ontologyModel = ontologyManager.getOntologyModel();
-		
-		
-		//ObjectsToRDFConverter objectsToRDFConverter = new ObjectsToRDFConverter(uploadBean.getUrl());
-		return ontologyManager.getClassesNames(ontologyModel);
-
-	}*/
 }
 

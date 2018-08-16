@@ -1,15 +1,13 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.util.iterator.ExtendedIterator;
-
 
 public class OntologyManager {
 	private final String test = "This is a test";
@@ -50,15 +48,8 @@ public class OntologyManager {
 		return null;
 	}
 	
-	public List<OntClass> getOntologyClasses(){
-
-		ExtendedIterator<OntClass> classes = this.ontologyModel.listClasses();
-		
-		return classes.toList();
-	}
-
 	public OntModel getOntologyModel() {
-		return ontologyModel;
+		return ontologyModel; 
 	}
 
 	public String getOntologyURI() {
