@@ -18,11 +18,11 @@ import model.Category;
 public class ObjectsToRDFConverter {
 	private final Model rdfModel;
 	private final OntModel ontologyModel;
-	private final String url;
+	private final String datasetURL;
+
 	
-	public ObjectsToRDFConverter(String url) {
-		this.url = url;
-		OntologyManager ontologyManager = new OntologyManager();
+	public ObjectsToRDFConverter(String datasetURL, OntologyManager ontologyManager) {
+		this.datasetURL = datasetURL;
 		this.ontologyModel = ontologyManager.getOntologyModel();
 		this.rdfModel = ModelFactory.createDefaultModel();
 		this.rdfModel.setNsPrefix("pharm", ontologyManager.getOntologyNamespace());
@@ -33,18 +33,15 @@ public class ObjectsToRDFConverter {
 	
 	
 	
-	public Model convertDataToRDF(String path) throws FileNotFoundException {
-        
-        CSVDataReader csvDataReader = new CSVDataReader();
-        csvDataReader.loadData(path);
+	public Model convertDataToRDF(CSVDataReader csvDataReader) throws FileNotFoundException {
         OntClass drugClass = OntologyManager.findClass("Drug", this.ontologyModel);
         OntClass manufacturerClass = OntologyManager.findClass("Manufacturer",this.ontologyModel);
         OntClass compoundClass = OntologyManager.findClass("Compound", this.ontologyModel);
         OntClass categoryClass = OntologyManager.findClass("Category", this.ontologyModel);
-        String drugURL = this.url + "drug/";
-        String compoundURL = this.url + "compound/";
-        String manufactureURL = this.url + "manufacturer/";
-        String categoryURL = this.url + "category/";
+        String drugURL = this.datasetURL + "drug/";
+        String compoundURL = this.datasetURL + "compound/";
+        String manufactureURL = this.datasetURL + "manufacturer/";
+        String categoryURL = this.datasetURL + "category/";
         
         //Converting objects from Manufacturer class to resources
         for(Manufacturer m: csvDataReader.manufacturerList) {

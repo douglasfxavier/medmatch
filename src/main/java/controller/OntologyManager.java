@@ -1,8 +1,6 @@
 package controller;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModel;
@@ -10,7 +8,6 @@ import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.rdf.model.ModelFactory;
 
 public class OntologyManager {
-	private final String test = "This is a test";
 	private final OntModel ontologyModel;
 	private final String ontologyURI;
 	private final String ontologyNamespace;
@@ -67,11 +64,5 @@ public class OntologyManager {
 	public OntDocumentManager getDocumentManager() {
 		return documentManager;
 	}
-
-	public String getTest() {
-		return test;
-	}
-	
-	
 		
 }

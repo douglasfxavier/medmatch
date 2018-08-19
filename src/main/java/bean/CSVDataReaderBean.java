@@ -18,4 +18,6 @@ public class CSVDataReaderBean {
 	public void setCsvDataReader(CSVDataReader csvDataReader){
 		this.csvDataReader = csvDataReader;
 	}
+	
+	
 }

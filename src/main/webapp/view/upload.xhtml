@@ -11,17 +11,18 @@
 		<ui:define name="header-title">MedMatch</ui:define>
 		<ui:define name="content">
 			<div class="container">
+				<p>#{msgs}</p>		
 				<h:form id="upload-form" class="form-group" enctype="multipart/form-data">
 					<div class="form-row">
 						<div class="col-md-4 mb-3">
-							<h:outputLabel for="urlID">Website URL</h:outputLabel>
-							<h:inputText class="form-control" id="urlID" value="#{uploadBean.url}"/>
+							<h:outputLabel for="urlID">Dataset URL</h:outputLabel>
+							<h:inputText class="form-control" id="urlID" required="true" value="#{uploadBean.datasetURL}"/>
 						</div>
 					</div>				
 					<div class="form-row">
 						<div class="col-md-4 mb-3">
 							<h:outputLabel for="countryID">Country</h:outputLabel>
-							<h:selectOneMenu class = "custom-select custom-select-md" id="countryID" value="#{uploadBean.selectedCountryNumericCode}">
+							<h:selectOneMenu class = "custom-select custom-select-md" id="countryID" required="true" value="#{uploadBean.selectedCountryNumericCode}">
 								<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
 								<f:selectItems value="#{countryListBean.getAllCountries()}" 
 									var="country" 
@@ -36,7 +37,7 @@
 						</div>
 					</div>
 					<div class="form-row">
-						<div class="col-md-4 mb-3">
+						<div class="col-md-4 mb-3 text-right">
 							<h:commandButton class="btn btn-primary" id="loadButton" value="Load" action="#{uploadBean.uploadFile()}" />
 						</div>
 					</div>				

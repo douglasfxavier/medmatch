@@ -8,9 +8,9 @@
 
 	<ui:composition template="/view/template/layout.xhtml">
 		<ui:define name="header-title">MedMatch</ui:define>
-		<ui:define name="content">
+		<ui:define name="content">			
 			<div class="container">
-				<p>CONVERSION</p>			
+				#{conversionBean.rdfString}
 			</div>
 		</ui:define>
 	</ui:composition>

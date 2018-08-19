@@ -63,5 +63,17 @@ public class MatchingBean{
 		this.uploadBean = uploadBean;
 	}
 	
+	public String getTermLabel(String ontTerm) {
+		return ontTerm.replace("_", " ");
+	}
+	
+	public String getIndex(String ontTerm) {
+		int index;
+		index = ontologyBean.getOntologyTerms().indexOf(ontTerm);
+		String indexString = String.valueOf(index);
+		
+		return indexString;
+	}
+	
 }
 

@@ -23,16 +23,14 @@ public class WikiDataCountry {
             String querySelect = "SELECT DISTINCT ?countryLabel \n" +
                     "                    		         (?country AS ?uri)\n" +
                     "                                    (?ISO_3166_1_numeric_code AS ?numericCode)\n" +
-                    "                                    (?ISO_3166_1_alpha_3_code As ?alphaCode)\n" +
+                    "                                    (?ISO_3166_1_alpha_3_code AS ?alphaCode)\n" +
                     "                            WHERE {\n" +
-                    "                              ?country wdt:P31 wd:Q3624078.\n" +
-                    "                              OPTIONAL {  }\n" +
+                    "                              ?country wdt:P31 wd:Q3624078.\n " +
+                    "							   ?country wdt:P299 ?ISO_3166_1_numeric_code." +
+                    "							   ?country wdt:P298 ?ISO_3166_1_alpha_3_code."	+		
                     "                              SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\" . }\n" +
                     "                              FILTER(NOT EXISTS { ?country wdt:P31 wd:Q3024240. })\n" +
                     "                              FILTER(NOT EXISTS { ?country wdt:P31 wd:Q28171280. })\n" +
-                    "                              OPTIONAL {  }\n" +
-                    "                              OPTIONAL { ?country wdt:P299 ?ISO_3166_1_numeric_code. }\n" +
-                    "                              OPTIONAL { ?country wdt:P298 ?ISO_3166_1_alpha_3_code. }\n" +
                     "                            }\n" +
                     "                            ORDER BY ?countryLabel";
 
@@ -48,12 +46,14 @@ public class WikiDataCountry {
             	while(result.hasNext()) {
             		QuerySolution row = result.next();
             		String uri = row.get("uri").toString();
-            		int numericCode = Integer.parseInt(row.get("numericCode").toString());
+            		String numericCode = row.get("numericCode").toString();
             		String countryName = row.get("countryLabel").toString().split("@")[0];
             		String alphaCode = row.get("alphaCode").toString();
             		
-            		Country newCountry = new Country(uri,numericCode,countryName,alphaCode);
-            		this.allCountries.add(newCountry);
+            		if (uri != null && numericCode != null && countryName != null) {
+	            		Country newCountry = new Country(uri,Integer.parseInt(numericCode),countryName,alphaCode);
+	            		this.allCountries.add(newCountry);
+            		}
             	}
              
         }catch(Exception eex) {
