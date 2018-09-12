@@ -12,7 +12,7 @@
 				<div class="container">
 					<h3>COUNTRY: <strong>#{matchingBean.getSelectedCountry().countryName}</strong></h3>
 					<h3>WEBSITE: <strong>#{matchingBean.uploadBean.datasetURL}</strong></h3>					
-					<ui:param name="csvFields" value="#{matchingBean.csvDataReaderBean.csvDataReader.getMetadata()}" />
+					<ui:param name="csvFields" value="#{csvDataReaderBean.loadCSVDataReader().getMetadata()}" />
 					<h:form id="matching-form" class="form-group">
 						<div class="col-md-5 mb-3">	
 							<div class="row mb-3 input-group-prepend">

@@ -6,12 +6,16 @@ import java.util.ArrayList;
 import org.apache.jena.rdf.model.Model;
 
 import model.Country;
+import util.CSVDelimiter;
+import util.CountryList;
 import util.WikiDataCountry;
 
 public class App 
 {
     public static void main( String[] args ) throws FileNotFoundException
     {
+    	//System.out.println("TAB: " + CSVDelimiter.valueOf("TAB").getDelimiter());
+    	
     	
  /*   	CountriesListBean countriesListBean = new CountriesListBean();
     	ArrayList<Country> lista = new ArrayList<Country>();

@@ -30,9 +30,8 @@ public class CSVDataReader {
 	protected CSVParser parser;
 	protected CSVReader reader;
 	
-	
-	public CSVDataReader(String csvData, char delimiter) {
-		super();
+
+	public CSVDataReader (String csvData, char delimiter) {
 		this.csvData = csvData;
 		this.delimiter = delimiter;
 		this.parser = new CSVParserBuilder()
@@ -73,9 +72,9 @@ public class CSVDataReader {
 							int strengthIndex) throws FileNotFoundException {
 	    try {
 
-	        String[] line;
+	    	String[] line;
 	        
-	        while ((line = reader.readNext()) != null) {
+	        while ((line = this.reader.readNext()) != null) {
 	        	Country country = currentCountry; 
 	        	String categoryName = line[categoryIndex];
 	        	String compoundName = line[compoundNameIndex];
@@ -130,13 +129,13 @@ public class CSVDataReader {
 	        	}      
 	        	
 	        	
-	        	//Creatig istance of drug	        	
+	        	//Creating instance of drug	        	
 	        	Drug drug = new Drug(drugCode,drugName,null,strength,manufacturer,country,compound,category);
 	           	this.drugsList.add(drug);
        	
 	        }
 	        
-	        reader.close();
+	        this.reader.close();
 	        return true;
 	    } catch (IOException e) {
 	        e.printStackTrace();

@@ -33,7 +33,19 @@
 					</div>
 					<div class="form-row">
 						<div class="col-md-4 mb-3">
+							<h:outputLabel for="dataset-file">Dataset upload</h:outputLabel>
 							<h:inputFile id="dataset-file" value="#{uploadBean.uploadedfile}"></h:inputFile>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-4 mb-3">
+							<h:outputLabel for="delimiter">Columns delimiter</h:outputLabel>
+							<h:selectOneRadio id="delimiter" value="#{uploadBean.selectedDelimiter}">
+								<f:selectItems value="#{uploadBean.getCsvDelimiters()}"
+									var="delimiterItem"
+									itemValue="#{delimiterItem.toString()}"
+									itemLabel="#{delimiterItem.toString().toLowerCase()}"/>
+							</h:selectOneRadio>
 						</div>
 					</div>
 					<div class="form-row">

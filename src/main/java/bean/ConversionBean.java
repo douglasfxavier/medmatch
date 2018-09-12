@@ -1,16 +1,13 @@
 package bean;
 
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import org.apache.jena.rdf.model.Model;
 
-import controller.CSVDataReader;
 import controller.ObjectsToRDFConverter;
 import controller.OntologyManager;
 import controller.RDFManager;
@@ -21,10 +18,10 @@ import model.Country;
 public class ConversionBean {
 	@ManagedProperty (value = "#{matchingBean}")
 	private MatchingBean matchingBean;
-	@ManagedProperty (value = "#{csvDataReaderBean}")
-	private CSVDataReaderBean csvDataReaderBean;
 	@ManagedProperty (value = "#{ontologyBean}")
 	private OntologyBean ontologyBean;
+	@ManagedProperty (value = "#{csvDataReaderBean}")
+	private CSVDataReaderBean csvDataReaderBean;
 	private Model rdfModel;
 	private String rdfString;
 	//Fields send by post from the view matching.xhtml
@@ -36,14 +33,6 @@ public class ConversionBean {
 	private String manufacturerNameIndex;
 	private String strengthIndex;
 	
-
-	public CSVDataReaderBean getCsvDataReaderBean() {
-		return csvDataReaderBean;
-	}
-
-	public void setCsvDataReaderBean(CSVDataReaderBean csvDataReaderBean) {
-		this.csvDataReaderBean = csvDataReaderBean;
-	}
 
 	public String getCategoryIndex() {
 		return categoryIndex;
@@ -134,31 +123,44 @@ public class ConversionBean {
 		this.ontologyBean = ontologyBean;
 	}
 
-	public String convert() throws NumberFormatException, FileNotFoundException {
-		Country country = matchingBean.getSelectedCountry();
-		String datasetURL = matchingBean.getUploadBean().getDatasetURL();
-		CSVDataReader csvDataReader = matchingBean.getCsvDataReaderBean().getCsvDataReader();
-		OntologyManager ontologyManager = matchingBean.getOntologyBean().getOntologyManager();
-		RDFManager manager = new RDFManager();
-				
-		csvDataReader.loadData(country, 
-				   Integer.parseInt(drugCodeIndex), 
-				   Integer.parseInt(drugNameIndex), 
-				   Integer.parseInt(compoundNameIndex),
-				   Integer.parseInt(categoryIndex), 
-				   Integer.parseInt(manufacturerIDIndex), 
-				   Integer.parseInt(manufacturerNameIndex), 
-				   Integer.parseInt(strengthIndex));
+	public CSVDataReaderBean getCsvDataReaderBean() {
+		return this.csvDataReaderBean;
+	}
 
-		ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter(datasetURL, ontologyManager);
-		
-		this.rdfModel = rdfConverter.convertDataToRDF(csvDataReader);
-		this.rdfString = rdfModel.toString();
-		
-		manager.systemOutput(rdfModel, "TURTLE");
-		
-		
-		return "conversion?faces-redirect=true";
+	public void setCsvDataReaderBean(CSVDataReaderBean csvDataReaderBean) {
+		this.csvDataReaderBean = csvDataReaderBean;
+	}
+
+	public String convert() throws NumberFormatException, FileNotFoundException, ArrayIndexOutOfBoundsException {
+		try {
+			Country country = this.matchingBean.getSelectedCountry();
+			String datasetURL = this.matchingBean.getUploadBean().getDatasetURL();
+			OntologyManager ontologyManager = this.matchingBean.getOntologyBean().getOntologyManager();
+			RDFManager manager = new RDFManager();
+	
+			this.csvDataReaderBean.getCsvDataReader().loadData(country, 
+					   Integer.parseInt(drugCodeIndex), 
+					   Integer.parseInt(drugNameIndex), 
+					   Integer.parseInt(compoundNameIndex),
+					   Integer.parseInt(categoryIndex), 
+					   Integer.parseInt(manufacturerIDIndex), 
+					   Integer.parseInt(manufacturerNameIndex), 
+					   Integer.parseInt(strengthIndex));
+	
+			ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter(datasetURL, ontologyManager);
+			
+			this.rdfModel = rdfConverter.convertDataToRDF(this.csvDataReaderBean.getCsvDataReader());
+			
+			//manager.systemOutput(rdfModel, "TURTLE");
+			FacesContext fc= FacesContext.getCurrentInstance();
+			String path = fc.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.rdf",country.getCountryName().replace('\n', '_')));
+			manager.saveFile(rdfModel, path, "turtle");
+				
+			return "conversion?faces-redirect=true";
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
 	}
 
 }

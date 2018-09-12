@@ -1,6 +1,5 @@
 package bean;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
@@ -9,8 +8,9 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.view.facelets.FaceletContext;
 import javax.servlet.http.Part;
+
+import util.CSVDelimiter;
 
 
 @ManagedBean (name = "uploadBean")
@@ -18,8 +18,24 @@ import javax.servlet.http.Part;
 public class UploadBean {
 	private Part uploadedfile;
 	private String csvData;
+	private String selectedDelimiter;
 	private String datasetURL;
 	private String selectedCountryNumericCode;
+	
+	
+	public CSVDelimiter[] getCsvDelimiters() {
+		return CSVDelimiter.values();
+	}
+	
+	public String getSelectedDelimiter() {
+		return selectedDelimiter;
+	}
+
+	public void setSelectedDelimiter(String selectedDelimiter) {
+		this.selectedDelimiter = selectedDelimiter;
+	}
+
+
 
 	public Part getUploadedfile() { 	
 		return uploadedfile;
@@ -29,7 +45,6 @@ public class UploadBean {
 	public String getCsvData() {
 		return csvData;
 	}
-
 
 	public String getDatasetURL() {
 		return datasetURL;
@@ -57,6 +72,7 @@ public class UploadBean {
 	     if (this.uploadedfile != null) {
 	            try {
 	                InputStream inputStream = this.uploadedfile.getInputStream();
+	                //Verificar codificação. UTF-8 mesmo?
 	                this.csvData = new Scanner(inputStream,"utf-8").useDelimiter("\\A").next();
 	            } catch (IOException ex) {
 	            	String msgtext = "No file was selected.";
