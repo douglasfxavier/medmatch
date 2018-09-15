@@ -1,12 +1,21 @@
 package bean;
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
+import org.apache.commons.logging.Log;
+import org.apache.jena.fuseki.embedded.FusekiServer;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 
 import controller.ObjectsToRDFConverter;
 import controller.OntologyManager;
@@ -32,7 +41,6 @@ public class ConversionBean {
 	private String manufacturerIDIndex;
 	private String manufacturerNameIndex;
 	private String strengthIndex;
-	
 
 	public String getCategoryIndex() {
 		return categoryIndex;
@@ -136,29 +144,60 @@ public class ConversionBean {
 			Country country = this.matchingBean.getSelectedCountry();
 			String datasetURL = this.matchingBean.getUploadBean().getDatasetURL();
 			OntologyManager ontologyManager = this.matchingBean.getOntologyBean().getOntologyManager();
-			RDFManager manager = new RDFManager();
-	
+			//RDFManager manager = new RDFManager();
+
 			this.csvDataReaderBean.getCsvDataReader().loadData(country, 
-					   Integer.parseInt(drugCodeIndex), 
-					   Integer.parseInt(drugNameIndex), 
-					   Integer.parseInt(compoundNameIndex),
-					   Integer.parseInt(categoryIndex), 
-					   Integer.parseInt(manufacturerIDIndex), 
-					   Integer.parseInt(manufacturerNameIndex), 
-					   Integer.parseInt(strengthIndex));
+					   drugCodeIndex, 
+					   drugNameIndex, 
+					   compoundNameIndex,
+					   categoryIndex, 
+					   manufacturerIDIndex, 
+					   manufacturerNameIndex, 
+					   strengthIndex);
 	
 			ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter(datasetURL, ontologyManager);
 			
 			this.rdfModel = rdfConverter.convertDataToRDF(this.csvDataReaderBean.getCsvDataReader());
 			
-			//manager.systemOutput(rdfModel, "TURTLE");
 			FacesContext fc= FacesContext.getCurrentInstance();
-			String path = fc.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.rdf",country.getCountryName().replace('\n', '_')));
-			manager.saveFile(rdfModel, path, "turtle");
-				
+			
+			//Save as Turtle file
+			String path = fc.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.ttl",country.getCountryName().replace('\n', '_')));
+			FileWriter out1 = new FileWriter(path);
+			rdfModel.write(out1,"turtle");
+			out1.close();
+			
+			//manager.saveFile(rdfModel, path, "turtle");	
+			
+			//Save as JSON file
+			path = fc.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.json",country.getCountryName().replace('\n', '_')));	
+			FileWriter out2 = new FileWriter(path);
+			rdfModel.write(out2,"JSON-LD");
+			out2.close();
+			
+			//Save as RDF/XML file
+			//Save as JSON file
+			path = fc.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.rdf",country.getCountryName().replace('\n', '_')));
+			FileWriter out4 = new FileWriter(path);
+			rdfModel.write(out4,"RDF/XML");
+			out2.close();
+			
+			//Dataset ds = DatasetFactory.create(rdfModel);
+			//RDFDataMgr.write(System.out, ds, Lang.RDFXML);
+			
+			
+			//manager.saveFile(rdfModel.write(out), path, "RDF/XML");	
+			
+/*			Dataset ds = DatasetFactory.create(rdfModel);
+			FusekiServer server = FusekiServer.create()
+				    .add(String.format("/%s", country.getCountryName().replace('\n', '_')),ds)
+				    .build();
+			server.start();		
+			server.stop();*/
+	
 			return "conversion?faces-redirect=true";
 		}catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return null;
 	}

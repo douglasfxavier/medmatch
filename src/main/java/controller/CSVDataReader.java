@@ -23,8 +23,9 @@ public class CSVDataReader {
 	protected ArrayList<Compound> compoundList = new ArrayList<Compound>();
 	protected ArrayList<Manufacturer> manufacturerList = new ArrayList<Manufacturer>();
 	protected ArrayList<Category> categoryList = new ArrayList<Category>();
-	protected IDGenerator idCompoundGenerator = new IDGenerator();
-	protected IDGenerator idCategoryGenerator = new IDGenerator();
+	protected IDGenerator compoundIDGenerator = new IDGenerator();
+	protected IDGenerator categoryIDGenerator = new IDGenerator();
+	protected IDGenerator manufacturerIDGenerator = new IDGenerator();
 	protected String csvData;
 	protected char delimiter;
 	protected CSVParser parser;
@@ -63,75 +64,111 @@ public class CSVDataReader {
 	}
 
 	public boolean loadData(Country currentCountry,
-							int drugCodeIndex,							
-							int drugNameIndex,
-							int compoundNameIndex,
-							int categoryIndex,
-							int manufacturerIDIndex,
-							int manufacturerNameIndex,
-							int strengthIndex) throws FileNotFoundException {
+							String drugCodeIndex,							
+							String drugNameIndex,
+							String compoundNameIndex,
+							String categoryIndex,
+							String manufacturerIDIndex,
+							String manufacturerNameIndex,
+							String strengthIndex) throws Exception {
 	    try {
 
 	    	String[] line;
-	        
+	    	Country country = currentCountry;
+	    	
+	    	
 	        while ((line = this.reader.readNext()) != null) {
-	        	Country country = currentCountry; 
-	        	String categoryName = line[categoryIndex];
-	        	String compoundName = line[compoundNameIndex];
-	        	String drugCode = line [drugCodeIndex];
-	        	String drugName = line[drugNameIndex];
-	        	String manufacturerId = line[manufacturerIDIndex];
-	        	String manufacturerName = line[manufacturerNameIndex];
-	        	String strength = line[strengthIndex];
-	        	Compound compound = null;
-	        	Manufacturer manufacturer = null;
-	        	Category category = null;
+	        	      	
+	        	Drug newDrug = new Drug();
 	        	
-	        	//Checking if the compound of the drug of the current line from the CSV is already on the list
-	        	//In case it's not, add the new compound on it
-	        	CompoundController compoundController = new CompoundController();
-	        	
-	        	if (this.compoundList != null && this.compoundList.size() != 0) {
-	        		compound = compoundController.findCompound(compoundName, this.compoundList);
-	        	}        	
-	        	
-	        	if (compound == null) {
-	        		
-	        		compound = new Compound(this.idCompoundGenerator.newId(), compoundName, null);
-	        		this.compoundList.add(compound);
-	        	}       	
-	        	
-	        	//Checking if the manufacturer of the drug of the current line from the CSV is already on the list
-	        	//In case it's not, add the new manufacturer on it
-	        	ManufacturerController manufacturerController = new ManufacturerController();
-	        	
-	        	if (this.manufacturerList != null && this.manufacturerList.size() != 0) {
-	        		manufacturer = manufacturerController.findManufacturer(manufacturerName, this.manufacturerList);
+	        	//Assigning the country to the newDrug
+	        	newDrug.setCountry(country);
+	            	       	
+	        	if (drugCodeIndex != null && drugCodeIndex.length() > 0){
+	        		String drugCode = line [Integer.parseInt(drugCodeIndex)];
+	        		String brandName = drugNameIndex != null ? line[Integer.parseInt(drugNameIndex)] : null;
+	        		newDrug.setDrugCode(drugCode);
+	        		newDrug.setBrandName(brandName);
+	        	}else {
+	        		throw new Exception();
+	        	}
+	        		        	
+	        	//Checking if there a value retrieved from the CSV for the property below
+	        	if (compoundNameIndex != null && compoundNameIndex.length() > 0) {
+	        		String compoundName = line[Integer.parseInt(compoundNameIndex)];
+	              	
+	        		//Checking if the compound of the drug of the current line from the CSV is already on the list
+		        	//In case it's not, add the new compound on it
+		        	CompoundController compoundController = new CompoundController();
+		        	Compound compound = null;
+		        	
+		        	if (this.compoundList != null && this.compoundList.size() != 0) {
+		        		compound = compoundController.findCompound(compoundName, this.compoundList);
+		        	}        	
+		        	
+		        	if (compound == null) {
+		        		
+		        		compound = new Compound(this.compoundIDGenerator.newId(), compoundName, null);
+		        		this.compoundList.add(compound);
+		        	}
+		        	
+		        	newDrug.setCompound(compound);
 	        	}
 	        	
-	        	if (manufacturer == null) {
-	        		manufacturer = new Manufacturer(manufacturerId,manufacturerName);
-	        		this.manufacturerList.add(manufacturer);
+	        	//Checking if there a value retrieved from the CSV for the property below
+	        	if (manufacturerNameIndex != null && manufacturerNameIndex.length() > 0) {	
+	        		String manufacturerName = line[Integer.parseInt(manufacturerNameIndex)];
+	        		
+	        		String manufacturerId = (manufacturerIDIndex != null && manufacturerIDIndex.length() > 0) 
+	        				? line[Integer.parseInt(manufacturerIDIndex)] 
+	        						:  String.format("%s", this.manufacturerIDGenerator.newId());
+		        	
+		        	//Checking if the manufacturer of the drug of the current line from the CSV is already on the list
+		        	//In case it's not, add the new manufacturer on it
+		        	ManufacturerController manufacturerController = new ManufacturerController();
+		        	Manufacturer manufacturer = null;
+		        	
+		        	if (this.manufacturerList != null && this.manufacturerList.size() != 0) {
+		        		manufacturer = manufacturerController.findManufacturer(manufacturerName, this.manufacturerList);
+		        	}
+		        	
+		        	if (manufacturer == null) {
+		        		manufacturer = new Manufacturer(manufacturerId,manufacturerName);
+		        		this.manufacturerList.add(manufacturer);
+		        	}
+		        	
+		        	newDrug.setManufacturer(manufacturer);
 	        	}
 	        	
-	        	//Checking if the category of the drug of the current line from the CSV is already on the list
-	        	//In case it's not, add the new category on it
-	        	CategoryController categoryController = new CategoryController();
+	        	//Checking if there a value retrieved from the CSV for the property below
+	        	if (categoryIndex != null && categoryIndex.length() > 0) {	
+	        		String categoryName = line[Integer.parseInt(categoryIndex)];        	
+		        	
+	        		//Checking if the category of the drug of the current line from the CSV is already on the list
+		        	//In case it's not, add the new category on it
+		        	CategoryController categoryController = new CategoryController();
+		        	Category category = null; 
+		        	
+		        	if (this.categoryList != null && this.categoryList.size() != 0) {
+		        		category = categoryController.findCategory(categoryName, this.categoryList);
+		        	}        	
+		        	
+		        	if (category == null) {
+		        		
+		        		category = new Category(this.categoryIDGenerator.newId(), categoryName);
+		        		this.categoryList.add(category);
+		        	}
+		        	
+		        	newDrug.setCategory(category);
+	        	}
 	        	
-	        	if (this.categoryList != null && this.categoryList.size() != 0) {
-	        		category = categoryController.findCategory(categoryName, this.categoryList);
-	        	}        	
+	        	if (strengthIndex != null && strengthIndex.length() > 0) {
+	        		String strength = line[Integer.parseInt(strengthIndex)];
+	        		newDrug.setStrength(strength);
+	        	}
 	        	
-	        	if (category == null) {
-	        		
-	        		category = new Category(this.idCategoryGenerator.newId(), categoryName);
-	        		this.categoryList.add(category);
-	        	}      
-	        	
-	        	
-	        	//Creating instance of drug	        	
-	        	Drug drug = new Drug(drugCode,drugName,null,strength,manufacturer,country,compound,category);
-	           	this.drugsList.add(drug);
+	        	//Adding the new drug
+	           	this.drugsList.add(newDrug);
        	
 	        }
 	        
@@ -140,6 +177,9 @@ public class CSVDataReader {
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	        return false;
+	    } catch (Exception e) {
+	    	e.printStackTrace();
+	    	return false;
 	    }
 	}
 }

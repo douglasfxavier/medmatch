@@ -9,6 +9,10 @@ public class Drug {
 	private Country country;
 	private Compound compound;
 	private Category category;
+
+	public Drug() {
+	
+	}
 	
 	public Drug(String drugCode, String brandName, String descritpion, String strength, Manufacturer manufacturer,
 			Country country, Compound compound, Category category) {
