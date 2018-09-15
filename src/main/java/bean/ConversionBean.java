@@ -11,6 +11,8 @@ import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.Lang;
+import org.apache.jena.sparql.core.DatasetGraph;
+import org.apache.jena.fuseki.async.*;
 
 import controller.ObjectsToRDFConverter;
 import controller.OntologyManager;
@@ -137,7 +139,7 @@ public class ConversionBean {
 	public String convert() throws NumberFormatException, FileNotFoundException, ArrayIndexOutOfBoundsException {
 		try {
 			Country country = this.matchingBean.getSelectedCountry();
-			String datasetURL = this.matchingBean.getUploadBean().getDatasetURL();
+			String base = this.matchingBean.getUploadBean().getDatasetURL();
 			OntologyManager ontologyManager = this.matchingBean.getOntologyBean().getOntologyManager();
 			RDFManager manager = new RDFManager();
 			
@@ -152,11 +154,10 @@ public class ConversionBean {
 					   manufacturerNameIndex, 
 					   strengthIndex);
 	
-			ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter(datasetURL, ontologyManager);
+			ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter(base, ontologyManager);
 			
 			this.rdfModel = rdfConverter.convertDataToRDF(this.csvDataReaderBean.getCsvDataReader());
 			
-			String base = this.matchingBean.getUploadBean().getDatasetURL();			
 			FacesContext fc= FacesContext.getCurrentInstance();
 			
 			String path = fc.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.ttl",country.getCountryName().replace('\n', '_')));
@@ -164,12 +165,13 @@ public class ConversionBean {
 		
 			path = fc.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.rdf",country.getCountryName().replace('\n', '_')));
 			manager.saveFile(rdfModel, path, Lang.RDFXML,base);			
-/*			Dataset ds = DatasetFactory.create(rdfModel);
+
+			DatasetGraph graph = DatasetFactory.create(rdfModel).asDatasetGraph();
 			FusekiServer server = FusekiServer.create()
-				    .add(String.format("/%s", country.getCountryName().replace('\n', '_')),ds)
+				    .add(String.format("/%s", country.getCountryName().replace('\n', '_')),graph)
 				    .build();
 			server.start();		
-			server.stop();*/
+			//server.stop();
 			
 			
 			return "conversion?faces-redirect=true";
