@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology"
-     xml:base="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology"
+<rdf:RDF xmlns="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/"
+     xml:base="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -124,7 +124,7 @@
     <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/brandName -->
 
     <owl:DatatypeProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/brandName">
-        <rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/name"/>
+        <rdfs:subPropertyOf rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/name"/>
     </owl:DatatypeProperty>
     
 
@@ -170,9 +170,9 @@
     
 
 
-    <!-- http://xmlns.com/foaf/0.1/name -->
+    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/name -->
 
-    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/name">
+    <owl:DatatypeProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/name">
         <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Category"/>
         <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Compound"/>
         <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Country"/>

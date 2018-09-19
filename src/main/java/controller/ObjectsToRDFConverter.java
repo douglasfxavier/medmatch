@@ -37,10 +37,15 @@ public class ObjectsToRDFConverter {
         OntClass manufacturerClass = OntologyManager.findClass("Manufacturer",this.ontologyModel);
         OntClass compoundClass = OntologyManager.findClass("Compound", this.ontologyModel);
         OntClass categoryClass = OntologyManager.findClass("Category", this.ontologyModel);
-        String drugURL = this.datasetURL + "drug/";
+/*        String drugURL = this.datasetURL + "drug/";
         String compoundURL = this.datasetURL + "compound/";
         String manufactureURL = this.datasetURL + "manufacturer/";
-        String categoryURL = this.datasetURL + "category/";
+        String categoryURL = this.datasetURL + "category/";*/
+ 
+        String drugURL = "drug/";
+        String compoundURL = "compound/";
+        String manufactureURL = "manufacturer/";
+        String categoryURL = "category/";
         
         //Converting objects from Manufacturer class to resources
         for(Manufacturer m: csvDataReader.manufacturerList) {

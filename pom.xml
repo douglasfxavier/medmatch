@@ -76,21 +76,21 @@
   		<artifactId>jena-arq</artifactId>
   		<version>3.8.0</version>
   	</dependency>
-  	<dependency>
-		<groupId>org.apache.jena</groupId>
-		<artifactId>jena-csv</artifactId>
-		<version>3.8.8</version>
-	</dependency>
-	  	<dependency>
-		<groupId>org.apache.jena</groupId>
-		<artifactId>jena-systems</artifactId>
-		<version>3.8.8</version>
-	</dependency>
 	<dependency>
 	  <groupId>org.apache.jena</groupId>
 	  <artifactId>jena-fuseki-embedded</artifactId>
 	  <version>3.8.0</version> <!-- Set the version -->
 	</dependency>
+	<dependency>
+	    <groupId>org.apache.httpcomponents</groupId>
+	    <artifactId>httpclient</artifactId>
+	    <version>4.5.3</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.httpcomponents</groupId>
+	    <artifactId>httpmime</artifactId>
+	    <version>4.5.3</version>
+	</dependency>	
     <!-- CSV Dependencies -->
 	<dependency>
 	    <groupId>com.opencsv</groupId>

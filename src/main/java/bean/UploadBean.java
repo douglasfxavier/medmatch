@@ -12,7 +12,6 @@ import javax.servlet.http.Part;
 
 import util.CSVDelimiter;
 
-
 @ManagedBean (name = "uploadBean")
 @SessionScoped
 public class UploadBean {
@@ -68,11 +67,9 @@ public class UploadBean {
 	@SuppressWarnings("resource")
 	public String uploadFile() throws IOException{
 		
-		
 	     if (this.uploadedfile != null) {
 	            try {
 	                InputStream inputStream = this.uploadedfile.getInputStream();
-	                //Verificar codificação. UTF-8 mesmo?
 	                this.csvData = new Scanner(inputStream,"utf-8").useDelimiter("\\A").next();
 	            } catch (IOException ex) {
 	            	String msgtext = "No file was selected.";

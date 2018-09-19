@@ -4,8 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.riot.Lang;
-
+import org.apache.jena.rdf.model.RDFWriter;
 
 public class RDFManager {	
 	
@@ -13,14 +12,16 @@ public class RDFManager {
 		model.write(System.out, rdfFormat);
 	}
 	
-	public void saveFile(Model model, String rdfOutFile, Lang rdfLang, String base){
+	public void saveFile(Model model, String rdfOutFile, String format , String base){
 		try{
-			FileWriter file = new FileWriter(rdfOutFile);
-			PrintWriter rdf = new PrintWriter(file);
-			model.write(rdf, rdfLang.getLabel(),base);
+			FileWriter file = new FileWriter(rdfOutFile);			
+			RDFWriter writer = model.getWriter(format);
+			writer.setProperty("xmlbase", base);
+			writer.write(model, file, base); 
+			
 			file.close();
 		} catch (IOException e) {
-			System.out.println("Something wrong happened. File not saved.");
+			e.printStackTrace();
 		}
 	}
 	/*
