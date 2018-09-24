@@ -4,21 +4,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 	
 	
 	<ui:composition template="/view/template/layout.xhtml">
 		<ui:define name="header-title">MedMatch</ui:define>
 		<ui:define name="content">
 			<div class="container">
-				<p>#{msgs}</p>		
+				<p>#{msgs}</p>
+				<h1>MedMatch</h1>
+				<h2>Dataset upload</h2>		
 				<h:form id="upload-form" class="form-group" enctype="multipart/form-data">
 					<div class="form-row">
-						<div class="col-md-4 mb-3">
-							<h:outputLabel for="urlID">Dataset URL</h:outputLabel>
-							<h:inputText class="form-control" id="urlID" required="true" value="#{uploadBean.datasetURL}"/>
+						<div class="col-md-4 mb-3">			
+							<h:outputLabel for="namespaceID">Namespace URI</h:outputLabel>								
+							<div class="input-group mb-3">								
+								<div class="input-group-prepend">
+									<span class="input-group-text">http://</span>
+								</div>
+								<h:inputText class="form-control" id="namespaceID" p:placeholder="example.com/" required="true" value="#{uploadBean.namespaceURI}" /> 
+							</div>
 						</div>
-					</div>				
+					</div>
+					<div class="form-row">
+						<div class="col-md-4 mb-3">			
+							<h:outputLabel for="datasetID">Fuseki dataset name</h:outputLabel>								
+							<div class="input-group mb-3">								
+								<div class="input-group-prepend">
+									<span class="input-group-text">/</span>
+								</div>
+								<h:inputText class="form-control" id="datasetID" p:placeholder="drugs_uk" required="true" value="#{uploadBean.datasetName}" /> 
+							</div>
+						</div>
+					</div>					
 					<div class="form-row">
 						<div class="col-md-4 mb-3">
 							<h:outputLabel for="countryID">Country</h:outputLabel>
@@ -57,5 +76,4 @@
 			</div>
 		</ui:define>
 	</ui:composition>
-
 </html>

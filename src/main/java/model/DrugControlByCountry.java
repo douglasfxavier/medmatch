@@ -3,22 +3,22 @@ package model;
 import java.util.Date;
 
 public class DrugControlByCountry {
-	private Compound compound;
+	private ActiveIngredient compound;
 	private Boolean allowed;
 	private Date lastUpdate;
 	
-	public DrugControlByCountry(Compound compound, Boolean allowed, Date lastUpdate) {
+	public DrugControlByCountry(ActiveIngredient compound, Boolean allowed, Date lastUpdate) {
 		super();
 		this.compound = compound;
 		this.allowed = allowed;
 		this.lastUpdate = lastUpdate;
 	}
 
-	public Compound getCompound() {
+	public ActiveIngredient getCompound() {
 		return compound;
 	}
 
-	public void setCompound(Compound compound) {
+	public void setCompound(ActiveIngredient compound) {
 		this.compound = compound;
 	}
 

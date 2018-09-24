@@ -1,23 +1,12 @@
 package bean;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.jena.graph.Node;
 import org.apache.jena.rdf.model.Model;
 
 import controller.ObjectsToRDFConverter;
@@ -25,7 +14,6 @@ import controller.OntologyManager;
 import controller.RDFManager;
 import model.Country;
 import util.FusekiConnector;
-import util.SparqlUtil;
 
 @ManagedBean (name = "conversionBean")
 @SessionScoped
@@ -40,9 +28,9 @@ public class ConversionBean {
 	private String rdfString;
 	//Fields send by post from the view matching.xhtml
 	private String categoryIndex;
-	private String compoundNameIndex;
+	private String activeIngredientNameIndex;
 	private String drugCodeIndex;
-	private String drugNameIndex;
+	private String brandNameIndex;
 	private String manufacturerIDIndex;
 	private String manufacturerNameIndex;
 	private String strengthIndex;
@@ -55,14 +43,6 @@ public class ConversionBean {
 		this.categoryIndex = categoryIndex;
 	}
 
-	public String getCompoundNameIndex() {
-		return compoundNameIndex;
-	}
-
-	public void setCompoundNameIndex(String compoundNameIndex) {
-		this.compoundNameIndex = compoundNameIndex;
-	}
-
 	public String getDrugCodeIndex() {
 		return drugCodeIndex;
 	}
@@ -71,12 +51,20 @@ public class ConversionBean {
 		this.drugCodeIndex = drugCodeIndex;
 	}
 
-	public String getDrugNameIndex() {
-		return drugNameIndex;
+	public String getActiveIngredientNameIndex() {
+		return activeIngredientNameIndex;
 	}
 
-	public void setDrugNameIndex(String drugNameIndex) {
-		this.drugNameIndex = drugNameIndex;
+	public void setActiveIngredientNameIndex(String activeIngredientNameIndex) {
+		this.activeIngredientNameIndex = activeIngredientNameIndex;
+	}
+
+	public String getBrandNameIndex() {
+		return brandNameIndex;
+	}
+
+	public void setBrandNameIndex(String brandNameIndex) {
+		this.brandNameIndex = brandNameIndex;
 	}
 
 	public String getManufacturerIDIndex() {
@@ -148,21 +136,27 @@ public class ConversionBean {
 	
 	public String convert() throws NumberFormatException, FileNotFoundException, ArrayIndexOutOfBoundsException {
 		try {
+			String filePath;
+			String datasetName = this.matchingBean.getUploadBean().getDatasetName();
 			Country country = this.matchingBean.getSelectedCountry();
-			String baseURI = this.matchingBean.getUploadBean().getDatasetURL();
-			OntologyManager ontologyManager = this.matchingBean.getOntologyBean().getOntologyManager();
+			String namespaceURI = this.matchingBean.getUploadBean().getNamespaceURI();
+			
 			RDFManager manager = new RDFManager();
-	
+			FusekiConnector fusekiConnector = new FusekiConnector();
+			
+			
 			this.csvDataReaderBean.getCsvDataReader().loadData(country, 
 					   drugCodeIndex, 
-					   drugNameIndex, 
-					   compoundNameIndex,
+					   brandNameIndex, 
+					   activeIngredientNameIndex,
 					   categoryIndex, 
 					   manufacturerIDIndex, 
 					   manufacturerNameIndex, 
 					   strengthIndex);
 	
-			ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter(baseURI, ontologyManager);
+			
+			OntologyManager ontologyManager = this.matchingBean.getOntologyBean().getOntologyManager();
+			ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter(namespaceURI, ontologyManager);
 			
 			this.rdfModel = rdfConverter.convertDataToRDF(this.csvDataReaderBean.getCsvDataReader());
 						
@@ -170,29 +164,11 @@ public class ConversionBean {
 /*			String path = facesContext.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.ttl",country.getCountryName().replace('\n', '_')));
 			manager.saveFile(rdfModel, path, "TURTLE",base);	*/	
 		
-			String path = facesContext.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.rdf",country.getCountryName().replace('\n', '_')));
-			manager.saveFile(rdfModel, path, "RDF/XML",baseURI);
+			filePath = facesContext.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.rdf",country.getCountryName().replace('\n', '_')));
+			manager.saveFile(rdfModel, filePath, "RDF/XML",namespaceURI);
+			
+			fusekiConnector.uploadRDF(filePath, datasetName);
 
-/*			SparqlUtil sparqlUtil = new SparqlUtil();
-			String fusekiService = "http://localhost:3030/drugs_brazil/update";
-			sparqlUtil.insertTriples(rdfModel, baseURI, fusekiService);*/
-			
-			File file = new File(path);
-			FileBody fileBody = new FileBody(file,ContentType.DEFAULT_BINARY);
-			
-			MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-		        builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
-		        builder.addPart("file", fileBody);
-		        HttpEntity entity = builder.build();
-		        HttpPost request = new HttpPost("http://localhost:3030/drugs_brazil/upload");
-		        request.setEntity(entity);
-		        
-		        HttpClient client = HttpClientBuilder.create().build();
-		        try {
-		            client.execute(request);
-		        } catch (IOException e) {
-		            e.printStackTrace();
-		        }
 			return "conversion?faces-redirect=true";
 		}catch (Exception e) {
 			e.printStackTrace();

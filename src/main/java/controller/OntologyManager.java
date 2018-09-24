@@ -27,20 +27,28 @@ public class OntologyManager {
 		this.ontologyModel.read(ontologyURI);
 	}
 
-	public static OntClass findClass(String nomeClasse, OntModel ontModel){
-		for (Iterator<OntClass> iterator = ontModel.listClasses(); iterator.hasNext();){
-			OntClass ontClass = iterator.next();
-			if (ontClass.getLocalName().equals(nomeClasse))
-				return ontClass;
+	public static OntClass findClass(String className, OntModel ontModel){
+		try {
+			for (Iterator<OntClass> iterator = ontModel.listClasses(); iterator.hasNext();){
+				OntClass ontClass = iterator.next();
+				if (ontClass.getLocalName().equals(className))
+					return ontClass;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
 		return null;
 	}
 	
 	public static OntProperty findProperty(String nomePropriedade,OntModel ontModel){
-		for (Iterator<OntProperty> iterator = ontModel.listAllOntProperties(); iterator.hasNext();){
-			OntProperty ontProperty = iterator.next();
-			if (ontProperty.getLocalName().equals(nomePropriedade))
-				return ontProperty;
+		try {	
+			for (Iterator<OntProperty> iterator = ontModel.listAllOntProperties(); iterator.hasNext();){
+				OntProperty ontProperty = iterator.next();
+				if (ontProperty.getLocalName().equals(nomePropriedade))
+					return ontProperty;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
 		return null;
 	}

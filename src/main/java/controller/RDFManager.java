@@ -2,7 +2,6 @@ package controller;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.RDFWriter;
 
@@ -24,16 +23,6 @@ public class RDFManager {
 			e.printStackTrace();
 		}
 	}
-	/*
-	public void publishResource(){
-		if(this.model != null){
-			Iterator<Triple> iter = this.model.getGraph().find(Node.ANY, Node.ANY, Node.ANY);
-			while (iter.hasNext()) {
-				Triple triple = iter.next();
-				LattesResource.getInstance().getVirtGraph().performAdd(triple);
-			}
-		}
-	}
-	*/
+
 
 }

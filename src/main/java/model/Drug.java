@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Drug {
 	private String drugCode;
 	private String brandName;
@@ -7,7 +9,7 @@ public class Drug {
 	private String strength;
 	private Manufacturer manufacturer;
 	private Country country;
-	private Compound compound;
+	private ArrayList<ActiveIngredient> activeIngredients = new ArrayList<ActiveIngredient>();
 	private Category category;
 
 	public Drug() {
@@ -15,7 +17,7 @@ public class Drug {
 	}
 	
 	public Drug(String drugCode, String brandName, String descritpion, String strength, Manufacturer manufacturer,
-			Country country, Compound compound, Category category) {
+			Country country, Category category) {
 		super();
 		this.drugCode = drugCode;
 		this.brandName = brandName;
@@ -23,7 +25,6 @@ public class Drug {
 		this.strength = strength;
 		this.manufacturer = manufacturer;
 		this.country = country;
-		this.compound = compound;
 		this.category = category;
 	}
 	public String getDrugCode() {
@@ -75,16 +76,15 @@ public class Drug {
 		this.country = country;
 	}
 	
-	public Compound getCompound() {
-		return compound;
+	
+	public ArrayList<ActiveIngredient> getActiveIngredients() {
+		return activeIngredients;
 	}
-	
-	public void setCompound(Compound compound) {
-		this.compound = compound;
+
+	public void setActiveIngredients(ArrayList<ActiveIngredient> activeIngredients) {
+		this.activeIngredients = activeIngredients;		
 	}
-	
-	
-	
+
 	public Category getCategory() {
 		return category;
 	}
@@ -92,14 +92,12 @@ public class Drug {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Drug [drugCode=" + drugCode + ", brandName=" + brandName + ", descritpion=" + descritpion
-				+ ", strength=" + strength + ", manufacturer=" + manufacturer + ", country=" + country + ", compound="
-				+ compound + "]";
+				+ ", strength=" + strength + ", manufacturer=" + manufacturer + ", country=" + country
+				+ ", activeIngredients=" + activeIngredients + ", category=" + category + "]";
 	}
 	
-	
-
 }

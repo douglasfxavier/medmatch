@@ -10,10 +10,34 @@
 			<ui:define name="header-title">MedMatch</ui:define>
 			<ui:define name="content">
 				<div class="container">
-					<h3>COUNTRY: <strong>#{matchingBean.getSelectedCountry().countryName}</strong></h3>
-					<h3>WEBSITE: <strong>#{matchingBean.uploadBean.datasetURL}</strong></h3>					
+					<h1>MedMatch</h1>
+					<h2>Concepts matching</h2>						
 					<ui:param name="csvFields" value="#{csvDataReaderBean.loadCSVDataReader().getMetadata()}" />
 					<h:form id="matching-form" class="form-group">
+						<div class="col-md-5 mb-3">
+							<div class="row mb-3 input-group-prepend">		
+								<h:outputLabel class="input-group-text col-md-5" for="DrugCodeSelect">Drug code</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="DrugCodeSelect" required="true" value="#{conversionBean.drugCodeIndex}">
+									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
+									<f:selectItems value="#{csvFields}" 
+										var="field" 
+										itemValue="#{field}"
+										itemLabel="#{field}" />	
+								</h:selectOneMenu>
+							</div>
+						</div>
+						<div class="col-md-5 mb-3">	
+							<div class="row mb-3 input-group-prepend">
+								<h:outputLabel class="input-group-text col-md-5" for="BrandNameSelect">Brand name</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="BrandNameSelect" value="#{conversionBean.brandNameIndex}">
+									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
+									<f:selectItems value="#{csvFields}" 
+										var="field" 
+										itemValue="#{field}"
+										itemLabel="#{field}" />	
+								</h:selectOneMenu>
+							</div>		
+						</div>				
 						<div class="col-md-5 mb-3">	
 							<div class="row mb-3 input-group-prepend">
 								<h:outputLabel class="input-group-text col-md-5" for="CategorySelect">Category</h:outputLabel>
@@ -26,8 +50,8 @@
 								</h:selectOneMenu>
 							</div>
 							<div class="row mb-3 input-group-prepend">	
-								<h:outputLabel class="input-group-text col-md-5" for="CompoundNameSelect">Compound name</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="CompoundNameSelect" value="#{conversionBean.compoundNameIndex}">
+								<h:outputLabel class="input-group-text col-md-5" for="activeIngredientNameSelect">Active Ingredient</h:outputLabel>
+								<h:selectOneMenu class="custom-select col-md-7" id="activeIngredientNameSelect" value="#{conversionBean.activeIngredientNameIndex}">
 									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
 									<f:selectItems value="#{csvFields}" 
 										var="field" 
@@ -35,26 +59,6 @@
 										itemLabel="#{field}" />	
 								</h:selectOneMenu>
 							</div>
-							<div class="row mb-3 input-group-prepend">		
-								<h:outputLabel class="input-group-text col-md-5" for="DrugCodeSelect">Drug code</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="DrugCodeSelect" value="#{conversionBean.drugCodeIndex}">
-									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
-									<f:selectItems value="#{csvFields}" 
-										var="field" 
-										itemValue="#{field}"
-										itemLabel="#{field}" />	
-								</h:selectOneMenu>
-							</div>
-							<div class="row mb-3 input-group-prepend">
-								<h:outputLabel class="input-group-text col-md-5" for="DrugNameSelect">Drug name</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="DrugNameSelect" value="#{conversionBean.drugNameIndex}">
-									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
-									<f:selectItems value="#{csvFields}" 
-										var="field" 
-										itemValue="#{field}"
-										itemLabel="#{field}" />	
-								</h:selectOneMenu>
-							</div>	
 							<div class="row mb-3 input-group-prepend">
 	    						<h:outputLabel class="input-group-text col-md-5" for="ManufacturerIDSelect">Manufacturer ID</h:outputLabel>
 								<h:selectOneMenu class="custom-select col-md-7" id="ManufacturerIDSelect" value="#{conversionBean.manufacturerIDIndex}">

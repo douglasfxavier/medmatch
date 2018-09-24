@@ -53,13 +53,18 @@
 		<artifactId>jstl</artifactId>
 		<version>1.2</version>
 	  </dependency>
-
     <dependency>
 	    <groupId>junit</groupId>
 	    <artifactId>junit</artifactId>
 	    <version>3.8.1</version>
 	    <scope>test</scope>
     </dependency>
+	<!-- https://mvnrepository.com/artifact/com.github.mpkorstanje/simmetrics -->
+	<dependency>
+	  <groupId>com.github.mpkorstanje</groupId>
+	  <artifactId>simmetrics-core</artifactId>
+	  <version>4.1.1</version>
+	</dependency>
     <dependency>
 	    <groupId>org.apache.pdfbox</groupId>
 	    <artifactId>jbig2-imageio</artifactId>
