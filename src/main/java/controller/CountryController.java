@@ -6,8 +6,7 @@ import util.WikiDataCountry;;
 
 public class CountryController {
 	
-	
-	public ArrayList<Country> getAllContries() {
+	public static ArrayList<Country> getAllContries() {
 		ArrayList<Country> allCountries;
 		WikiDataCountry wdc = new WikiDataCountry();
 		allCountries = wdc.getCountries();
@@ -15,7 +14,7 @@ public class CountryController {
 		return allCountries;
 	}
 
-	public Country findCountry(int numericCode, ArrayList<Country> countryList) {		
+	public static Country findCountry(int numericCode, ArrayList<Country> countryList) {		
 		
 		for(Country c: countryList) {
 			if (c.getNumericCode() == numericCode)		

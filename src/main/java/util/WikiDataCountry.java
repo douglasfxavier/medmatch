@@ -57,9 +57,8 @@ public class WikiDataCountry {
             		}
             	}
              
-        }catch(Exception eex) {
-            System.out.println(eex);
-            eex.printStackTrace();
+        }catch(Exception e) {
+            e.printStackTrace();
         }
 		return allCountries;
     }

@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
@@ -45,16 +50,17 @@ public class CSVDataReader {
 						.build();		
 	}
 
-	public HashMap<String, String> getMetadata() throws FileNotFoundException{
+	public Map<String, String> getMetadata() throws FileNotFoundException{
 		try {
 			String[] header = this.reader.readNext(); 
 		
-			HashMap<String, String>  list = new HashMap<String, String>();
+			Map<String, String>  headers = new HashMap<>();
 			
 			for (int i=0; i < header.length; i++) {
-				list.put(header[i], String.valueOf(i));
+				headers.put(header[i], String.valueOf(i));
 			}
-			return list;
+			Map<String, String> sortedMap = new TreeMap<String, String>(headers);			
+			return sortedMap;
 			
 		}catch (IOException e) {
 	        e.printStackTrace();
@@ -183,8 +189,6 @@ public class CSVDataReader {
 			        	
 			        drugInstance.getActiveIngredients().add(activeIngredient);
 		        }
-		        
-
 	        }
 	        
 	        this.reader.close();

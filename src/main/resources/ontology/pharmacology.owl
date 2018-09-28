@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/"
-     xml:base="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/"
+<rdf:RDF xmlns="http://medmatch.global/ontology/pharmacology#"
+     xml:base="http://medmatch.global/ontology/pharmacology"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:pharm="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology">
-    <owl:Ontology rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/"/>
+     xmlns:pharm="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology#">
+    <owl:Ontology rdf:about="http://medmatch.global/ontology/pharmacology#"/>
     
 
 
@@ -22,88 +22,77 @@
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/containsIngredient -->
+    <!-- http://medmatch.global/ontology/pharmacology#containsIngredient -->
 
-    <owl:ObjectProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/containsIngredient">
-        <owl:inverseOf rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/ingredientIsInCompound"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Compound"/>
-                    <rdf:Description rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Ingredient"/>
+    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#containsIngredient">
+        <owl:inverseOf rdf:resource="http://medmatch.global/ontology/pharmacology#ingredientIsInCompound"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
+        <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#Ingredient"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/hasCompound -->
+    <!-- http://medmatch.global/ontology/pharmacology#hasCompound -->
 
-    <owl:ObjectProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/hasCompound">
-        <owl:inverseOf rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/isInDrug"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug"/>
-        <rdfs:range rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Compound"/>
+    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#hasCompound">
+        <owl:inverseOf rdf:resource="http://medmatch.global/ontology/pharmacology#isInDrug"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
+        <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/ingredientIsInCompound -->
+    <!-- http://medmatch.global/ontology/pharmacology#ingredientIsInCompound -->
 
-    <owl:ObjectProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/ingredientIsInCompound"/>
+    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#ingredientIsInCompound"/>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/isFromCategory -->
+    <!-- http://medmatch.global/ontology/pharmacology#isFromCategory -->
 
-    <owl:ObjectProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/isFromCategory">
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Compound"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Ingredient"/>
-        <rdfs:range rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Category"/>
+    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#isFromCategory">
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
+        <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#Category"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/isInDrug -->
+    <!-- http://medmatch.global/ontology/pharmacology#isInDrug -->
 
-    <owl:ObjectProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/isInDrug"/>
+    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#isInDrug"/>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/manufactureDrug -->
+    <!-- http://medmatch.global/ontology/pharmacology#manufactureDrug -->
 
-    <owl:ObjectProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/manufactureDrug">
-        <owl:inverseOf rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/manufacturedBy"/>
+    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#manufactureDrug">
+        <owl:inverseOf rdf:resource="http://medmatch.global/ontology/pharmacology#manufacturedBy"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/manufacturedBy -->
+    <!-- http://medmatch.global/ontology/pharmacology#manufacturedBy -->
 
-    <owl:ObjectProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/manufacturedBy">
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Compound"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Ingredient"/>
-        <rdfs:range rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Manufacturer"/>
+    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#manufacturedBy">
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
+        <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#Manufacturer"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/producedInCountry -->
+    <!-- http://medmatch.global/ontology/pharmacology#producedInCountry -->
 
-    <owl:ObjectProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/producedInCountry">
-        <owl:inverseOf rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/producesDrug"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug"/>
-        <rdfs:range rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Country"/>
+    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#producedInCountry">
+        <owl:inverseOf rdf:resource="http://medmatch.global/ontology/pharmacology#producesDrug"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
+        <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#Country"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/producesDrug -->
+    <!-- http://medmatch.global/ontology/pharmacology#producesDrug -->
 
-    <owl:ObjectProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/producesDrug"/>
+    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#producesDrug"/>
     
 
 
@@ -118,79 +107,79 @@
     
 
 
-    <!-- http://purl.org/dc/terms/description -->
+    <!-- http://medmatch.global/ontology/pharmacology#abbreviation -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/description"/>
+    <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#abbreviation"/>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/abbreviation -->
+    <!-- http://medmatch.global/ontology/pharmacology#brandName -->
 
-    <owl:DatatypeProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/abbreviation"/>
-    
-
-
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/brandName -->
-
-    <owl:DatatypeProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/brandName">
-        <rdfs:subPropertyOf rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/name"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug"/>
+    <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#brandName">
+        <rdfs:subPropertyOf rdf:resource="http://medmatch.global/ontology/pharmacology#name"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/hasStrength -->
+    <!-- http://medmatch.global/ontology/pharmacology#hasStrength -->
 
-    <owl:DatatypeProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/hasStrength">
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Compound"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Ingredient"/>
+    <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#hasStrength">
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Ingredient"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/identifier -->
+    <!-- http://medmatch.global/ontology/pharmacology#identifier -->
 
-    <owl:DatatypeProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/identifier">
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Category"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Compound"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Country"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Ingredient"/>
+    <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#identifier">
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Category"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Country"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Ingredient"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/isAllowed -->
+    <!-- http://medmatch.global/ontology/pharmacology#isAllowed -->
 
-    <owl:DatatypeProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/isAllowed">
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Compound"/>
+    <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#isAllowed">
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/lastUpdate -->
+    <!-- http://medmatch.global/ontology/pharmacology#lastUpdate -->
 
-    <owl:DatatypeProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/lastUpdate">
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Compound"/>
+    <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#lastUpdate">
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/name -->
+    <!-- http://medmatch.global/ontology/pharmacology#name -->
 
-    <owl:DatatypeProperty rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/name">
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Category"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Compound"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Country"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Ingredient"/>
-        <rdfs:domain rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Manufacturer"/>
+    <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#name">
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Category"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Country"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Ingredient"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Manufacturer"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/description"/>
     
 
 
@@ -205,86 +194,86 @@
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Allopathy -->
+    <!-- http://medmatch.global/ontology/pharmacology#Allopathy -->
 
-    <owl:Class rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Allopathy">
-        <rdfs:subClassOf rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Category"/>
+    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Allopathy">
+        <rdfs:subClassOf rdf:resource="http://medmatch.global/ontology/pharmacology#Category"/>
     </owl:Class>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/BrandedlDrug -->
+    <!-- http://medmatch.global/ontology/pharmacology#BrandedlDrug -->
 
-    <owl:Class rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/BrandedlDrug">
-        <rdfs:subClassOf rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug"/>
+    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#BrandedlDrug">
+        <rdfs:subClassOf rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
     </owl:Class>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Category -->
+    <!-- http://medmatch.global/ontology/pharmacology#Category -->
 
-    <owl:Class rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Category"/>
+    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Category"/>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Compound -->
+    <!-- http://medmatch.global/ontology/pharmacology#Compound -->
 
-    <owl:Class rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Compound"/>
+    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Compound"/>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Country -->
+    <!-- http://medmatch.global/ontology/pharmacology#Country -->
 
-    <owl:Class rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Country"/>
+    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Country"/>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug -->
+    <!-- http://medmatch.global/ontology/pharmacology#Drug -->
 
-    <owl:Class rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug"/>
+    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Drug"/>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/GenericDrug -->
+    <!-- http://medmatch.global/ontology/pharmacology#GenericDrug -->
 
-    <owl:Class rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/GenericDrug">
-        <rdfs:subClassOf rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug"/>
+    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#GenericDrug">
+        <rdfs:subClassOf rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
     </owl:Class>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/HerbalDrug -->
+    <!-- http://medmatch.global/ontology/pharmacology#HerbalDrug -->
 
-    <owl:Class rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/HerbalDrug">
-        <rdfs:subClassOf rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Drug"/>
+    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#HerbalDrug">
+        <rdfs:subClassOf rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
     </owl:Class>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Homeopathy -->
+    <!-- http://medmatch.global/ontology/pharmacology#Homeopathy -->
 
-    <owl:Class rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Homeopathy">
-        <rdfs:subClassOf rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Category"/>
+    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Homeopathy">
+        <rdfs:subClassOf rdf:resource="http://medmatch.global/ontology/pharmacology#Category"/>
     </owl:Class>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Ingredient -->
+    <!-- http://medmatch.global/ontology/pharmacology#Ingredient -->
 
-    <owl:Class rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Ingredient"/>
+    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Ingredient"/>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Manufacturer -->
+    <!-- http://medmatch.global/ontology/pharmacology#Manufacturer -->
 
-    <owl:Class rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Manufacturer"/>
+    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Manufacturer"/>
     
 
 
-    <!-- http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Phytotherapy -->
+    <!-- http://medmatch.global/ontology/pharmacology#Phytotherapy -->
 
-    <owl:Class rdf:about="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Phytotherapy">
-        <rdfs:subClassOf rdf:resource="http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology/Category"/>
+    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Phytotherapy">
+        <rdfs:subClassOf rdf:resource="http://medmatch.global/ontology/pharmacology#Category"/>
     </owl:Class>
 </rdf:RDF>
 

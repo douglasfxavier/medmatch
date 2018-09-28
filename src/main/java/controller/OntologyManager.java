@@ -1,36 +1,33 @@
 package controller;
 
-import java.util.Iterator;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.util.iterator.ExtendedIterator;
 
 public class OntologyManager {
 	private final OntModel ontologyModel;
-	private final String ontologyURI;
-	private final String ontologyNamespace;
-	private final String ontologyFile;	
+	private final String ontologyIRI;
+	private final String ontologyNamespace;	
 	private final OntDocumentManager documentManager;
-	
-	
 
-	public OntologyManager(String ontologyFile) {
-		super();
-		this.ontologyFile = "file:" + ontologyFile;
+	public OntologyManager(String ontologyFile, String ontologyURI) {
+		super();		
 		this.ontologyModel = ModelFactory.createOntologyModel();
-		this.ontologyURI = "http://students.ecs.soton.ac.uk/dfxs1n17/pharmacology";
-		this.ontologyNamespace = ontologyURI + "/";
+		this.ontologyIRI = ontologyURI;
+		this.ontologyNamespace = ontologyURI + "#";
 		this.documentManager = ontologyModel.getDocumentManager();
-		this.documentManager.addAltEntry(this.ontologyURI, this.ontologyFile);
+		this.documentManager.addAltEntry(this.ontologyIRI, "file:" + ontologyFile);
 		this.ontologyModel.read(ontologyURI);
 	}
 
-	public static OntClass findClass(String className, OntModel ontModel){
+	public OntClass findClass(String className){
 		try {
-			for (Iterator<OntClass> iterator = ontModel.listClasses(); iterator.hasNext();){
-				OntClass ontClass = iterator.next();
+			ExtendedIterator<OntClass> ontClassIterator = this.ontologyModel.listClasses();
+			while(ontClassIterator.hasNext()){
+				OntClass ontClass = ontClassIterator.next();
 				if (ontClass.getLocalName().equals(className))
 					return ontClass;
 			}
@@ -40,11 +37,12 @@ public class OntologyManager {
 		return null;
 	}
 	
-	public static OntProperty findProperty(String nomePropriedade,OntModel ontModel){
+	public OntProperty findProperty(String propertyName){
 		try {	
-			for (Iterator<OntProperty> iterator = ontModel.listAllOntProperties(); iterator.hasNext();){
-				OntProperty ontProperty = iterator.next();
-				if (ontProperty.getLocalName().equals(nomePropriedade))
+			ExtendedIterator<OntProperty> ontClassIterator = this.ontologyModel.listAllOntProperties();
+			while (ontClassIterator.hasNext()){
+				OntProperty ontProperty = ontClassIterator.next();
+				if (ontProperty.getLocalName().equals(propertyName))
 					return ontProperty;
 			}
 		}catch (Exception e) {
@@ -57,16 +55,12 @@ public class OntologyManager {
 		return ontologyModel; 
 	}
 
-	public String getOntologyURI() {
-		return ontologyURI;
+	public String getOntologyIRI() {
+		return ontologyIRI;
 	}
 
 	public String getOntologyNamespace() {
 		return ontologyNamespace;
-	}
-
-	public String getOntologyFile() {
-		return ontologyFile;
 	}
 
 	public OntDocumentManager getDocumentManager() {

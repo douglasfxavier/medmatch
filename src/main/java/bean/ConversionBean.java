@@ -131,19 +131,21 @@ public class ConversionBean {
 	public void setCsvDataReaderBean(CSVDataReaderBean csvDataReaderBean) {
 		this.csvDataReaderBean = csvDataReaderBean;
 	}
-	
-	
-	
+
 	public String convert() throws NumberFormatException, FileNotFoundException, ArrayIndexOutOfBoundsException {
 		try {
 			String filePath;
 			String datasetName = this.matchingBean.getUploadBean().getDatasetName();
 			Country country = this.matchingBean.getSelectedCountry();
-			String namespaceURI = this.matchingBean.getUploadBean().getNamespaceURI();
+			String namespaceURI = this.matchingBean.getUploadBean().getNamespaceIRI();
 			
 			RDFManager manager = new RDFManager();
 			FusekiConnector fusekiConnector = new FusekiConnector();
 			
+			String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
+			OntologyManager ontologyManager = this.matchingBean.getOntologyBean().getOntologyManager("pharmacology.owl",ontologyIRI);
+			ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter(namespaceURI, ontologyManager);
+			FacesContext facesContext= FacesContext.getCurrentInstance();
 			
 			this.csvDataReaderBean.getCsvDataReader().loadData(country, 
 					   drugCodeIndex, 
@@ -153,26 +155,38 @@ public class ConversionBean {
 					   manufacturerIDIndex, 
 					   manufacturerNameIndex, 
 					   strengthIndex);
-	
+
+			String datasetEndpoint = String.format("http://localhost:3030/%s",datasetName);
+			String datasetUploadService = String.format("%s/upload",datasetEndpoint);
+			String datasetDumpDataService = String.format("%s/get",datasetEndpoint);
+			String datasetSparqlService = String.format("%s/sparql",datasetEndpoint);
 			
-			OntologyManager ontologyManager = this.matchingBean.getOntologyBean().getOntologyManager();
-			ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter(namespaceURI, ontologyManager);
+			//Store dataset details on MedMatch  
+			fusekiConnector.storeDatasetURI(country,
+											datasetEndpoint,
+											datasetDumpDataService,
+											datasetSparqlService);
 			
-			this.rdfModel = rdfConverter.convertDataToRDF(this.csvDataReaderBean.getCsvDataReader());
+			this.rdfModel = rdfConverter.convertDataToRDF(this.csvDataReaderBean.getCsvDataReader(),country);
 						
-			FacesContext facesContext= FacesContext.getCurrentInstance();
 /*			String path = facesContext.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.ttl",country.getCountryName().replace('\n', '_')));
 			manager.saveFile(rdfModel, path, "TURTLE",base);	*/	
 		
-			filePath = facesContext.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.rdf",country.getCountryName().replace('\n', '_')));
+			filePath = facesContext
+					.getExternalContext()
+					.getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.rdf",country.getCountryName().replace('\n', '_')));
+			
 			manager.saveFile(rdfModel, filePath, "RDF/XML",namespaceURI);
 			
-			fusekiConnector.uploadRDF(filePath, datasetName);
+			//Upload RDF file on the country's dataset on Fuseki
+			fusekiConnector.uploadRDF(filePath,datasetUploadService);
 
 			return "conversion?faces-redirect=true";
+		
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
 

@@ -18,7 +18,7 @@ public class UploadBean {
 	private Part uploadedfile;
 	private String csvData;
 	private String selectedDelimiter;
-	private String namespaceURI;
+	private String namespaceIRI;
 	private String datasetName;
 	private String selectedCountryNumericCode;
 	
@@ -46,12 +46,12 @@ public class UploadBean {
 		return csvData;
 	}
 
-	public String getNamespaceURI() {
-		return namespaceURI;
+	public String getNamespaceIRI() {
+		return namespaceIRI;
 	}
 
-	public void setNamespaceURI(String namespaceURI) {
-		this.namespaceURI = String.format("http://%s", namespaceURI);
+	public void setNamespaceIRI(String namespaceIRI) {
+		this.namespaceIRI = String.format("http://%s", namespaceIRI);
 	}
 
 	public String getDatasetName() {

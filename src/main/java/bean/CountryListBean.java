@@ -14,12 +14,11 @@ import model.Country;
 @ManagedBean (name = "countryListBean")
 @ApplicationScoped
 public class CountryListBean {
-	CountryController countryController = new CountryController();
 	ArrayList<Country> allCountries = new ArrayList<Country>();
 
 	@PostConstruct
 	public void Init() {
-		this.allCountries = this.countryController.getAllContries();
+		this.allCountries = CountryController.getAllContries();
 	}
 
 
@@ -28,7 +27,7 @@ public class CountryListBean {
 	}
 
 	public Country getCountry(int numericCode) {
-		Country country = this.countryController.
+		Country country = CountryController.
 				findCountry(numericCode, this.allCountries);
 		
 		return country;

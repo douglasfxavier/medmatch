@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:composition template="/view/template/layout.xhtml">
+		<ui:define name="header-title">MedMatch</ui:define>
+		<ui:define name="content">			
+			<div class="container">
+				<h1>MedMatch</h1>
+				<h:form id="upload-form" class="form-group" enctype="multipart/form-data">
+					<div class="form-row">
+						<div class="col-md-3 mb-3">			
+							<h:outputLabel for="originCountryID">Origin Country</h:outputLabel>
+							<h:selectOneMenu class = "custom-select custom-select-md" id="originCountryID" required="true" value="#{searchBean.selectedOriginCountryNumericCode}">
+								<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
+								<f:selectItems value="#{countryListBean.getAllCountries()}" 
+									var="country" 
+									itemValue="#{country.numericCode}"
+									itemLabel="#{country.countryName}" />	
+							</h:selectOneMenu>
+						</div>
+						<div class="col-md-1">						
+							<object id="icon" data="./WEB-INF/classes/images/baseline-compare_arrows-24px.svg" type="image/svg+xml"></object>							
+						</div>
+						<div class="col-md-3 mb-3">			
+							<h:outputLabel for="targetCountryID">Target Country</h:outputLabel>
+							<h:selectOneMenu class = "custom-select custom-select-md" id="targetCountryID" required="true" value="#{searchBean.selectedTargetCountryNumericCode}">
+								<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
+								<f:selectItems value="#{countryListBean.getAllCountries()}" 
+									var="country" 
+									itemValue="#{country.numericCode}"
+									itemLabel="#{country.countryName}" />	
+							</h:selectOneMenu>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-7 mb-3">
+							<h:outputLabel for="drugSearchID">Drug search</h:outputLabel>
+							<h:inputText class="form-control" id="drugSearchID" p:placeholder="Tylenol" required="true" value="#{searchBean.activeIngredientInput}"/>							
+						</div>	
+					</div>
+					<div class="form-row">
+						<div class="col-md-7 mb-3 text-right">
+							<h:commandButton class="btn btn-primary" id="searchButton" value="Search" action="#{searchBean.search()}" />
+						</div>
+					</div>
+				</h:form>				
+			</div>
+		</ui:define>
+	</ui:composition>
+</html>

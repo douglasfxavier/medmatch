@@ -20,6 +20,8 @@ import org.apache.jena.sparql.modify.UpdateEngine;
 import org.apache.jena.sparql.modify.UpdateEngineFactory;
 import org.apache.jena.sparql.util.Context;
 import org.apache.jena.util.FileManager;
+import org.apache.tomcat.util.descriptor.web.ApplicationParameter;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,7 +39,68 @@ public class App
 {
     public static void main( String[] args ) throws FileNotFoundException
     {
-    	String sparqlString = "PREFIX dc: <http://purl.org/dc/elements/1.1/>" + 
+    	
+   	
+    	/*
+    	String datasetEndpoint = String.format("http://localhost:3030/%s","Brazil");
+		String datasetDumpDataService = String.format("%s/data",datasetEndpoint);
+		String datasetSparqlService = String.format("%s/upload",datasetEndpoint);
+		String countryURI = "http://wikidata/country/Brazil"; 
+		String sparqlString = 
+				  "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+				  "PREFIX void: <http://rdfs.org/ns/void#>\n" +
+				  "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n" +		  
+				  "INSERT DATA {\n" + 
+				  	String.format("<%s> rdf:type void:Dataset;\n", datasetEndpoint) +
+				  	String.format("void:dataDump <%s>;\n", datasetDumpDataService) +
+				  	String.format("void:sparqlEndpoint <%s>;\n", datasetSparqlService) +
+				  	String.format("wdt:P17 <%s> .\n", countryURI) + 
+				  "}";
+		
+		System.out.println(sparqlString);
+    	
+		String str1 = "ACEPONATO DE METILPREDNISOLONA";
+		String str2 = "ACEPONATO DA METILPREDNISOLONA";
+		System.out.println(str1 + " vs. " + str2);
+    	System.out.println(StringMatching.calculateEuclideanDistance(str1,str2));
+    	
+		str1 = "METHYLPREDNISOLONE ACETATE";
+		str2 = "METHYLPREDNISOLONE ACETATE";
+		System.out.println(str1 + " vs. " + str2);
+    	System.out.println(StringMatching.euclideanDistance(str1,str2));
+    	
+		str1 = "ACEPONATO DE METILPREDNISOLONA";
+		str2 = "METHYLPREDNISOLONE ACETATE";
+		System.out.println(str1 + " vs. " + str2);
+    	System.out.println(StringMatching.euclideanDistance(str1,str2));
+    	
+		str1 = "ACEPONATO DE METILPREDNISOLONA";
+		str2 = "Hydrocortisone aceponate";
+		System.out.println(str1 + " vs. " + str2);
+    	System.out.println(StringMatching.euclideanDistance(str1,str2));
+    	
+		str1 = "ACEPONATO DE METILPREDNISOLONA";
+		str2 = "METHYLPREDNISOLONE";
+		System.out.println(str1 + " vs. " + str2);
+    	System.out.println(StringMatching.euclideanDistance(str1,str2));
+    	
+		str1 = "ACEPONATO DE METILPREDNISOLONA";
+		str2 = "METHYLPREDNISOLONE (METHYLPREDNISOLONE SODIUM SUCCINATE)"; 
+		System.out.println(str1 + " vs. " + str2);
+    	System.out.println(StringMatching.calculateEuclideanDistance(str1,str2));
+    	
+		str1 = "ACEPONATO DE METILPREDNISOLONA";
+		str2 = "ACEPONATO ABCDEFGHIJL METILPREDNISOLONA "; 
+		System.out.println(str1 + " vs. " + str2);
+    	System.out.println(StringMatching.euclideanDistance(str1,str2));
+    	
+    	str1 = "ACEPONATO DE METILPREDNISOLONA";
+		str2 = "ABCDEFGHIJL PREDNISOLONE "; 
+		System.out.println(str1 + " vs. " + str2);
+    	System.out.println(StringMatching.euclideanDistance(str1,str2));*/
+    	
+    	
+/*    	String sparqlString = "PREFIX dc: <http://purl.org/dc/elements/1.1/>" + 
 		   					  "INSERT DATA" + 
 		   					  "{ GRAPH <http://example/g2> {" + 
 		   					  "<http://example/book1> dc:title \"A new book\";" + 
@@ -45,7 +108,7 @@ public class App
 		   					 "}";
     	
 		FusekiConnector fc = new FusekiConnector();
-		fc.update("http://localhost:3030/test/update", sparqlString);
+		fc.update("http://localhost:3030/test/update", sparqlString);*/
 
 			
 
