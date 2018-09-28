@@ -5,18 +5,15 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.SortedMap;
 import java.util.TreeMap;
-import java.util.stream.Collectors;
 
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 
-import model.Category;
+import model.DrugClass;
 import model.ActiveIngredient;
 import model.Country;
 import model.Drug;
@@ -27,9 +24,9 @@ public class CSVDataReader {
 	protected ArrayList<Drug> drugsList = new ArrayList<Drug>();
 	protected ArrayList<ActiveIngredient> activeIngredientsList = new ArrayList<ActiveIngredient>();
 	protected ArrayList<Manufacturer> manufacturerList = new ArrayList<Manufacturer>();
-	protected ArrayList<Category> categoryList = new ArrayList<Category>();
+	protected ArrayList<DrugClass> drugClassList = new ArrayList<DrugClass>();
 	protected IDGenerator activeIngredientIDGenerator = new IDGenerator();
-	protected IDGenerator categoryIDGenerator = new IDGenerator();
+	protected IDGenerator drugClassIDGenerator = new IDGenerator();
 	protected IDGenerator manufacturerIDGenerator = new IDGenerator();
 	protected String csvData;
 	protected char delimiter;
@@ -73,7 +70,7 @@ public class CSVDataReader {
 							String drugCodeIndex,							
 							String drugNameIndex,
 							String activeIngredientNameIndex,
-							String categoryIndex,
+							String drugClassIndex,
 							String manufacturerIDIndex,
 							String manufacturerNameIndex,
 							String strengthIndex) throws Exception {
@@ -135,26 +132,25 @@ public class CSVDataReader {
 				     }
 			        
 		        	//Checking if there is a value retrieved from the CSV for the property below
-		        	if (categoryIndex != null && categoryIndex.length() > 0) {	
-		        		String categoryName = line[Integer.parseInt(categoryIndex)];        	
+		        	if (drugClassIndex!= null && drugClassIndex.length() > 0) {	
+		        		String drugClassName = line[Integer.parseInt(drugClassIndex)];        	
 			        	
-	        		//Checking if the category of the drug of the current line from the CSV is already on the list
-		        	//In case it's not, add the new category on it
+	        		//Checking if the drugClass of the drug of the current line from the CSV is already on the list
+		        	//In case it's not, add the new drugClass on it
 				        	
-			        	Category category = null; 
+			        	DrugClass drugClass = null; 
 			        	
-			        	if (this.categoryList != null && this.categoryList.size() != 0) {
-			        		CategoryController categoryController = new CategoryController();
-			        		category = categoryController.findCategory(categoryName, this.categoryList);
-			        	}        	
-				        	
-			        	if (category == null) {
+			        	if (this.drugClassList != null && this.drugClassList.size() != 0) {
+			        		drugClass = DrugClassController.findDrugClass(drugClassName, this.drugClassList);
+			        	}
+			        	
+			        	if (drugClass == null) {
 			        		
-			        		category = new Category(this.categoryIDGenerator.newId(), categoryName);
-			        		this.categoryList.add(category);
+			        		drugClass = new DrugClass(this.drugClassIDGenerator.newId(), drugClassName);
+			        		this.drugClassList.add(drugClass);
 			        	}
 				        	
-			        	drugInstance.setCategory(category);
+			        	drugInstance.setDrugClass(drugClass);
 		        	}
 			        	
 			        if (strengthIndex != null && strengthIndex.length() > 0) {

@@ -16,9 +16,9 @@ import org.apache.jena.rdf.model.Seq;
 import controller.OntologyManager;
 import model.ActiveIngredient;
 import model.Drug;
+import model.DrugClass;
 import model.Manufacturer;
 import util.FusekiConnector;
-import model.Category;
 import model.Country;
 
 public class ObjectsToRDFConverter {
@@ -35,13 +35,13 @@ public class ObjectsToRDFConverter {
         OntClass drugClass = ontologyManager.findClass("Drug");
         OntClass manufacturerClass = ontologyManager.findClass("Manufacturer");
         OntClass ingredientClass = ontologyManager.findClass("Ingredient");
-        OntClass categoryClass = ontologyManager.findClass("Category");        
-        OntProperty nameProperty = ontologyManager.findProperty("name");
-        OntProperty brandName = ontologyManager.findProperty("brandName");
+        OntClass drugClass_Class = ontologyManager.findClass("DrugClass");        
+        OntProperty nameProp = ontologyManager.findProperty("name");
+        OntProperty brandNameProp = ontologyManager.findProperty("brandName");
         OntProperty hasCompound = ontologyManager.findProperty("hasCompound");
-        OntProperty isFromCategory = ontologyManager.findProperty("isFromCategory");
-		OntProperty hasStrength = ontologyManager.findProperty("hasStrength");            	
-		OntProperty manufacturedBy = ontologyManager.findProperty("manufacturedBy");    	
+        OntProperty ofDrugClass = ontologyManager.findProperty("ofDrugClass");
+		OntProperty strength = ontologyManager.findProperty("strength");            	
+		OntProperty hasManufacturerProp = ontologyManager.findProperty("hasManufacturer");    	
 		
 		Model rdfModel = ModelFactory.createDefaultModel();
 		
@@ -57,7 +57,7 @@ public class ObjectsToRDFConverter {
         	//Look for the instance in the Model. If does not exist, instantiate it
         	if (rdfModel.getResource(instanceURI) == null) {
         		Resource manufacturer = rdfModel.createResource(instanceURI,manufacturerClass);        	
-        		manufacturer.addProperty(nameProperty, m.getName());        	
+        		manufacturer.addProperty(nameProp, m.getName());        	
         	}
         }
         
@@ -84,16 +84,16 @@ public class ObjectsToRDFConverter {
         	if (!result) {
         		String instanceURI = String.format("%singredient/%s",namespaceIRI,ai.getId());
         		Resource ingredient = rdfModel.createResource(instanceURI,ingredientClass);        	
-        		ingredient.addProperty(nameProperty, ai.getName());
+        		ingredient.addProperty(nameProp, ai.getName());
         	}
         	
         }      
         
         //Converting objects from Category class to resources
-        for(Category c: csvDataReader.categoryList) {
+        for(DrugClass c: csvDataReader.drugClassList) {
         	String instanceURI = String.format("%scategory/%s",namespaceIRI,c.getId());
-        	Resource category = rdfModel.createResource(instanceURI,categoryClass);        	
-        	category.addProperty(nameProperty, c.getName());
+        	Resource category = rdfModel.createResource(instanceURI,drugClass_Class);        	
+        	category.addProperty(nameProp, c.getName());
         }      
         
         //Converting objects from Drug class to resources and creating relationships between resources
@@ -111,16 +111,16 @@ public class ObjectsToRDFConverter {
    			drug = rdfModel.createResource(instanceURI,drugClass);
 
         	if (d.getBrandName() != null) {        		
-            	drug.addProperty(brandName, d.getBrandName());
+            	drug.addProperty(brandNameProp, d.getBrandName());
         	}
         	
         	if (d.getStrength() != null){
-        		drug.addProperty(hasStrength, d.getStrength());
+        		drug.addProperty(strength, d.getStrength());
         	}
         	
         	if (d.getManufacturer() != null) {
         		Resource manufacturer = rdfModel.getResource(String.format("%smanufacturer/%s", namespaceIRI,d.getManufacturer().getId()));
-            	drug.addProperty(manufacturedBy,manufacturer);
+            	drug.addProperty(hasManufacturerProp,manufacturer);
         	}
         	
         	if (d.getActiveIngredients() != null && d.getActiveIngredients().size() > 0) {
@@ -135,9 +135,9 @@ public class ObjectsToRDFConverter {
         		
         	}
         	
-        	if (d.getCategory() != null) {            	
-            	Resource category = rdfModel.getResource(String.format("%scategory/%s",namespaceIRI,d.getCategory().getId()));
-            	drug.addProperty(isFromCategory, category);
+        	if (d.getDrugClass() != null) {            	
+            	Resource drugClassResource = rdfModel.getResource(String.format("%scategory/%s",namespaceIRI,d.getDrugClass().getId()));
+            	drug.addProperty(ofDrugClass, drugClassResource);
         	}
         }
  

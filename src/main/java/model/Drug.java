@@ -10,14 +10,14 @@ public class Drug {
 	private Manufacturer manufacturer;
 	private Country country;
 	private ArrayList<ActiveIngredient> activeIngredients = new ArrayList<ActiveIngredient>();
-	private Category category;
+	private DrugClass drugClass;
 
 	public Drug() {
 	
 	}
 	
 	public Drug(String drugCode, String brandName, String descritpion, String strength, Manufacturer manufacturer,
-			Country country, Category category) {
+			Country country, DrugClass drugClass) {
 		super();
 		this.drugCode = drugCode;
 		this.brandName = brandName;
@@ -25,7 +25,7 @@ public class Drug {
 		this.strength = strength;
 		this.manufacturer = manufacturer;
 		this.country = country;
-		this.category = category;
+		this.drugClass = drugClass;
 	}
 	public String getDrugCode() {
 		return drugCode;
@@ -85,19 +85,19 @@ public class Drug {
 		this.activeIngredients = activeIngredients;		
 	}
 
-	public Category getCategory() {
-		return category;
+	public DrugClass getDrugClass() {
+		return drugClass;
 	}
 	
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setDrugClass(DrugClass drugClass) {
+		this.drugClass = drugClass;
 	}
 
 	@Override
 	public String toString() {
 		return "Drug [drugCode=" + drugCode + ", brandName=" + brandName + ", descritpion=" + descritpion
 				+ ", strength=" + strength + ", manufacturer=" + manufacturer + ", country=" + country
-				+ ", activeIngredients=" + activeIngredients + ", category=" + category + "]";
+				+ ", activeIngredients=" + activeIngredients + ", drugClass=" + drugClass + "]";
 	}
 	
 }

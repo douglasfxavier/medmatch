@@ -22,22 +22,21 @@
     
 
 
-    <!-- http://medmatch.global/ontology/pharmacology#containsIngredient -->
-
-    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#containsIngredient">
-        <owl:inverseOf rdf:resource="http://medmatch.global/ontology/pharmacology#ingredientIsInCompound"/>
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
-        <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#Ingredient"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://medmatch.global/ontology/pharmacology#hasCompound -->
 
     <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#hasCompound">
         <owl:inverseOf rdf:resource="http://medmatch.global/ontology/pharmacology#isInDrug"/>
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
+        <rdfs:domain rdf:resource="https://health-lifesci.schema.org/Drug"/>
         <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://medmatch.global/ontology/pharmacology#hasManufacturer -->
+
+    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#hasManufacturer">
+        <rdfs:domain rdf:resource="https://health-lifesci.schema.org/Drug"/>
+        <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#Manufacturer"/>
     </owl:ObjectProperty>
     
 
@@ -48,34 +47,17 @@
     
 
 
-    <!-- http://medmatch.global/ontology/pharmacology#isFromCategory -->
-
-    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#isFromCategory">
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
-        <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#Category"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://medmatch.global/ontology/pharmacology#isInDrug -->
 
     <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#isInDrug"/>
     
 
 
-    <!-- http://medmatch.global/ontology/pharmacology#manufactureDrug -->
+    <!-- http://medmatch.global/ontology/pharmacology#ofDrugClass -->
 
-    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#manufactureDrug">
-        <owl:inverseOf rdf:resource="http://medmatch.global/ontology/pharmacology#manufacturedBy"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://medmatch.global/ontology/pharmacology#manufacturedBy -->
-
-    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#manufacturedBy">
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
-        <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#Manufacturer"/>
+    <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#ofDrugClass">
+        <rdfs:domain rdf:resource="https://health-lifesci.schema.org/Drug"/>
+        <rdfs:range rdf:resource="https://health-lifesci.schema.org/DrugClass"/>
     </owl:ObjectProperty>
     
 
@@ -84,7 +66,7 @@
 
     <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#producedInCountry">
         <owl:inverseOf rdf:resource="http://medmatch.global/ontology/pharmacology#producesDrug"/>
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
+        <rdfs:domain rdf:resource="https://health-lifesci.schema.org/Drug"/>
         <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#Country"/>
     </owl:ObjectProperty>
     
@@ -93,6 +75,15 @@
     <!-- http://medmatch.global/ontology/pharmacology#producesDrug -->
 
     <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#producesDrug"/>
+    
+
+
+    <!-- https://health-lifesci.schema.org/activeIngredient -->
+
+    <owl:ObjectProperty rdf:about="https://health-lifesci.schema.org/activeIngredient">
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
+        <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#Ingredient"/>
+    </owl:ObjectProperty>
     
 
 
@@ -117,30 +108,7 @@
 
     <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#brandName">
         <rdfs:subPropertyOf rdf:resource="http://medmatch.global/ontology/pharmacology#name"/>
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://medmatch.global/ontology/pharmacology#hasStrength -->
-
-    <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#hasStrength">
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Ingredient"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://medmatch.global/ontology/pharmacology#identifier -->
-
-    <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#identifier">
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Category"/>
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Country"/>
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Ingredient"/>
+        <rdfs:domain rdf:resource="https://health-lifesci.schema.org/Drug"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     </owl:DatatypeProperty>
     
@@ -167,19 +135,32 @@
     <!-- http://medmatch.global/ontology/pharmacology#name -->
 
     <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#name">
-        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Category"/>
         <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
         <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Country"/>
         <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Ingredient"/>
         <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Manufacturer"/>
+        <rdfs:domain rdf:resource="https://health-lifesci.schema.org/DrugClass"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/dc/terms/description -->
+    <!-- http://medmatch.global/ontology/pharmacology#strength -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/description"/>
+    <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#strength">
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Compound"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Ingredient"/>
+        <rdfs:domain rdf:resource="https://health-lifesci.schema.org/Drug"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://health-lifesci.schema.org/isAvailableGenerically -->
+
+    <owl:DatatypeProperty rdf:about="https://health-lifesci.schema.org/isAvailableGenerically">
+        <rdfs:domain rdf:resource="https://health-lifesci.schema.org/Drug"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -197,7 +178,7 @@
     <!-- http://medmatch.global/ontology/pharmacology#Allopathy -->
 
     <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Allopathy">
-        <rdfs:subClassOf rdf:resource="http://medmatch.global/ontology/pharmacology#Category"/>
+        <rdfs:subClassOf rdf:resource="https://health-lifesci.schema.org/DrugClass"/>
     </owl:Class>
     
 
@@ -205,14 +186,8 @@
     <!-- http://medmatch.global/ontology/pharmacology#BrandedlDrug -->
 
     <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#BrandedlDrug">
-        <rdfs:subClassOf rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
+        <rdfs:subClassOf rdf:resource="https://health-lifesci.schema.org/Drug"/>
     </owl:Class>
-    
-
-
-    <!-- http://medmatch.global/ontology/pharmacology#Category -->
-
-    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Category"/>
     
 
 
@@ -228,16 +203,10 @@
     
 
 
-    <!-- http://medmatch.global/ontology/pharmacology#Drug -->
-
-    <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Drug"/>
-    
-
-
     <!-- http://medmatch.global/ontology/pharmacology#GenericDrug -->
 
     <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#GenericDrug">
-        <rdfs:subClassOf rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
+        <rdfs:subClassOf rdf:resource="https://health-lifesci.schema.org/Drug"/>
     </owl:Class>
     
 
@@ -245,7 +214,7 @@
     <!-- http://medmatch.global/ontology/pharmacology#HerbalDrug -->
 
     <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#HerbalDrug">
-        <rdfs:subClassOf rdf:resource="http://medmatch.global/ontology/pharmacology#Drug"/>
+        <rdfs:subClassOf rdf:resource="https://health-lifesci.schema.org/Drug"/>
     </owl:Class>
     
 
@@ -253,7 +222,7 @@
     <!-- http://medmatch.global/ontology/pharmacology#Homeopathy -->
 
     <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Homeopathy">
-        <rdfs:subClassOf rdf:resource="http://medmatch.global/ontology/pharmacology#Category"/>
+        <rdfs:subClassOf rdf:resource="https://health-lifesci.schema.org/DrugClass"/>
     </owl:Class>
     
 
@@ -273,8 +242,20 @@
     <!-- http://medmatch.global/ontology/pharmacology#Phytotherapy -->
 
     <owl:Class rdf:about="http://medmatch.global/ontology/pharmacology#Phytotherapy">
-        <rdfs:subClassOf rdf:resource="http://medmatch.global/ontology/pharmacology#Category"/>
+        <rdfs:subClassOf rdf:resource="https://health-lifesci.schema.org/DrugClass"/>
     </owl:Class>
+    
+
+
+    <!-- https://health-lifesci.schema.org/Drug -->
+
+    <owl:Class rdf:about="https://health-lifesci.schema.org/Drug"/>
+    
+
+
+    <!-- https://health-lifesci.schema.org/DrugClass -->
+
+    <owl:Class rdf:about="https://health-lifesci.schema.org/DrugClass"/>
 </rdf:RDF>
 
 
