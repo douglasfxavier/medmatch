@@ -3,10 +3,12 @@ package util;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.EntityBuilder;
@@ -29,7 +31,7 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.RDFReader;
 
 import controller.AppConfig;
-
+import controller.CountryController;
 import model.Country;
 
 public class FusekiConnector {
@@ -93,8 +95,49 @@ public class FusekiConnector {
 			e.printStackTrace();
 		}	
 	}
+
+	public Map<String,String> getRegisteredCountries() {
+		try {
+			String queryString = 
+				"SELECT ?country\n" +
+				"WHERE\n" +
+				"{\n" + 
+					"?datasetEndpoint rdf:type void:Dataset;\n" +
+					"wdt:P17 ?country .\n" +									
+				"}";
+		
+            	Query query = QueryFactory.create();
+            	query.setPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+            	query.setPrefix("wdt", "http://www.wikidata.org/prop/direct/");
+            	query.setPrefix("void", "http://rdfs.org/ns/void#");
+            	
+	        	QueryFactory.parse(query, queryString, "", Syntax.syntaxSPARQL_11);
+            	QueryExecution qexec = QueryExecutionFactory.sparqlService(AppConfig.getProperty("sparqlService"), query);
+            	ResultSet result = qexec.execSelect();
+            	
+            	Map<String,String> countrysMap = new HashMap<>();
+            	ArrayList<Country> countryList = CountryController.getAllContries();
+            		
+            	while(result.hasNext()) {
+            		QuerySolution row = result.next();
+            		String countryURI = row.get("country").toString();
+            		Country c = CountryController.findCountryByURI(countryURI, countryList);
+            		countrysMap.put(c.getCountryName(),c.getUri());
+            	}
+            	
+           		qexec.close();
+           		
+           		Map<String,String> sortedMap = new TreeMap<>(countrysMap); 
+           		
+           		return sortedMap;
+             
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	      return null;
+	    }	
+	}	
 	
-	public HashMap<String, String> getDatasetDetailsByCountry(Country country) {
+	public HashMap<String,String> getDatasetDetailsByCountry(String countryURI) {
 		try {
 			String queryString = 
 				"SELECT ?datasetEndpoint ?dumpService ?sparqlService\n" +
@@ -104,7 +147,7 @@ public class FusekiConnector {
 					"void:dataDump ?dumpService;\n" +
 					"void:sparqlEndpoint ?sparqlService;\n" +
 					"wdt:P17 ?country .\n" + 
-					String.format("FILTER(?country = <%s>)\n", country.getUri()) +				
+					String.format("FILTER(?country = <%s>)\n", countryURI) +				
 				"}";
 		
             	Query query = QueryFactory.create();

@@ -47,11 +47,12 @@ public class UploadBean {
 	}
 
 	public String getNamespaceIRI() {
-		return namespaceIRI;
+		return this.namespaceIRI;
 	}
 
 	public void setNamespaceIRI(String namespaceIRI) {
-		this.namespaceIRI = String.format("http://%s", namespaceIRI);
+		String namespaceIRIwithoutHTTP = namespaceIRI.replace("http://", ""); 
+		this.namespaceIRI = namespaceIRIwithoutHTTP ;
 	}
 
 	public String getDatasetName() {

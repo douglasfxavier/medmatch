@@ -20,28 +20,21 @@ import util.FusekiConnector;
 public class ConversionBean {
 	@ManagedProperty (value = "#{matchingBean}")
 	private MatchingBean matchingBean;
-	@ManagedProperty (value = "#{ontologyBean}")
-	private OntologyBean ontologyBean;
 	@ManagedProperty (value = "#{csvDataReaderBean}")
 	private CSVDataReaderBean csvDataReaderBean;
+	private OntologyManager ontologyManager;
 	private Model rdfModel;
 	private String rdfString;
 	//Fields send by post from the view matching.xhtml
-	private String categoryIndex;
-	private String activeIngredientNameIndex;
 	private String drugCodeIndex;
-	private String brandNameIndex;
+	private String brandIndex;
+	private String drugClassIndex;
+	private String atcCodeIndex;
+	private String activeIngredientNameIndex;
 	private String manufacturerIDIndex;
 	private String manufacturerNameIndex;
 	private String strengthIndex;
 
-	public String getCategoryIndex() {
-		return categoryIndex;
-	}
-
-	public void setCategoryIndex(String categoryIndex) {
-		this.categoryIndex = categoryIndex;
-	}
 
 	public String getDrugCodeIndex() {
 		return drugCodeIndex;
@@ -50,6 +43,30 @@ public class ConversionBean {
 	public void setDrugCodeIndex(String drugCodeIndex) {
 		this.drugCodeIndex = drugCodeIndex;
 	}
+	
+	public String getBrandIndex() {
+		return brandIndex;
+	}
+
+	public void setBrandIndex(String brandIndex) {
+		this.brandIndex = brandIndex;
+	}
+
+	public String getDrugClassIndex() {
+		return drugClassIndex;
+	}
+
+	public void setDrugClassIndex(String drugClassIndex) {
+		this.drugClassIndex = drugClassIndex;
+	}
+
+	public String getAtcCodeIndex() {
+		return atcCodeIndex;
+	}
+
+	public void setAtcCodeIndex(String atcCodeIndex) {
+		this.atcCodeIndex = atcCodeIndex;
+	}
 
 	public String getActiveIngredientNameIndex() {
 		return activeIngredientNameIndex;
@@ -57,14 +74,6 @@ public class ConversionBean {
 
 	public void setActiveIngredientNameIndex(String activeIngredientNameIndex) {
 		this.activeIngredientNameIndex = activeIngredientNameIndex;
-	}
-
-	public String getBrandNameIndex() {
-		return brandNameIndex;
-	}
-
-	public void setBrandNameIndex(String brandNameIndex) {
-		this.brandNameIndex = brandNameIndex;
 	}
 
 	public String getManufacturerIDIndex() {
@@ -116,14 +125,6 @@ public class ConversionBean {
 		this.matchingBean = matchingBean;
 	}
 
-	public OntologyBean getOntologyBean() {
-		return ontologyBean;
-	}
-
-	public void setOntologyBean(OntologyBean ontologyBean) {
-		this.ontologyBean = ontologyBean;
-	}
-
 	public CSVDataReaderBean getCsvDataReaderBean() {
 		return this.csvDataReaderBean;
 	}
@@ -131,30 +132,40 @@ public class ConversionBean {
 	public void setCsvDataReaderBean(CSVDataReaderBean csvDataReaderBean) {
 		this.csvDataReaderBean = csvDataReaderBean;
 	}
+	
+	public OntologyManager getOntologyManager() {
+		return ontologyManager;
+	}
+
+	public void setOntologyManager(OntologyManager ontologyManager) {
+		this.ontologyManager = ontologyManager;
+	}
 
 	public String convert() throws NumberFormatException, FileNotFoundException, ArrayIndexOutOfBoundsException {
 		try {
 			String filePath;
 			String datasetName = this.matchingBean.getUploadBean().getDatasetName();
 			Country country = this.matchingBean.getSelectedCountry();
-			String namespaceURI = this.matchingBean.getUploadBean().getNamespaceIRI();
-			
+			String namespaceIRI = this.matchingBean.getUploadBean().getNamespaceIRI();
+						
 			RDFManager manager = new RDFManager();
 			FusekiConnector fusekiConnector = new FusekiConnector();
 			
 			String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
-			OntologyManager ontologyManager = this.matchingBean.getOntologyBean().getOntologyManager("pharmacology.owl",ontologyIRI);
-			ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter(namespaceURI, ontologyManager);
+			OntologyManager ontologyManager = new OntologyManager("pharmacology.owl", ontologyIRI);
+			ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter(namespaceIRI, ontologyManager);
 			FacesContext facesContext= FacesContext.getCurrentInstance();
 			
-			this.csvDataReaderBean.getCsvDataReader().loadData(country, 
-					   drugCodeIndex, 
-					   brandNameIndex, 
-					   activeIngredientNameIndex,
-					   categoryIndex, 
-					   manufacturerIDIndex, 
-					   manufacturerNameIndex, 
-					   strengthIndex);
+			this.csvDataReaderBean.getCsvDataReader()
+				.loadData(country, 
+						  drugCodeIndex, 
+					      brandIndex, 
+					      activeIngredientNameIndex,
+					      atcCodeIndex,
+					      drugClassIndex,					   
+					      manufacturerIDIndex, 
+					      manufacturerNameIndex, 
+					      strengthIndex);
 
 			String datasetEndpoint = String.format("http://localhost:3030/%s",datasetName);
 			String datasetUploadService = String.format("%s/upload",datasetEndpoint);
@@ -176,7 +187,7 @@ public class ConversionBean {
 					.getExternalContext()
 					.getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.rdf",country.getCountryName().replace('\n', '_')));
 			
-			manager.saveFile(rdfModel, filePath, "RDF/XML",namespaceURI);
+			manager.saveFile(rdfModel, filePath, "RDF/XML",namespaceIRI);
 			
 			//Upload RDF file on the country's dataset on Fuseki
 			fusekiConnector.uploadRDF(filePath,datasetUploadService);

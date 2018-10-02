@@ -5,7 +5,8 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
 
 	<ui:composition template="/view/template/layout.xhtml">
 		<ui:define name="header-title">MedMatch</ui:define>
@@ -15,13 +16,15 @@
 				<h:form id="upload-form" class="form-group" enctype="multipart/form-data">
 					<div class="form-row">
 						<div class="col-md-3 mb-3">			
-							<h:outputLabel for="originCountryID">Origin Country</h:outputLabel>
-							<h:selectOneMenu class = "custom-select custom-select-md" id="originCountryID" required="true" value="#{searchBean.selectedOriginCountryNumericCode}">
+							<h:outputLabel for="originCountryID" value="Origin Country" />
+							<h:selectOneMenu class="custom-select custom-select-md" id="originCountryID" required="true" 
+								value="#{searchBean.selectedOriginCountry}" onchange="submit()"
+								valueChangeListener="#{searchBean.onCountrySelected}">
 								<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
-								<f:selectItems value="#{countryListBean.getAllCountries()}" 
-									var="country" 
-									itemValue="#{country.numericCode}"
-									itemLabel="#{country.countryName}" />	
+								<f:selectItems value="#{searchBean.registeredCountries}"
+									var="country"
+									itemValue="#{country}"
+									itemLabel="#{country}"/>	
 							</h:selectOneMenu>
 						</div>
 						<div class="col-md-1">						
@@ -29,9 +32,9 @@
 						</div>
 						<div class="col-md-3 mb-3">			
 							<h:outputLabel for="targetCountryID">Target Country</h:outputLabel>
-							<h:selectOneMenu class = "custom-select custom-select-md" id="targetCountryID" required="true" value="#{searchBean.selectedTargetCountryNumericCode}">
+							<h:selectOneMenu class = "custom-select custom-select-md" id="targetCountryID" required="true" value="#{searchBean.selectedTargetCountry}">
 								<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
-								<f:selectItems value="#{countryListBean.getAllCountries()}" 
+								<f:selectItems value="#{searchBean.registeredCountries}" 
 									var="country" 
 									itemValue="#{country.numericCode}"
 									itemLabel="#{country.countryName}" />	
@@ -40,9 +43,19 @@
 					</div>
 					<div class="form-row">
 						<div class="col-md-7 mb-3">
-							<h:outputLabel for="drugSearchID">Drug search</h:outputLabel>
-							<h:inputText class="form-control" id="drugSearchID" p:placeholder="Tylenol" required="true" value="#{searchBean.activeIngredientInput}"/>							
+							<h:outputLabel for="drugSearchID" value="Drug search"/>
+							<h:inputText id="drugSearchID" class="form-control"
+								p:placeholder="Tylenol" required="true" value="#{searchBean.selectedbrand}"/>
 						</div>	
+					</div>
+					<div class="form-row">
+						<h:panelGrid>
+							<h:outputLabel for="drugSearchID2" value="Drug search"/>
+							<p:autoComplete id="drugSearchID2" 
+									value="#{searchBean.selectedbrand}" 
+									completeMethod="#{searchBean.drugBrandsByCountry(selectedOriginCountry)}"
+									maxResults="20" />
+						</h:panelGrid>
 					</div>
 					<div class="form-row">
 						<div class="col-md-7 mb-3 text-right">

@@ -1,4 +1,5 @@
 package controller;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.EntityBuilder;
@@ -7,6 +8,9 @@ import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.jena.ontology.DatatypeProperty;
+import org.apache.jena.ontology.OntClass;
+import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
@@ -20,6 +24,7 @@ import org.apache.jena.sparql.modify.UpdateEngine;
 import org.apache.jena.sparql.modify.UpdateEngineFactory;
 import org.apache.jena.sparql.util.Context;
 import org.apache.jena.util.FileManager;
+import org.apache.jena.util.iterator.ExtendedIterator;
 import org.apache.tomcat.util.descriptor.web.ApplicationParameter;
 
 import java.io.FileNotFoundException;
@@ -39,8 +44,31 @@ public class App
 {
     public static void main( String[] args ) throws FileNotFoundException
     {
-    	
-   	
+
+    	String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
+    	OntologyManager om = new OntologyManager("pharmacology.owl", ontologyIRI);
+    	try {
+    		ExtendedIterator<OntClass> ontClassIterator = om.getOntologyModel().listClasses();
+			while(ontClassIterator.hasNext()){
+				OntClass ontClass = ontClassIterator.next();
+				if (ontClass.getLocalName() == null)
+					continue;					
+				System.out.println(ontClass);
+				
+			}
+			
+			ExtendedIterator<OntProperty> ontPropIterator = om.getOntologyModel().listAllOntProperties();
+			while(ontPropIterator.hasNext()){
+				OntProperty ontPro = ontPropIterator.next();		
+				if (ontPro.getLocalName() == null)
+					continue;
+				System.out.println(ontPro);
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
     	/*
     	String datasetEndpoint = String.format("http://localhost:3030/%s","Brazil");
 		String datasetDumpDataService = String.format("%s/data",datasetEndpoint);

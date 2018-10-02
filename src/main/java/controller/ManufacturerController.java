@@ -10,7 +10,7 @@ public class ManufacturerController {
 	public Manufacturer findManufacturer(String manufacturerName, ArrayList<Manufacturer> manufacturerList) {
 		
 		for(Manufacturer m: manufacturerList) {
-			if (m.getName().equals(manufacturerName))
+			if (m.getName().toLowerCase().equals(manufacturerName.toLowerCase()))
 				return m;
 		}
 		

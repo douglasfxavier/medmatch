@@ -8,12 +8,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 
-import model.DrugClass;
+import model.ATCClass;
 import model.ActiveIngredient;
 import model.Country;
 import model.Drug;
@@ -24,9 +26,9 @@ public class CSVDataReader {
 	protected ArrayList<Drug> drugsList = new ArrayList<Drug>();
 	protected ArrayList<ActiveIngredient> activeIngredientsList = new ArrayList<ActiveIngredient>();
 	protected ArrayList<Manufacturer> manufacturerList = new ArrayList<Manufacturer>();
-	protected ArrayList<DrugClass> drugClassList = new ArrayList<DrugClass>();
+	protected ArrayList<ATCClass> atcClassList = new ArrayList<ATCClass>();
 	protected IDGenerator activeIngredientIDGenerator = new IDGenerator();
-	protected IDGenerator drugClassIDGenerator = new IDGenerator();
+	protected IDGenerator atcClassIDGenerator = new IDGenerator();
 	protected IDGenerator manufacturerIDGenerator = new IDGenerator();
 	protected String csvData;
 	protected char delimiter;
@@ -54,9 +56,10 @@ public class CSVDataReader {
 			Map<String, String>  headers = new HashMap<>();
 			
 			for (int i=0; i < header.length; i++) {
-				headers.put(header[i], String.valueOf(i));
+				headers.put(StringUtils.capitalize(header[i].toLowerCase()), String.valueOf(i));
 			}
 			Map<String, String> sortedMap = new TreeMap<String, String>(headers);			
+			
 			return sortedMap;
 			
 		}catch (IOException e) {
@@ -68,9 +71,10 @@ public class CSVDataReader {
 
 	public boolean loadData(Country currentCountry,
 							String drugCodeIndex,							
-							String drugNameIndex,
+							String brandIndex,
 							String activeIngredientNameIndex,
-							String drugClassIndex,
+							String atcCodeIndex, 
+							String atcClassIndex,							
 							String manufacturerIDIndex,
 							String manufacturerNameIndex,
 							String strengthIndex) throws Exception {
@@ -105,53 +109,82 @@ public class CSVDataReader {
 			       	drugInstance.setCountry(country);
 			        	
 			        //Checking if there is a value retrieved from the CSV for the property below
-			        if (drugNameIndex != null && drugNameIndex.length() > 0){
-			        	String brandName = line[Integer.parseInt(drugNameIndex)];
-			        	drugInstance.setBrandName(brandName);
+			        if (brandIndex != null && brandIndex.length() > 0){
+			        	String brand = line[Integer.parseInt(brandIndex)];
+			        	drugInstance
+			        		.setBrand(StringUtils.capitalize(brand.toLowerCase()));
 			        }
 			        	
 			        //Checking if there is a value retrieved from the CSV for the property below
 			        if (manufacturerNameIndex != null && manufacturerNameIndex.length() > 0) {	
 			        	String manufacturerName = line[Integer.parseInt(manufacturerNameIndex)];
 				      
+			        	String manufacturerId = (manufacturerIDIndex != null && manufacturerIDIndex.length() > 0) 
+		        				? line[Integer.parseInt(manufacturerIDIndex)] 
+		        						:  String.format("%s", this.manufacturerIDGenerator.newId());
+			        	
 				       	//Checking if the manufacturer of the drug of the current line from the CSV is already on the list
 				       	//In case it's not, add the new manufacturer on it				        	
 				       	Manufacturer manufacturer = null;
 				        	
 				       	if (this.manufacturerList != null && this.manufacturerList.size() != 0) {
 				       		ManufacturerController manufacturerController = new ManufacturerController();
-				       		manufacturer = manufacturerController.findManufacturer(manufacturerName, this.manufacturerList);
+				       		manufacturer = manufacturerController
+				       				.findManufacturer(manufacturerName, this.manufacturerList);
 				       	}
 				      			        	
 				       	if (manufacturer == null) {
-				       		int manufacturerId = this.manufacturerIDGenerator.newId();
-					       	manufacturer = new Manufacturer(String.format("%s", manufacturerId),manufacturerName);
+				       		manufacturer = new Manufacturer(manufacturerId,StringUtils.capitalize(manufacturerName.toLowerCase()));
 				       	}   	
 				       	
 				       	drugInstance.setManufacturer(manufacturer);
 				     }
-			        
+
 		        	//Checking if there is a value retrieved from the CSV for the property below
-		        	if (drugClassIndex!= null && drugClassIndex.length() > 0) {	
-		        		String drugClassName = line[Integer.parseInt(drugClassIndex)];        	
-			        	
-	        		//Checking if the drugClass of the drug of the current line from the CSV is already on the list
-		        	//In case it's not, add the new drugClass on it
+		        	if (atcCodeIndex!= null && atcCodeIndex.length() > 0) {	
+		        		String atcCode = line[Integer.parseInt(atcCodeIndex)];        	
+		        		String atcClassName = "";
+		        		if (atcClassIndex != null && atcClassIndex.length() > 0) {
+		        			atcClassName = StringUtils.capitalize(atcClassName.toLowerCase());
+		        		}else {
+		        			atcClassName = null;
+		        		}
+	        		//Checking if the atcClass of the drug of the current line from the CSV is already on the list
+		        	//In case it's not, add the new atcClass on it
 				        	
-			        	DrugClass drugClass = null; 
+			        	ATCClass atcClass = null; 
 			        	
-			        	if (this.drugClassList != null && this.drugClassList.size() != 0) {
-			        		drugClass = DrugClassController.findDrugClass(drugClassName, this.drugClassList);
+			        	if (this.atcClassList != null && this.atcClassList.size() != 0) {
+			        		atcClass = ATCClassController.findATCClassByCode(atcCode, this.atcClassList);
 			        	}
 			        	
-			        	if (drugClass == null) {
+			        	if (atcClass == null) {
+
+			        		atcClass = new ATCClass(atcCode, atcClassName,null);
+			        		this.atcClassList.add(atcClass);
+			        	}
+				        	
+			        	drugInstance.setAtcClass(atcClass);
+		        	}else if (atcClassIndex!= null && atcClassIndex.length() > 0) { //Checking if there is a value retrieved from the CSV for the property below
+		        				
+		        		//	Checking if the atcClass of the drug of the current line from the CSV is already on the list
+		        		//In case it's not, add the new atcClass on it
+		        		String atcClassName = line[Integer.parseInt(atcClassIndex)];	
+			        	ATCClass atcClass = null; 
+			        	
+			        	if (this.atcClassList != null && this.atcClassList.size() != 0) {
+			        		atcClass = ATCClassController.findATCClassByCode(StringUtils.capitalize(atcClassName.toLowerCase()), this.atcClassList);
+			        	}
+			        	
+			        	if (atcClass == null) {
 			        		
-			        		drugClass = new DrugClass(this.drugClassIDGenerator.newId(), drugClassName);
-			        		this.drugClassList.add(drugClass);
+			        		atcClass = new ATCClass(String.format("%s", this.atcClassIDGenerator.newId()), StringUtils.capitalize(atcClassName.toLowerCase()),null);
+			        		this.atcClassList.add(atcClass);
 			        	}
 				        	
-			        	drugInstance.setDrugClass(drugClass);
+			        	drugInstance.setAtcClass(atcClass);
 		        	}
+
 			        	
 			        if (strengthIndex != null && strengthIndex.length() > 0) {
 			        	String strength = line[Integer.parseInt(strengthIndex)];
@@ -175,11 +208,11 @@ public class CSVDataReader {
 			        	
 			       	if (this.activeIngredientsList != null && this.activeIngredientsList.size() != 0) {
 			       		ActiveIngredientController activeIngredientController = new ActiveIngredientController();
-			       		activeIngredient = activeIngredientController.findCompound(activeIngredientName, this.activeIngredientsList);
+			       		activeIngredient = activeIngredientController.findCompound(StringUtils.capitalize(activeIngredientName.toLowerCase()), this.activeIngredientsList);
 			       	}        	
 			        	
 			       	if (activeIngredient == null) {				
-			       		activeIngredient = new ActiveIngredient(this.activeIngredientIDGenerator.newId(), activeIngredientName);
+			       		activeIngredient = new ActiveIngredient(this.activeIngredientIDGenerator.newId(), StringUtils.capitalize(activeIngredientName.toLowerCase()));
 			       		this.activeIngredientsList.add(activeIngredient);
 			        }
 			        	

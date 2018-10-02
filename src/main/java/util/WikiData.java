@@ -9,18 +9,21 @@ import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.Syntax;
 
+import model.ATCClass;
 import model.Country;
 
 
 
-public class WikiDataCountry {
-	ArrayList<Country> allCountries = new ArrayList<Country>();
-
+public class WikiData {
+	private ArrayList<Country> allCountries = new ArrayList<>();	
+	private ArrayList<ATCClass> allATCClasses = new ArrayList<>();	
+	private String endpoint = "https://query.wikidata.org/sparql";
+	
     public ArrayList<Country> getCountries() {
         try {
-            String endpoint = "https://query.wikidata.org/sparql";
-
-            String querySelect = "SELECT DISTINCT ?countryLabel \n" +
+        	
+            String querySelect = 
+            		"SELECT DISTINCT ?countryLabel \n" +
                     "                (?country as ?uri)\n" +
                     "                ?numericCode\n" +
                     "                ?alphaCode\n" +
@@ -61,6 +64,40 @@ public class WikiDataCountry {
             e.printStackTrace();
         }
 		return allCountries;
+    }
+    
+    
+    public ArrayList<ATCClass> getAllATCClasses() {
+    	String querySelect =
+    			"SELECT ?atcCode ?codeLabel ?altLabel\n" +
+    			"WHERE {\n" + 
+    			"    ?atcCode wdt:P31 wd:Q192093;\n" + 
+    			"    rdfs:label ?codeLabel;n" + 
+    			"    skos:altLabel ?altLabel  .n" + 
+    			"    FILTER((LANG(?codeLabel )) = \"en\" && (LANG(?altLabel)) = \"en\")\n" + 
+    			"} ORDER BY ?codeLabel";
+    	Query query = QueryFactory.create();
+    	query.setPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+    	query.setPrefix("wdt", "http://www.wikidata.org/prop/direct/");
+    	query.setPrefix("wd", "http://www.wikidata.org/entity/");
+    	query.setPrefix("skos", "http://www.w3.org/2004/02/skos/core#");
+    	QueryFactory.parse(query, querySelect, "", Syntax.syntaxSPARQL_11);
+    	QueryExecution qexec = QueryExecutionFactory.sparqlService(endpoint, query);
+    	ResultSet result = qexec.execSelect();
+
+    	while(result.hasNext()) {
+    		QuerySolution row = result.next();
+    		String atcCode = row.get("atcCode").toString();
+    		String codeLabel = row.get("codeLabel").toString();
+    		String altLabel = row.get("altLabel").toString().split("@")[0];
+    		
+    		if (atcCode != null && codeLabel != null && altLabel != null) {
+        		ATCClass atcClass = new ATCClass(atcCode, codeLabel,altLabel);
+        		this.allATCClasses.add(atcClass);
+    		}
+    	}
+    	
+		return this.allATCClasses;    	
     }
     
 }

@@ -1,5 +1,8 @@
 package controller;
 
+import javax.faces.context.FacesContext;
+
+import org.apache.jena.ontology.DatatypeProperty;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModel;
@@ -12,15 +15,18 @@ public class OntologyManager {
 	private final String ontologyIRI;
 	private final String ontologyNamespace;	
 	private final OntDocumentManager documentManager;
-
-	public OntologyManager(String ontologyFile, String ontologyURI) {
+	
+	public OntologyManager(String fileName, String ontologyIRI) {
 		super();		
+		FacesContext fc= FacesContext.getCurrentInstance();
+		String path = fc.getExternalContext().getRealPath("WEB-INF\\classes\\ontology\\"+ fileName);	
+		
 		this.ontologyModel = ModelFactory.createOntologyModel();
-		this.ontologyIRI = ontologyURI;
-		this.ontologyNamespace = ontologyURI + "#";
-		this.documentManager = ontologyModel.getDocumentManager();
-		this.documentManager.addAltEntry(this.ontologyIRI, "file:" + ontologyFile);
-		this.ontologyModel.read(ontologyURI);
+		this.ontologyIRI = ontologyIRI;
+		this.ontologyNamespace = ontologyIRI + "#";
+		this.documentManager = ontologyModel.getDocumentManager();		
+		this.documentManager.addAltEntry(this.ontologyIRI, "file:" + path);
+		this.ontologyModel.read(ontologyIRI);
 	}
 
 	public OntClass findClass(String className){
@@ -28,8 +34,11 @@ public class OntologyManager {
 			ExtendedIterator<OntClass> ontClassIterator = this.ontologyModel.listClasses();
 			while(ontClassIterator.hasNext()){
 				OntClass ontClass = ontClassIterator.next();
-				if (ontClass.getLocalName().equals(className))
+				if (ontClass.getLocalName() == null)
+					continue;
+				if (ontClass.getLocalName().equals(className)) {					 
 					return ontClass;
+				}
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -42,6 +51,8 @@ public class OntologyManager {
 			ExtendedIterator<OntProperty> ontClassIterator = this.ontologyModel.listAllOntProperties();
 			while (ontClassIterator.hasNext()){
 				OntProperty ontProperty = ontClassIterator.next();
+				if (ontProperty.getLocalName() == null)
+					continue;
 				if (ontProperty.getLocalName().equals(propertyName))
 					return ontProperty;
 			}
@@ -50,6 +61,22 @@ public class OntologyManager {
 		}
 		return null;
 	}
+	
+/*	public DatatypeProperty findDataTypeProperty(String dataTypePropertyName){
+		try {	
+			ExtendedIterator<DatatypeProperty> ontClassIterator = this.ontologyModel.listDatatypeProperties();
+			while (ontClassIterator.hasNext()){
+				DatatypeProperty ontProperty = ontClassIterator.next();
+				if (ontProperty.getLocalName() == null)
+					continue;
+				if (ontProperty.getLocalName().equals(dataTypePropertyName))
+					return ontProperty;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}*/
 	
 	public OntModel getOntologyModel() {
 		return ontologyModel; 

@@ -2,13 +2,13 @@ package controller;
 
 import java.util.ArrayList;
 import model.Country;
-import util.WikiDataCountry;;
+import util.WikiData;;
 
 public class CountryController {
 	
 	public static ArrayList<Country> getAllContries() {
 		ArrayList<Country> allCountries;
-		WikiDataCountry wdc = new WikiDataCountry();
+		WikiData wdc = new WikiData();
 		allCountries = wdc.getCountries();
 		
 		return allCountries;
@@ -23,6 +23,17 @@ public class CountryController {
 		
 		return null;
 	}
+	
+	public static Country findCountryByURI(String uri, ArrayList<Country> countryList) {		
+		
+		for(Country c: countryList) {
+			if (c.getUri().equals(uri))		
+				return c;
+		}
+		
+		return null;
+	}
+
 	
 
 }

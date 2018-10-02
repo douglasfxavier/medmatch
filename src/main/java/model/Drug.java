@@ -4,100 +4,98 @@ import java.util.ArrayList;
 
 public class Drug {
 	private String drugCode;
-	private String brandName;
+	private String brand;
 	private String descritpion;
 	private String strength;
 	private Manufacturer manufacturer;
 	private Country country;
 	private ArrayList<ActiveIngredient> activeIngredients = new ArrayList<ActiveIngredient>();
-	private DrugClass drugClass;
+	private ATCClass atcClass;
 
 	public Drug() {
 	
 	}
 	
-	public Drug(String drugCode, String brandName, String descritpion, String strength, Manufacturer manufacturer,
-			Country country, DrugClass drugClass) {
+	public Drug(String drugCode, String brand, String descritpion, String strength, Manufacturer manufacturer,
+			Country country, ATCClass atcClass) {
 		super();
 		this.drugCode = drugCode;
-		this.brandName = brandName;
+		this.brand = brand;
 		this.descritpion = descritpion;
 		this.strength = strength;
 		this.manufacturer = manufacturer;
 		this.country = country;
-		this.drugClass = drugClass;
+		this.atcClass = atcClass;
 	}
+
 	public String getDrugCode() {
 		return drugCode;
 	}
-	
+
 	public void setDrugCode(String drugCode) {
 		this.drugCode = drugCode;
 	}
-	
-	public String getBrandName() {
-		return brandName;
+
+	public String getBrand() {
+		return brand;
 	}
-	
-	public void setBrandName(String brandName) {
-		this.brandName = brandName;
+
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
-	
+
 	public String getDescritpion() {
 		return descritpion;
 	}
-	
-	
+
 	public void setDescritpion(String descritpion) {
 		this.descritpion = descritpion;
 	}
-	
+
 	public String getStrength() {
 		return strength;
 	}
-	
+
 	public void setStrength(String strength) {
 		this.strength = strength;
 	}
-	
+
 	public Manufacturer getManufacturer() {
 		return manufacturer;
 	}
-	
+
 	public void setManufacturer(Manufacturer manufacturer) {
 		this.manufacturer = manufacturer;
 	}
-	
+
 	public Country getCountry() {
 		return country;
 	}
-	
+
 	public void setCountry(Country country) {
 		this.country = country;
 	}
-	
-	
+
 	public ArrayList<ActiveIngredient> getActiveIngredients() {
 		return activeIngredients;
 	}
 
 	public void setActiveIngredients(ArrayList<ActiveIngredient> activeIngredients) {
-		this.activeIngredients = activeIngredients;		
+		this.activeIngredients = activeIngredients;
 	}
 
-	public DrugClass getDrugClass() {
-		return drugClass;
+	public ATCClass getAtcClass() {
+		return atcClass;
 	}
-	
-	public void setDrugClass(DrugClass drugClass) {
-		this.drugClass = drugClass;
+
+	public void setAtcClass(ATCClass atcClass) {
+		this.atcClass = atcClass;
 	}
 
 	@Override
 	public String toString() {
-		return "Drug [drugCode=" + drugCode + ", brandName=" + brandName + ", descritpion=" + descritpion
-				+ ", strength=" + strength + ", manufacturer=" + manufacturer + ", country=" + country
-				+ ", activeIngredients=" + activeIngredients + ", drugClass=" + drugClass + "]";
+		return "Drug [drugCode=" + drugCode + ", brand=" + brand + ", descritpion=" + descritpion + ", strength="
+				+ strength + ", manufacturer=" + manufacturer + ", country=" + country + ", activeIngredients="
+				+ activeIngredients + ", atcClass=" + atcClass + "]";
 	}
-	
 }
