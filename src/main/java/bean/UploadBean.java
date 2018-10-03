@@ -35,12 +35,9 @@ public class UploadBean {
 		this.selectedDelimiter = selectedDelimiter;
 	}
 
-
-
 	public Part getUploadedfile() { 	
 		return uploadedfile;
 	}
-
 		
 	public String getCsvData() {
 		return csvData;

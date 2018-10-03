@@ -17,6 +17,7 @@ public class StringComparison {
 		float result = metric.distance (str1, str2); 
 
 		return result;
+		
 	}
-
+	
 }

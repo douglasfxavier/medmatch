@@ -1,112 +1,49 @@
 package bean;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.event.ValueChangeEvent;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.Resource;
-
-import controller.DrugSearch;
-import controller.OntologyManager;
+import controller.CountryController;
+import model.Country;
 import util.FusekiConnector;
 
 @ManagedBean (name = "searchBean")
-@RequestScoped
+@SessionScoped
 public class SearchBean {
-	private Map<String,String> registeredCountries;
-	private String selectedOriginCountry;
-	private String selectedTargetCountry;
-	//private ArrayList<String> drugNamesByCountry;
-	private String selectedbrand;
-	private OntologyManager ontologyManager;
+	private ArrayList<Country> countryList;
+	private String originCountry;
+	private String targetCountry;
+	private String drugBrand;
 	
-	//private String activeIngredientInput;
-	@PostConstruct 
-	public void Init() {
-		String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
-		this.ontologyManager = new OntologyManager("pharmacology.owl", ontologyIRI);
+	public ArrayList<Country> getCountryList() {
+		CountryController countryController = new CountryController();
+		this.countryList = countryController.getCountryList();
+		return this.countryList;
 	}
-	
-	public String getSelectedOriginCountry() {
-		return selectedOriginCountry;
+	public void setCountryList(ArrayList<Country> countryList) {
+		this.countryList = countryList;
 	}
-	
-	public void setSelectedOriginCountry(String newValue) {
-		this.selectedOriginCountry = newValue;
+	public String getOriginCountry() {
+		return originCountry;
 	}
-	
-	public String getSelectedTargetCountry() {
-		return selectedTargetCountry;
+	public void setOriginCountry(String originCountry) {
+		this.originCountry = originCountry;
 	}
-	
-	public void setSelectedTargetCountry(String selectedTargetCountry) {
-		this.selectedTargetCountry = selectedTargetCountry;
+	public String getTargetCountry() {
+		return targetCountry;
 	}
-
-	public String getSelectedbrand() {
-		return selectedbrand;
+	public void setTargetCountry(String targetCountry) {
+		this.targetCountry = targetCountry;
 	}
-
-	public void setSelectedbrand(String newValue) {
-		this.selectedbrand = newValue;
+	public String getDrugBrand() {
+		return drugBrand;
 	}
-	
-	public ArrayList<String> drugBrandsByCountry(String newValue) {
-		return DrugSearch.getDrugBrandsByCountry(selectedOriginCountry, this.ontologyManager);
+	public void setDrugBrand(String drugBrand) {
+		this.drugBrand = drugBrand;
 	}
-
-/*	public void setDrugNamesByCountry(ArrayList<String> newValue) {
-		return newValue;
-	}*/
-	
-	public Map<String, String> getRegisteredCountries() {
-		FusekiConnector fc = new FusekiConnector();
-		this.registeredCountries = fc.getRegisteredCountries();
-		return this.registeredCountries;
-	}
-
-	public ArrayList<String> onCountrySelected(ValueChangeEvent event) {
-		if (selectedOriginCountry !=null && !selectedOriginCountry.equals("")) {			 
-			return DrugSearch.getDrugBrandsByCountry(selectedOriginCountry, this.ontologyManager);
-		}else {
-			return new ArrayList<>();
-		}
-	}
-
-	public String search() throws IOException {
-		
-		FusekiConnector fusekiConnector = new FusekiConnector();
-	
-		HashMap<String, String> originCountryServices = fusekiConnector.getDatasetDetailsByCountry(selectedOriginCountry);
-		String originCountryDumpService = originCountryServices.get("dumpService");
-		Model originCountryDrugsModel = fusekiConnector.dumpData(originCountryDumpService);
-				
-		HashMap<String, String> targetCountryServices = fusekiConnector.getDatasetDetailsByCountry(selectedTargetCountry);
-		String targetCountryDumpService = targetCountryServices.get("dumpService");
-		Model targetCountryDrugsModel = fusekiConnector.dumpData(targetCountryDumpService);
-				
-		
-		Property brandProp = this.ontologyManager.findProperty("brand");
-		Map<Float,Resource> drugsMap = DrugSearch.compareDrugBybrand(selectedbrand, targetCountryDrugsModel, ontologyManager); 
-				
-		for(Map.Entry<Float,Resource> entry : drugsMap.entrySet()) {
-			Float metric = entry.getKey();			
-			Resource drug = entry.getValue();			
-			//System.out.println(String.format("%s   %s", metric, drugURI));
-			String drugbrand = drug.getPropertyResourceValue(brandProp).toString();
-			System.out.println(String.format("%s   %s", metric, drugbrand));
-		}
-		
-		return null;
-	}
-	
-
 }

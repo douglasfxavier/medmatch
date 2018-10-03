@@ -13,29 +13,32 @@ import model.Country;
 @ManagedBean (name = "countryListBean")
 @ApplicationScoped
 public class CountryListBean {
-	ArrayList<Country> allCountries = new ArrayList<>();
+	CountryController countryController;
+	ArrayList<Country> countryList = new ArrayList<>();
 	ArrayList<String> countryNames = new ArrayList<>();
 
 	@PostConstruct
 	public void Init() {
-		this.allCountries = CountryController.getAllContries();
+		this.countryController = new CountryController();
+		this.countryList = this.countryController.getCountryList();
 	}
 	
-	public void setAllCountries(ArrayList<Country> allCountries) {
-		this.allCountries = allCountries;
+	public void setCountryList(ArrayList<Country> countryList) {
+		this.countryList = countryList;
 	}
 
 	public void setCountryNames(ArrayList<String> countryNames) {
 		this.countryNames = countryNames;
 	}
 
-	public ArrayList<Country> getAllCountries() {
-		return allCountries;
+	public ArrayList<Country> getCountryList() {
+		return countryList;
 	}
 
 	public Country getCountry(int numericCode) {
-		Country country = CountryController.
-				findCountry(numericCode, this.allCountries);
+		
+		Country country = this.countryController.
+				findCountry(numericCode);
 		
 		return country;
 	}

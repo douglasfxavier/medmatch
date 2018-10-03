@@ -61,7 +61,6 @@ public class ObjectsToRDFConverter {
         	Resource manufacturer = rdfModel.createResource(instanceURI,manufacturerClass);        	
         	manufacturer.addProperty(nameProp, m.getName());        	
         }
-        
         //Converting objects from Active Ingredient class to resources
         for(ActiveIngredient ai: csvDataReader.activeIngredientsList) {
         	
@@ -125,7 +124,7 @@ public class ObjectsToRDFConverter {
         	
         	if (d.getManufacturer() != null) {
         		if (drug.getPropertyResourceValue(hasManufacturerProp) == null) {
-        			instanceURI = String.format("%smanufacturer/¨%s",namespaceIRI,d.getManufacturer().getId());
+        			instanceURI = String.format("%smanufacturer/%s",namespaceIRI,d.getManufacturer().getId());
         			Resource manufacturer = rdfModel.getResource(instanceURI);
         			drug.addProperty(hasManufacturerProp,manufacturer);
         		}

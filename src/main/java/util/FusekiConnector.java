@@ -95,7 +95,7 @@ public class FusekiConnector {
 			e.printStackTrace();
 		}	
 	}
-
+/*
 	public Map<String,String> getRegisteredCountries() {
 		try {
 			String queryString = 
@@ -115,19 +115,19 @@ public class FusekiConnector {
             	QueryExecution qexec = QueryExecutionFactory.sparqlService(AppConfig.getProperty("sparqlService"), query);
             	ResultSet result = qexec.execSelect();
             	
-            	Map<String,String> countrysMap = new HashMap<>();
+            	Map<String,String> countryMap = new HashMap<>();
             	ArrayList<Country> countryList = CountryController.getAllContries();
             		
             	while(result.hasNext()) {
             		QuerySolution row = result.next();
             		String countryURI = row.get("country").toString();
             		Country c = CountryController.findCountryByURI(countryURI, countryList);
-            		countrysMap.put(c.getCountryName(),c.getUri());
+            		countryMap.put(c.getCountryName(),c.getUri());
             	}
             	
            		qexec.close();
            		
-           		Map<String,String> sortedMap = new TreeMap<>(countrysMap); 
+           		Map<String,String> sortedMap = new TreeMap<>(countryMap); 
            		
            		return sortedMap;
              
@@ -135,7 +135,7 @@ public class FusekiConnector {
 	      e.printStackTrace();
 	      return null;
 	    }	
-	}	
+	}*/	
 	
 	public HashMap<String,String> getDatasetDetailsByCountry(String countryURI) {
 		try {

@@ -4,66 +4,55 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 	<ui:composition template="/view/template/layout.xhtml">
 		<ui:define name="header-title">MedMatch</ui:define>
 		<ui:define name="content">			
 			<div class="container">
 				<h1>MedMatch</h1>
-				<h:form id="upload-form" class="form-group" enctype="multipart/form-data">
-					<div class="form-row">
-						<div class="col-md-3 mb-3">			
-							<h:outputLabel for="originCountryID" value="Origin Country" />
-							<h:selectOneMenu class="custom-select custom-select-md" id="originCountryID" required="true" 
-								value="#{searchBean.selectedOriginCountry}" onchange="submit()"
-								valueChangeListener="#{searchBean.onCountrySelected}">
-								<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
-								<f:selectItems value="#{searchBean.registeredCountries}"
-									var="country"
-									itemValue="#{country}"
-									itemLabel="#{country}"/>	
-							</h:selectOneMenu>
+				<ui:param name="countryList" value="#{searchBean.countryList}" />
+				<h:form id="search-form" class="form-group">
+						<div class="form-row">
+							<div class="col-md-3 mb-3">			
+								<h:outputLabel for="originCountry" value="Origin Country" />
+								<h:selectOneMenu id="originCountry" class="custom-select custom-select-md" required="true" 
+									value="#{searchBean.originCountry}" >
+									<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
+									<f:selectItems value="#{countryList}"
+										var="country"
+										itemValue="#{country.uri}"
+										itemLabel="#{country.countryName}"/>	
+								</h:selectOneMenu>
+							</div>
+							<div class="col-md-1">
+							
+							</div>
+							<div class="col-md-3 mb-3">			
+								<h:outputLabel for="targetCountry" value="Target Country" />
+								<h:selectOneMenu id="targetCountry" class="custom-select custom-select-md" required="true" 
+									value="#{searchBean.targetCountry}" >
+									<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
+									<f:selectItems value="#{countryList}"
+										var="country"
+										itemValue="#{country.uri}"
+										itemLabel="#{country.countryName}"/>	
+								</h:selectOneMenu>
+							</div>
 						</div>
-						<div class="col-md-1">						
-							<object id="icon" data="./WEB-INF/classes/images/baseline-compare_arrows-24px.svg" type="image/svg+xml"></object>							
+						<div class="form-row">
+							<div class="col-md-7 mb-3">			
+								<h:outputLabel for="drugBrand" value="Drug brand" />
+								<h:inputText id="drugBrand" class="form-control" required="true" value="#{searchBean.drugBrand}" role="Drug brand"/> 
+							</div>
 						</div>
-						<div class="col-md-3 mb-3">			
-							<h:outputLabel for="targetCountryID">Target Country</h:outputLabel>
-							<h:selectOneMenu class = "custom-select custom-select-md" id="targetCountryID" required="true" value="#{searchBean.selectedTargetCountry}">
-								<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
-								<f:selectItems value="#{searchBean.registeredCountries}" 
-									var="country" 
-									itemValue="#{country.numericCode}"
-									itemLabel="#{country.countryName}" />	
-							</h:selectOneMenu>
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="col-md-7 mb-3">
-							<h:outputLabel for="drugSearchID" value="Drug search"/>
-							<h:inputText id="drugSearchID" class="form-control"
-								p:placeholder="Tylenol" required="true" value="#{searchBean.selectedbrand}"/>
-						</div>	
-					</div>
-					<div class="form-row">
-						<h:panelGrid>
-							<h:outputLabel for="drugSearchID2" value="Drug search"/>
-							<p:autoComplete id="drugSearchID2" 
-									value="#{searchBean.selectedbrand}" 
-									completeMethod="#{searchBean.drugBrandsByCountry(selectedOriginCountry)}"
-									maxResults="20" />
-						</h:panelGrid>
-					</div>
-					<div class="form-row">
-						<div class="col-md-7 mb-3 text-right">
-							<h:commandButton class="btn btn-primary" id="searchButton" value="Search" action="#{searchBean.search()}" />
-						</div>
-					</div>
-				</h:form>				
+						<div class="form-row">
+							<div class="col-md-7 mb-3 text-right">
+								<h:commandButton class="btn btn-primary" id="searchButton" value="Search" action="#{searchBean.search()}" />
+							</div>
+						</div>										
+				</h:form>
 			</div>
 		</ui:define>
-	</ui:composition>
+	</ui:composition>	
 </html>

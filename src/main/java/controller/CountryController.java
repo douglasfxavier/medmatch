@@ -5,18 +5,22 @@ import model.Country;
 import util.WikiData;;
 
 public class CountryController {
+	ArrayList<Country> countryList;
 	
-	public static ArrayList<Country> getAllContries() {
-		ArrayList<Country> allCountries;
+	
+	public CountryController() {
 		WikiData wdc = new WikiData();
-		allCountries = wdc.getCountries();
-		
-		return allCountries;
+		this.countryList = wdc.getCountries(); 
 	}
 
-	public static Country findCountry(int numericCode, ArrayList<Country> countryList) {		
+	public ArrayList<Country> getCountryList() {
+				
+		return countryList;
+	}
+
+	public Country findCountry(int numericCode) {		
 		
-		for(Country c: countryList) {
+		for(Country c: this.countryList) {
 			if (c.getNumericCode() == numericCode)		
 				return c;
 		}
@@ -24,9 +28,9 @@ public class CountryController {
 		return null;
 	}
 	
-	public static Country findCountryByURI(String uri, ArrayList<Country> countryList) {		
+	public Country findCountryByURI(String uri) {		
 		
-		for(Country c: countryList) {
+		for(Country c: this.countryList) {
 			if (c.getUri().equals(uri))		
 				return c;
 		}
