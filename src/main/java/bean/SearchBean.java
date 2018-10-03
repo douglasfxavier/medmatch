@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import controller.CountryController;
 import model.Country;
@@ -21,8 +22,10 @@ public class SearchBean {
 	private String drugBrand;
 	
 	public ArrayList<Country> getCountryList() {
-		CountryController countryController = new CountryController();
-		this.countryList = countryController.getCountryList();
+		if (countryList == null) {
+			CountryController countryController = new CountryController();
+			this.countryList = countryController.getCountryList();
+		}
 		return this.countryList;
 	}
 	public void setCountryList(ArrayList<Country> countryList) {
@@ -45,5 +48,10 @@ public class SearchBean {
 	}
 	public void setDrugBrand(String drugBrand) {
 		this.drugBrand = drugBrand;
+	}
+	
+	public String search() {
+
+		return null;
 	}
 }
