@@ -87,10 +87,7 @@ public class DrugSearch {
 					double mean = metric/numberOfOriginIngredients; 
 					drugObject.setMetric(mean);
 					finalMetrics.put(mean,drugObject);
-//					if (ingredientMetrics.get(originPosition) == null 
-//							|| metric < ingredientMetrics.get(originPosition)) {
-//						ingredientMetrics.put(originPosition,metric);
-//					}	
+
 				}
 
 			}

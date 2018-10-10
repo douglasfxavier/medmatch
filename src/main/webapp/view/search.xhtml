@@ -56,13 +56,13 @@
 				</h:form>
 			
 				<p:outputPanel autoUpdate="true">
-					<ul class="list-group">
-					  <ui:repeat var="drug" value="#{searchBean.getMatchedDrugs()}">
-						  <span class="badge badge-primary badge-pill">#{drug.getMetric()}</span>
-						  <li class="list-group-item d-flex justify-content-between align-items-center">
-						   		#{drug.getBrand()} 						  
-						  </li>
-					  </ui:repeat>
+					<ul class="list-group">							
+					  	<ui:repeat var="drug" value="#{searchBean.getMatchedDrugs()}">
+							<span class="badge badge-primary badge-pill">#{drug.getMetric()}</span>
+						  	<li class="list-group-item d-flex justify-content-between align-items-center">
+						  	#{drug.getBrand()}
+						  	</li>
+					  	</ui:repeat>
 					</ul>
 				</p:outputPanel>			
 			</div>
