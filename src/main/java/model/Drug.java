@@ -63,7 +63,9 @@ public class Drug {
 	public Manufacturer getManufacturer() {
 		return manufacturer;
 	}
-
+	public void addIngredient(ActiveIngredient ingredient) {
+		this.activeIngredients.add(ingredient);
+	}
 	public void setManufacturer(Manufacturer manufacturer) {
 		this.manufacturer = manufacturer;
 	}

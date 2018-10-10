@@ -62,22 +62,6 @@ public class OntologyManager {
 		return null;
 	}
 	
-/*	public DatatypeProperty findDataTypeProperty(String dataTypePropertyName){
-		try {	
-			ExtendedIterator<DatatypeProperty> ontClassIterator = this.ontologyModel.listDatatypeProperties();
-			while (ontClassIterator.hasNext()){
-				DatatypeProperty ontProperty = ontClassIterator.next();
-				if (ontProperty.getLocalName() == null)
-					continue;
-				if (ontProperty.getLocalName().equals(dataTypePropertyName))
-					return ontProperty;
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}*/
-	
 	public OntModel getOntologyModel() {
 		return ontologyModel; 
 	}

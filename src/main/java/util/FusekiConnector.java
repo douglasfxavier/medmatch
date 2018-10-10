@@ -43,6 +43,13 @@ public class FusekiConnector {
 		this.client = HttpClientBuilder.create().build();
 	}
 	
+	
+	
+	public HttpClient getClient() {
+		return client;
+	}
+
+
 	public void uploadRDF(String filePath, String datasetUploadService) {
         try {	
 			File file = new File(filePath);
@@ -95,47 +102,7 @@ public class FusekiConnector {
 			e.printStackTrace();
 		}	
 	}
-/*
-	public Map<String,String> getRegisteredCountries() {
-		try {
-			String queryString = 
-				"SELECT ?country\n" +
-				"WHERE\n" +
-				"{\n" + 
-					"?datasetEndpoint rdf:type void:Dataset;\n" +
-					"wdt:P17 ?country .\n" +									
-				"}";
-		
-            	Query query = QueryFactory.create();
-            	query.setPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-            	query.setPrefix("wdt", "http://www.wikidata.org/prop/direct/");
-            	query.setPrefix("void", "http://rdfs.org/ns/void#");
-            	
-	        	QueryFactory.parse(query, queryString, "", Syntax.syntaxSPARQL_11);
-            	QueryExecution qexec = QueryExecutionFactory.sparqlService(AppConfig.getProperty("sparqlService"), query);
-            	ResultSet result = qexec.execSelect();
-            	
-            	Map<String,String> countryMap = new HashMap<>();
-            	ArrayList<Country> countryList = CountryController.getAllContries();
-            		
-            	while(result.hasNext()) {
-            		QuerySolution row = result.next();
-            		String countryURI = row.get("country").toString();
-            		Country c = CountryController.findCountryByURI(countryURI, countryList);
-            		countryMap.put(c.getCountryName(),c.getUri());
-            	}
-            	
-           		qexec.close();
-           		
-           		Map<String,String> sortedMap = new TreeMap<>(countryMap); 
-           		
-           		return sortedMap;
-             
-	    } catch (IOException e) {
-	      e.printStackTrace();
-	      return null;
-	    }	
-	}*/	
+
 	
 	public HashMap<String,String> getDatasetDetailsByCountry(String countryURI) {
 		try {

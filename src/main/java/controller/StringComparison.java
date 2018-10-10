@@ -1,10 +1,13 @@
 package controller;
 
 import org.simmetrics.StringDistance;
+import org.simmetrics.StringMetric;
 import org.simmetrics.builders.StringDistanceBuilder;
 import org.simmetrics.metrics.EuclideanDistance;
+import org.simmetrics.metrics.Levenshtein;
 import org.simmetrics.simplifiers.Simplifiers;
 import org.simmetrics.tokenizers.Tokenizers;
+
 public class StringComparison {
 	
 	public static float euclideanDistance(String str1, String str2) {
@@ -19,5 +22,22 @@ public class StringComparison {
 		return result;
 		
 	}
+	
+	public static float levenshteinDistance(String str1, String str2) {
+
+		StringDistance metric = new Levenshtein();
+
+		return metric.distance(str1, str2); 
+	}
+	
+	public static float levenshteinMetric(String str1, String str2) {
+
+		StringMetric metric = new Levenshtein();
+
+		return metric.compare(str1, str2); 
+	}
+
+
+	
 	
 }

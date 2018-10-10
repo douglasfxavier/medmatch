@@ -7,15 +7,12 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 	
-	
 	<ui:composition template="/view/template/layout.xhtml">
 		<ui:define name="header-title">MedMatch - Uploading data and metadata</ui:define>
 		<ui:define name="content">
-			<div class="container">
-				<p>#{msgs}</p>
-				<h1>MedMatch</h1>
+			<div class="container">	
 				<h2>Dataset upload</h2>		
-				<h:form id="upload-form" class="form-group" enctype="multipart/form-data">
+				<h:form id="upload-form" class="form-group" enctype="multipart/form-data" >
 					<div class="form-row">
 						<div class="col-md-4 mb-3">			
 							<h:outputLabel for="namespaceID">Namespace IRI</h:outputLabel>								
@@ -43,7 +40,7 @@
 							<h:outputLabel for="countryID">Country</h:outputLabel>
 							<h:selectOneMenu class = "custom-select custom-select-md" id="countryID" required="true" value="#{uploadBean.selectedCountryNumericCode}">
 								<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
-								<f:selectItems value="#{countryListBean.getAllCountries()}" 
+								<f:selectItems value="#{countryListBean.countryList}" 
 									var="country" 
 									itemValue="#{country.numericCode}"
 									itemLabel="#{country.countryName}" />	
@@ -70,6 +67,7 @@
 					<div class="form-row">
 						<div class="col-md-4 mb-3 text-right">
 							<h:commandButton class="btn btn-primary" id="loadButton" value="Load" action="#{uploadBean.uploadFile()}" />
+							
 						</div>
 					</div>				
 				</h:form>

@@ -18,7 +18,7 @@ public class WikiData {
 	private ArrayList<Country> allCountries = new ArrayList<>();	
 	private ArrayList<ATCClass> allATCClasses = new ArrayList<>();	
 	private String endpoint = "https://query.wikidata.org/sparql";
-	
+
     public ArrayList<Country> getCountries() {
         try {
         	

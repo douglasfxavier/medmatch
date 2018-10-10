@@ -1,14 +1,4 @@
 package controller;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.EntityBuilder;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.jena.ontology.DatatypeProperty;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.query.Query;
@@ -25,11 +15,13 @@ import org.apache.jena.sparql.modify.UpdateEngineFactory;
 import org.apache.jena.sparql.util.Context;
 import org.apache.jena.util.FileManager;
 import org.apache.jena.util.iterator.ExtendedIterator;
-import org.apache.tomcat.util.descriptor.web.ApplicationParameter;
+
+import com.github.andrewoma.dexx.collection.HashMap;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.update.UpdateFactory;
@@ -38,94 +30,103 @@ import org.apache.jena.update.UpdateRequest;
 import model.Country;
 import util.CSVDelimiter;
 import util.CountryList;
+import util.Functions;
 import util.FusekiConnector;
 
 public class App 
 {
-    public static void main( String[] args ) throws FileNotFoundException
+    
+	
+	public static void main( String[] args ) throws FileNotFoundException
     {
+			int n = 5;
+			for(int i = 1; i<=n;i++) {
+				System.out.println(Functions.weightByPosition(n,i));
+			}
 
-    	String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
-    	OntologyManager om = new OntologyManager("pharmacology.owl", ontologyIRI);
-    	try {
-    		ExtendedIterator<OntClass> ontClassIterator = om.getOntologyModel().listClasses();
-			while(ontClassIterator.hasNext()){
-				OntClass ontClass = ontClassIterator.next();
-				if (ontClass.getLocalName() == null)
-					continue;					
-				System.out.println(ontClass);
-				
-			}
-			
-			ExtendedIterator<OntProperty> ontPropIterator = om.getOntologyModel().listAllOntProperties();
-			while(ontPropIterator.hasNext()){
-				OntProperty ontPro = ontPropIterator.next();		
-				if (ontPro.getLocalName() == null)
-					continue;
-				System.out.println(ontPro);
-				
-			}
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-    	/*
-    	String datasetEndpoint = String.format("http://localhost:3030/%s","Brazil");
-		String datasetDumpDataService = String.format("%s/data",datasetEndpoint);
-		String datasetSparqlService = String.format("%s/upload",datasetEndpoint);
-		String countryURI = "http://wikidata/country/Brazil"; 
-		String sparqlString = 
-				  "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-				  "PREFIX void: <http://rdfs.org/ns/void#>\n" +
-				  "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n" +		  
-				  "INSERT DATA {\n" + 
-				  	String.format("<%s> rdf:type void:Dataset;\n", datasetEndpoint) +
-				  	String.format("void:dataDump <%s>;\n", datasetDumpDataService) +
-				  	String.format("void:sparqlEndpoint <%s>;\n", datasetSparqlService) +
-				  	String.format("wdt:P17 <%s> .\n", countryURI) + 
-				  "}";
-		
-		System.out.println(sparqlString);
-    	
-		String str1 = "ACEPONATO DE METILPREDNISOLONA";
-		String str2 = "ACEPONATO DA METILPREDNISOLONA";
-		System.out.println(str1 + " vs. " + str2);
-    	System.out.println(StringMatching.calculateEuclideanDistance(str1,str2));
-    	
-		str1 = "METHYLPREDNISOLONE ACETATE";
-		str2 = "METHYLPREDNISOLONE ACETATE";
-		System.out.println(str1 + " vs. " + str2);
-    	System.out.println(StringMatching.euclideanDistance(str1,str2));
-    	
-		str1 = "ACEPONATO DE METILPREDNISOLONA";
-		str2 = "METHYLPREDNISOLONE ACETATE";
-		System.out.println(str1 + " vs. " + str2);
-    	System.out.println(StringMatching.euclideanDistance(str1,str2));
-    	
-		str1 = "ACEPONATO DE METILPREDNISOLONA";
-		str2 = "Hydrocortisone aceponate";
-		System.out.println(str1 + " vs. " + str2);
-    	System.out.println(StringMatching.euclideanDistance(str1,str2));
-    	
-		str1 = "ACEPONATO DE METILPREDNISOLONA";
-		str2 = "METHYLPREDNISOLONE";
-		System.out.println(str1 + " vs. " + str2);
-    	System.out.println(StringMatching.euclideanDistance(str1,str2));
-    	
-		str1 = "ACEPONATO DE METILPREDNISOLONA";
-		str2 = "METHYLPREDNISOLONE (METHYLPREDNISOLONE SODIUM SUCCINATE)"; 
-		System.out.println(str1 + " vs. " + str2);
-    	System.out.println(StringMatching.calculateEuclideanDistance(str1,str2));
-    	
-		str1 = "ACEPONATO DE METILPREDNISOLONA";
-		str2 = "ACEPONATO ABCDEFGHIJL METILPREDNISOLONA "; 
-		System.out.println(str1 + " vs. " + str2);
-    	System.out.println(StringMatching.euclideanDistance(str1,str2));
-    	
-    	str1 = "ACEPONATO DE METILPREDNISOLONA";
-		str2 = "ABCDEFGHIJL PREDNISOLONE "; 
-		System.out.println(str1 + " vs. " + str2);
-    	System.out.println(StringMatching.euclideanDistance(str1,str2));*/
+        	
+//
+//    	String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
+//    	OntologyManager om = new OntologyManager("pharmacology.owl", ontologyIRI);
+//    	try {
+//    		ExtendedIterator<OntClass> ontClassIterator = om.getOntologyModel().listClasses();
+//			while(ontClassIterator.hasNext()){
+//				OntClass ontClass = ontClassIterator.next();
+//				if (ontClass.getLocalName() == null)
+//					continue;					
+//				System.out.println(ontClass);
+//				
+//			}
+//			
+//			ExtendedIterator<OntProperty> ontPropIterator = om.getOntologyModel().listAllOntProperties();
+//			while(ontPropIterator.hasNext()){
+//				OntProperty ontPro = ontPropIterator.next();		
+//				if (ontPro.getLocalName() == null)
+//					continue;
+//				System.out.println(ontPro);
+//				
+//			}
+//			
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//    	/*
+//    	String datasetEndpoint = String.format("http://localhost:3030/%s","Brazil");
+//		String datasetDumpDataService = String.format("%s/data",datasetEndpoint);
+//		String datasetSparqlService = String.format("%s/upload",datasetEndpoint);
+//		String countryURI = "http://wikidata/country/Brazil"; 
+//		String sparqlString = 
+//				  "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+//				  "PREFIX void: <http://rdfs.org/ns/void#>\n" +
+//				  "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n" +		  
+//				  "INSERT DATA {\n" + 
+//				  	String.format("<%s> rdf:type void:Dataset;\n", datasetEndpoint) +
+//				  	String.format("void:dataDump <%s>;\n", datasetDumpDataService) +
+//				  	String.format("void:sparqlEndpoint <%s>;\n", datasetSparqlService) +
+//				  	String.format("wdt:P17 <%s> .\n", countryURI) + 
+//				  "}";
+//		
+//		System.out.println(sparqlString);
+//    	
+//		String str1 = "ACEPONATO DE METILPREDNISOLONA";
+//		String str2 = "ACEPONATO DA METILPREDNISOLONA";
+//		System.out.println(str1 + " vs. " + str2);
+//    	System.out.println(StringMatching.calculateEuclideanDistance(str1,str2));
+//    	
+//		str1 = "METHYLPREDNISOLONE ACETATE";
+//		str2 = "METHYLPREDNISOLONE ACETATE";
+//		System.out.println(str1 + " vs. " + str2);
+//    	System.out.println(StringMatching.euclideanDistance(str1,str2));
+//    	
+//		str1 = "ACEPONATO DE METILPREDNISOLONA";
+//		str2 = "METHYLPREDNISOLONE ACETATE";
+//		System.out.println(str1 + " vs. " + str2);
+//    	System.out.println(StringMatching.euclideanDistance(str1,str2));
+//    	
+//		str1 = "ACEPONATO DE METILPREDNISOLONA";
+//		str2 = "Hydrocortisone aceponate";
+//		System.out.println(str1 + " vs. " + str2);
+//    	System.out.println(StringMatching.euclideanDistance(str1,str2));
+//    	
+//		str1 = "ACEPONATO DE METILPREDNISOLONA";
+//		str2 = "METHYLPREDNISOLONE";
+//		System.out.println(str1 + " vs. " + str2);
+//    	System.out.println(StringMatching.euclideanDistance(str1,str2));
+//    	
+//		str1 = "ACEPONATO DE METILPREDNISOLONA";
+//		str2 = "METHYLPREDNISOLONE (METHYLPREDNISOLONE SODIUM SUCCINATE)"; 
+//		System.out.println(str1 + " vs. " + str2);
+//    	System.out.println(StringMatching.calculateEuclideanDistance(str1,str2));
+//    	
+//		str1 = "ACEPONATO DE METILPREDNISOLONA";
+//		str2 = "ACEPONATO ABCDEFGHIJL METILPREDNISOLONA "; 
+//		System.out.println(str1 + " vs. " + str2);
+//    	System.out.println(StringMatching.euclideanDistance(str1,str2));
+//    	
+//    	str1 = "ACEPONATO DE METILPREDNISOLONA";
+//		str2 = "ABCDEFGHIJL PREDNISOLONE "; 
+//		System.out.println(str1 + " vs. " + str2);
+//    	System.out.println(StringMatching.euclideanDistance(str1,str2));*/
     	
     	
 /*    	String sparqlString = "PREFIX dc: <http://purl.org/dc/elements/1.1/>" + 
