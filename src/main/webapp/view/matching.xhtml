@@ -7,12 +7,11 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 	<ui:composition template="/view/template/layout.xhtml">
-			<ui:define name="header-title">MedMatch - Matching concepts</ui:define>
+			<ui:define name="title">MedMatch - Matching concepts</ui:define>
 			<ui:define name="content">
 				<div class="container">
-					<h:graphicImage library="resources" name="/images/medmatch_logo.png" 
-					height="50%" width="50%" />					
-					<h2>Concepts matching</h2>						
+					<h1>CSV to RDF Conversion</h1>	
+					<h2>Step 2: Concepts matching</h2>						
 					<ui:param name="csvFields" value="#{csvDataReaderBean.loadCSVDataReader().getMetadata()}" />
 					<h:form id="matching-form" class="form-group">
 						<div class="col-md-5 mb-3">

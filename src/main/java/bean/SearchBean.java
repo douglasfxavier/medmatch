@@ -2,10 +2,11 @@ package bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 
 import javax.faces.bean.ManagedBean;
@@ -29,7 +30,7 @@ public class SearchBean implements Serializable{
 	private String targetCountry;
 	private String drugBrand;
 	private Model targetModel;
-	private Map<Double, MockDrug> matchedDrugsMap;	
+	private Set<Entry<Double, MockDrug>> matchedDrugs;
 	
 	public ArrayList<Country> getCountryList() {
 		if (countryList == null) {
@@ -60,20 +61,21 @@ public class SearchBean implements Serializable{
 		this.drugBrand = drugBrand;
 	}
 	
-	public Object[] getMatchedDrugs() {
-		Object[] drugCollection = null;
-		if (matchedDrugsMap != null && matchedDrugsMap.size() > 0) {
-			drugCollection = this.matchedDrugsMap.values().toArray();			
-		}
-		return drugCollection;
+	public Set<Entry<Double, MockDrug>> getMatchedDrugs() {
+		return matchedDrugs;
+	}
+	public void setMatchedDrugs(Set<Entry<Double, MockDrug>> matchedDrugs) {
+		this.matchedDrugs = matchedDrugs;
 	}
 	
-	public Map<Double, MockDrug> getMatchedDrugsMap() {
-		return matchedDrugsMap;
-	}
-	public void setMatchedDrugsMap(Map<Double, MockDrug> matchedDrugsMap) {
-		this.matchedDrugsMap = matchedDrugsMap;
-	}
+//	public List<MockDrug> getMatchedDrugs() {
+//		List<MockDrug> drugCollection = null;
+//		if (matchedDrugsMap != null && matchedDrugsMap.size() > 0) {
+//			drugCollection = new ArrayList<>(matchedDrugsMap.values());
+//		}
+//		return drugCollection;
+//	}
+	
 
 	public String search() throws Exception  {
 		try {
@@ -85,10 +87,9 @@ public class SearchBean implements Serializable{
 			String targetDumpService = targetCountryServices.get("dumpService");
 			this.targetModel = fusekiConnector.dumpData(targetDumpService);
 			
-			this.matchedDrugsMap = DrugSearch.compareDrugByBrand(drugBrand,originCountry,targetModel);
-			this.matchedDrugsMap = new TreeMap<Double,MockDrug>(matchedDrugsMap);
+			this.matchedDrugs = DrugSearch.compareDrugByBrand(drugBrand,originCountry,targetModel);
 			
-			for(Map.Entry<Double,MockDrug> entry : matchedDrugsMap.entrySet()) {
+			for(Map.Entry<Double,MockDrug> entry : matchedDrugs) {
 				MockDrug drug = entry.getValue();
 				Double  metric = entry.getKey();
 
@@ -102,4 +103,5 @@ public class SearchBean implements Serializable{
 		}
 		
 	}
+
 }

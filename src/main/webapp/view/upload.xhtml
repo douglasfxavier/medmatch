@@ -8,13 +8,14 @@
 	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 	
 	<ui:composition template="/view/template/layout.xhtml">
-		<ui:define name="header-title">MedMatch - Uploading data and metadata</ui:define>
+		<ui:define name="title">MedMatch - Uploading data and metadata</ui:define>
 		<ui:define name="content">
-			<div class="container">	
-				<h2>Dataset upload</h2>		
+			<div class="container">
+				<h1>CSV to RDF Conversion</h1>	
+				<h2>Step 1: Dataset upload</h2>		
 				<h:form id="upload-form" class="form-group" enctype="multipart/form-data" >
 					<div class="form-row">
-						<div class="col-md-4 mb-3">			
+						<div class="col-md-6 mb-3">			
 							<h:outputLabel for="namespaceID">Namespace IRI</h:outputLabel>								
 							<div class="input-group mb-3">								
 								<div class="input-group-prepend">
@@ -25,7 +26,7 @@
 						</div>
 					</div>
 					<div class="form-row">
-						<div class="col-md-4 mb-3">			
+						<div class="col-md-6 mb-3">			
 							<h:outputLabel for="datasetID">Fuseki dataset name</h:outputLabel>								
 							<div class="input-group mb-3">								
 								<div class="input-group-prepend">
@@ -36,7 +37,7 @@
 						</div>
 					</div>					
 					<div class="form-row">
-						<div class="col-md-4 mb-3">
+						<div class="col-md-6 mb-3">
 							<h:outputLabel for="countryID">Country</h:outputLabel>
 							<h:selectOneMenu class = "custom-select custom-select-md" id="countryID" required="true" value="#{uploadBean.selectedCountryNumericCode}">
 								<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
@@ -48,13 +49,17 @@
 						</div>
 					</div>
 					<div class="form-row">
-						<div class="col-md-4 mb-3">
+						<div class="col-md-6 mb-3">
 							<h:outputLabel for="dataset-file">Dataset upload</h:outputLabel>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-6 mb-3">
 							<h:inputFile id="dataset-file" value="#{uploadBean.uploadedfile}"></h:inputFile>
 						</div>
 					</div>
 					<div class="form-row">
-						<div class="col-md-4 mb-3">
+						<div class="col-md-6 mb-3">
 							<h:outputLabel for="delimiter">Columns delimiter</h:outputLabel>
 							<h:selectOneRadio id="delimiter" value="#{uploadBean.selectedDelimiter}">
 								<f:selectItems value="#{uploadBean.getCsvDelimiters()}"
@@ -65,8 +70,8 @@
 						</div>
 					</div>
 					<div class="form-row">
-						<div class="col-md-4 mb-3 text-right">
-							<h:commandButton class="btn btn-primary" id="loadButton" value="Load" action="#{uploadBean.uploadFile()}" />
+						<div class="col-md-6 mb-3 text-right">
+							<h:commandButton class="btn btn-primary" id="loadButton" value="Load dataset" action="#{uploadBean.uploadFile()}" />
 							
 						</div>
 					</div>				

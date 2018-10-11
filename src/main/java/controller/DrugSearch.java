@@ -2,6 +2,9 @@ package controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
 
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
@@ -11,22 +14,18 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 
-import model.ActiveIngredient;
-import model.Drug;
-import model.Manufacturer;
 import model.MockDrug;
 import util.SparqlQuery;
 
 public class DrugSearch {
 	
-	public static Map<Double,MockDrug>compareDrugByBrand(String originDrugBand,
+	public static Set<Entry<Double, MockDrug>> compareDrugByBrand(String originDrugBand,
 														 String originCountry,
 														 Model targetModel) {
 		
 		String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
 		OntologyManager ontologyManager = new OntologyManager("pharmacology.owl", ontologyIRI);
 		Property hasCompound = ontologyManager.findProperty("hasCompound");
-		Property hasManufacturer = ontologyManager.findProperty("hasManufacturer");
 		Property name = ontologyManager.findProperty("name");
 		Property brandProp = ontologyManager.findProperty("brand");
 		Property strengthValue = ontologyManager.findProperty("strength");
@@ -91,8 +90,11 @@ public class DrugSearch {
 				}
 
 			}
-		}		
-		return finalMetrics;
+		}
+		Map<Double,MockDrug> sortedFinalMetrics = new TreeMap<>(finalMetrics); 
+		//List<MockDrug> drugList = sortedFinalMetrics.values().
+		
+		return sortedFinalMetrics.entrySet();
 	}
 
 }
