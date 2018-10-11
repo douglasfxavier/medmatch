@@ -9,8 +9,8 @@ public class Functions {
 			return n + RecursiveSum(n-1);
 	}
 	
-	public static double weightByPosition(int totalNumber, int position) {
-		double weight = 100.00 / RecursiveSum(totalNumber) * position;
+	public static double weightByNumberOfElements(int totalNumber) {
+		double weight = (100.00 / RecursiveSum(totalNumber))/100;
 		return weight;
 	}
 }

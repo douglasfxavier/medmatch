@@ -12,8 +12,7 @@
 		<ui:define name="content">	
 			<h:messages id="msgs" errorClass="errors"></h:messages>		
 			<div class="container">
-				<h1>CSV to RDF Conversion</h1>	
-				<h2>Step 1: Dataset upload</h2>				
+				<h1>Drugs search</h1>	
 				<ui:param name="countryList" value="#{searchBean.countryList}" />
 				<h:form id="search-form" class="form-group">
 						<div class="form-row">
@@ -57,13 +56,13 @@
 				</h:form>
 				
 				<h:form id="drug-list-form">
-					<p:dataList var="entry" value="#{searchBean.matchedDrugs}" paginator="true" type="ordered" emptyMessage="No data to show." paginatorAlwaysVisible="false">
+					<p:dataList var="entry" value="#{searchBean.matchedDrugs}" type="ordered" >
 					 		<p:panel>	
 					 			<h:panelGrid columns="1" style="width:100%">
-					 				<h:outputFormat class="badge badge-primary badge-pill" id="metric" value="Metric: #{entry.getValue().getMetric()}">
-					 					<f:convertNumber pattern="##.##"/>
+					 				<h:outputFormat class="badge badge-primary badge-pill" id="metric" value="#{entry.getValue()}" >
+					 					<f:convertNumber pattern="##.####"/>
 					 				</h:outputFormat>
-					 				<h:outputText value="#{entry.getValue().getBrand()}"/>
+					 				<h:outputText value="#{entry.getKey().getBrand()}"/>
 					 			</h:panelGrid>
 					 		</p:panel>
 					</p:dataList>

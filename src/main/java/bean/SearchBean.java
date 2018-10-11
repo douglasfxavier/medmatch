@@ -3,11 +3,9 @@ package bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.TreeMap;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -30,7 +28,8 @@ public class SearchBean implements Serializable{
 	private String targetCountry;
 	private String drugBrand;
 	private Model targetModel;
-	private Set<Entry<Double, MockDrug>> matchedDrugs;
+	private Set<Entry<MockDrug,Double>> matchedDrugs;
+	//private LinkedList<MockDrug> drugList = new LinkedList<MockDrug>();
 	
 	public ArrayList<Country> getCountryList() {
 		if (countryList == null) {
@@ -60,23 +59,13 @@ public class SearchBean implements Serializable{
 	public void setDrugBrand(String drugBrand) {
 		this.drugBrand = drugBrand;
 	}
-	
-	public Set<Entry<Double, MockDrug>> getMatchedDrugs() {
+
+	public Set<Entry<MockDrug,Double>> getMatchedDrugs() {
 		return matchedDrugs;
 	}
-	public void setMatchedDrugs(Set<Entry<Double, MockDrug>> matchedDrugs) {
+	public void setMatchedDrugs(Set<Entry<MockDrug,Double>> matchedDrugs) {
 		this.matchedDrugs = matchedDrugs;
 	}
-	
-//	public List<MockDrug> getMatchedDrugs() {
-//		List<MockDrug> drugCollection = null;
-//		if (matchedDrugsMap != null && matchedDrugsMap.size() > 0) {
-//			drugCollection = new ArrayList<>(matchedDrugsMap.values());
-//		}
-//		return drugCollection;
-//	}
-	
-
 	public String search() throws Exception  {
 		try {
 			
@@ -89,10 +78,9 @@ public class SearchBean implements Serializable{
 			
 			this.matchedDrugs = DrugSearch.compareDrugByBrand(drugBrand,originCountry,targetModel);
 			
-			for(Map.Entry<Double,MockDrug> entry : matchedDrugs) {
-				MockDrug drug = entry.getValue();
-				Double  metric = entry.getKey();
-
+			for(Map.Entry<MockDrug,Double> entry: matchedDrugs) {
+				MockDrug drug = entry.getKey();
+				Double metric = entry.getValue();
 				System.out.println(String.format("Metric: %s    Brand: %s      URI: %s",
 						metric, drug.getBrand(), drug.getDrugURI()));
 			}		

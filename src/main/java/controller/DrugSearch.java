@@ -1,6 +1,11 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -15,11 +20,13 @@ import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 
 import model.MockDrug;
+import util.Functions;
+import util.MapUtil;
 import util.SparqlQuery;
 
 public class DrugSearch {
 	
-	public static Set<Entry<Double, MockDrug>> compareDrugByBrand(String originDrugBand,
+	public static Set<Entry<MockDrug,Double>> compareDrugByBrand(String originDrugBand,
 														 String originCountry,
 														 Model targetModel) {
 		
@@ -31,8 +38,8 @@ public class DrugSearch {
 		Property strengthValue = ontologyManager.findProperty("strength");
 		
 		
-		Map<Double,MockDrug> finalMetrics = new HashMap<Double,MockDrug>();		
-
+		Map<MockDrug,Double> finalMetrics = new HashMap<MockDrug,Double>();		
+		
 		ResultSet originQueryIterator = SparqlQuery.queryIngredientsOfOneDrug(originDrugBand, originCountry);
 		Map<Integer,String> originIngredients = new HashMap<Integer,String>();
 		
@@ -43,14 +50,16 @@ public class DrugSearch {
 			originIngredients.put(originIndex, ingredientName);
 		}
 		
-
+		
+		int numberOfOriginIngredients = originIngredients.size();
 		ResIterator targetDrugs = targetModel.listResourcesWithProperty(hasCompound);
 		
 		//Comparison between the ingredients from both drugs		
 		while(targetDrugs.hasNext()) {
+			Double meanOfDrug = 0.00;
 			Resource targetDrug = targetDrugs.next();
 			Statement brandResource = targetModel.getProperty(targetDrug,brandProp);
-			
+			Map<String,Double> ingredientsByDrug = new HashMap<String,Double>();
 			//In case there is a drug resource with no brand name, go to next
 			if (brandResource == null)
 				continue;
@@ -71,29 +80,51 @@ public class DrugSearch {
 			
 			while(targetIngredientsIterator.hasNext()) {
 				Statement targetIngredientStatemennt = targetIngredientsIterator.next();
+				int targetPosition = targetIngredientStatemennt.getPredicate().getOrdinal();
+				
+				if (targetPosition > numberOfOriginIngredients)
+					break;
+				
 				Resource targetIngredient = targetIngredientStatemennt.getObject().asResource(); 
 				String targetIngredientName = targetIngredient.getProperty(name).getObject().toString(); 
 				drugObject.addIngredient(targetIngredientName);
 				
 				//Iterate the ingredients of the drugs from the origin country
+				
 				for(Map.Entry<Integer, String> ingredient : originIngredients.entrySet()) {
 					int originPosition = ingredient.getKey();
+				
 					String originIngredientName = ingredient.getValue();
-					
+				
 					double metric = StringComparison.levenshteinDistance(originIngredientName, targetIngredientName);
-					metric = metric + (originPosition-1)/100;
-					int numberOfOriginIngredients = originIngredients.size();
-					double mean = metric/numberOfOriginIngredients; 
-					drugObject.setMetric(mean);
-					finalMetrics.put(mean,drugObject);
-
+					double weight = Functions.weightByNumberOfElements(numberOfOriginIngredients);
+					metric = metric + (weight * Math.abs(targetPosition-originPosition));
+					
+					if (ingredientsByDrug.get(targetIngredientName) != null 
+							&& metric > ingredientsByDrug.get(targetIngredientName)) 
+						continue;
+					
+					ingredientsByDrug.put(targetIngredientName,metric);
+					
 				}
-
+			}
+			
+			Iterator<Double> ingredientsByDrugIterator = ingredientsByDrug.values().iterator();
+	
+			while(ingredientsByDrugIterator.hasNext()) {
+				meanOfDrug += ingredientsByDrugIterator.next();
+			}
+			
+			//meanOfDrug = meanOfDrug/ingredientsByDrug.keySet().size();
+		
+			
+			if (meanOfDrug < 1) {
+				drugObject.setMetric(meanOfDrug);
+				finalMetrics.put(drugObject,meanOfDrug);
 			}
 		}
-		Map<Double,MockDrug> sortedFinalMetrics = new TreeMap<>(finalMetrics); 
-		//List<MockDrug> drugList = sortedFinalMetrics.values().
 		
+		Map<MockDrug,Double> sortedFinalMetrics = MapUtil.sortByValue(finalMetrics);
 		return sortedFinalMetrics.entrySet();
 	}
 

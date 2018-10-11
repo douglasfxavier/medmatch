@@ -39,10 +39,10 @@ public class App
 	
 	public static void main( String[] args ) throws FileNotFoundException
     {
-			int n = 5;
-			for(int i = 1; i<=n;i++) {
-				System.out.println(Functions.weightByPosition(n,i));
-			}
+//			int n = 5;
+//			for(int i = 1; i<=n;i++) {
+//				System.out.println(Functions.weightByPosition(n,i));
+//			}
 
         	
 //
