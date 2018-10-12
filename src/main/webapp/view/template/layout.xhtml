@@ -36,7 +36,7 @@
 		              <a class="nav-link" href="#">Datasets</a>
 		            </li>				            
 		            <li class="nav-item">
-		              <a class="nav-link" href="#">Ontology</a>
+		              <a class="nav-link" href="#{request.contextPath}/view/pharmacology.xhtml">Ontology</a>
 		            </li>
 		            <li class="nav-item">
 		              <a class="nav-link" href="#{request.contextPath}/view/upload.xhtml">Converter</a>
@@ -45,7 +45,7 @@
 		              <a class="nav-link" href="#{request.contextPath}/view/search.xhtml">Search</a>
 		            </li>
 		            <li class="nav-item">
-		              <a class="nav-link" href="#">About</a>
+		              <a class="nav-link" href="#{request.contextPath}/view/about.xhtml">About</a>
 		            </li>          		            		            		            
 		          </ul>
 		          <div class="form-inline mt-2 mt-md-0">
@@ -57,6 +57,15 @@
 		    <main role="main">
 				<ui:insert name="content"></ui:insert>
 			</main>
+			<hr/>
+			<footer>
+				<div class="bg-light text-center">
+					<a href="https://github.com/douglasfxavier/medmatch" target="_blank">
+						<img src="#{request.contextPath}/resources/images/github-social-logo.svg" title="https://www.flaticon.com/authors/zurb" alt="GitHub logo"/>
+					</a>
+					<p>MedMatch on GitHub</p>
+				</div>
+			</footer>
 	</h:body>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </html>

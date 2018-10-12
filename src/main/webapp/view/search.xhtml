@@ -59,8 +59,8 @@
 					<p:dataList var="entry" value="#{searchBean.matchedDrugs}" type="ordered" >
 					 		<p:panel>	
 					 			<h:panelGrid columns="1" style="width:100%">
-					 				<h:outputFormat class="badge badge-primary badge-pill" id="metric" value="#{entry.getValue()}" >
-					 					<f:convertNumber pattern="##.####"/>
+					 				<h:outputFormat class="badge badge-primary badge-pill" id="metric" value="#{entry.getValue() == 0 ? 1 : 1 - (entry.getValue()/100)}" >
+					 					<f:convertNumber pattern="##%"/>
 					 				</h:outputFormat>
 					 				<h:outputText value="#{entry.getKey().getBrand()}"/>
 					 			</h:panelGrid>

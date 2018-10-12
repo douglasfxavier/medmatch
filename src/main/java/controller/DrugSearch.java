@@ -122,7 +122,7 @@ public class DrugSearch {
 			
 			meanOfDrug = meanOfDrug/ingredientsByDrug.size();
 		
-			if (meanOfDrug < 2) {
+			if (meanOfDrug < 5) {
 				drugObject.setMetric(meanOfDrug);
 				finalMetrics.put(drugObject,meanOfDrug);
 			}
