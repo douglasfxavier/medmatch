@@ -8,6 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -26,7 +29,7 @@ import util.SparqlQuery;
 
 public class DrugSearch {
 	
-	public static Set<Entry<MockDrug,Double>> compareDrugByBrand(String originDrugBand,
+	public static Set<Entry<MockDrug,Double>> compareDrugByBrand(String originDrugURI,
 														 String originCountry,
 														 Model targetModel) {
 		
@@ -40,7 +43,7 @@ public class DrugSearch {
 		
 		Map<MockDrug,Double> finalMetrics = new HashMap<MockDrug,Double>();		
 		
-		ResultSet originQueryIterator = SparqlQuery.queryIngredientsOfOneDrug(originDrugBand, originCountry);
+		ResultSet originQueryIterator = SparqlQuery.queryIngredientsOfOneDrug(originDrugURI, originCountry);
 		Map<Integer,String> originIngredients = new HashMap<Integer,String>();
 		
 		//Iterate the query solution for the origin ingredients and store the ingredient names in one map  
@@ -52,6 +55,8 @@ public class DrugSearch {
 		
 		
 		int numberOfOriginIngredients = originIngredients.size();
+		double weight = Functions.weightByNumberOfElements(numberOfOriginIngredients);
+
 		ResIterator targetDrugs = targetModel.listResourcesWithProperty(hasCompound);
 		
 		//Comparison between the ingredients from both drugs		
@@ -60,11 +65,13 @@ public class DrugSearch {
 			Resource targetDrug = targetDrugs.next();
 			Statement brandResource = targetModel.getProperty(targetDrug,brandProp);
 			Map<String,Double> ingredientsByDrug = new HashMap<String,Double>();
+			
+			
 			//In case there is a drug resource with no brand name, go to next
 			if (brandResource == null)
 				continue;
 			
-			String brandName = brandResource.getObject().toString();
+			String targetBrandName = brandResource.getObject().toString();
 			String targetStrength = targetDrug.getProperty(strengthValue).getObject().toString();
 			Resource targetFormulation = targetDrug.listProperties(hasCompound).next().getObject().asResource();
 			StmtIterator targetIngredientsIterator = targetFormulation.listProperties();
@@ -75,7 +82,7 @@ public class DrugSearch {
 			
 			MockDrug drugObject = new MockDrug();
 			drugObject.setDrugURI(targetDrug.getURI());
-			drugObject.setBrand(brandName);
+			drugObject.setBrand(targetBrandName);
 			drugObject.setStrength(targetStrength);
 			
 			while(targetIngredientsIterator.hasNext()) {
@@ -97,7 +104,7 @@ public class DrugSearch {
 					String originIngredientName = ingredient.getValue();
 				
 					double metric = StringComparison.levenshteinDistance(originIngredientName, targetIngredientName);
-					double weight = Functions.weightByNumberOfElements(numberOfOriginIngredients);
+					
 					metric = metric + (weight * Math.abs(targetPosition-originPosition));
 					
 					if (ingredientsByDrug.get(targetIngredientName) != null 
@@ -109,16 +116,13 @@ public class DrugSearch {
 				}
 			}
 			
-			Iterator<Double> ingredientsByDrugIterator = ingredientsByDrug.values().iterator();
-	
-			while(ingredientsByDrugIterator.hasNext()) {
-				meanOfDrug += ingredientsByDrugIterator.next();
+			for(Map.Entry<String, Double> entry : ingredientsByDrug.entrySet()) {
+				meanOfDrug += entry.getValue();
 			}
 			
-			//meanOfDrug = meanOfDrug/ingredientsByDrug.keySet().size();
+			meanOfDrug = meanOfDrug/ingredientsByDrug.size();
 		
-			
-			if (meanOfDrug < 1) {
+			if (meanOfDrug < 2) {
 				drugObject.setMetric(meanOfDrug);
 				finalMetrics.put(drugObject,meanOfDrug);
 			}

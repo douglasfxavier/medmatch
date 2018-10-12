@@ -78,12 +78,12 @@ public class SearchBean implements Serializable{
 			
 			this.matchedDrugs = DrugSearch.compareDrugByBrand(drugBrand,originCountry,targetModel);
 			
-			for(Map.Entry<MockDrug,Double> entry: matchedDrugs) {
-				MockDrug drug = entry.getKey();
-				Double metric = entry.getValue();
-				System.out.println(String.format("Metric: %s    Brand: %s      URI: %s",
-						metric, drug.getBrand(), drug.getDrugURI()));
-			}		
+//			for(Map.Entry<MockDrug,Double> entry: matchedDrugs) {
+//				MockDrug drug = entry.getKey();
+//				Double metric = entry.getValue();
+//				System.out.println(String.format("Metric: %s    Brand: %s      URI: %s",
+//						metric, drug.getBrand(), drug.getDrugURI()));
+//			}		
 			return null;		
 		}catch (Exception e) {
 			e.printStackTrace();
