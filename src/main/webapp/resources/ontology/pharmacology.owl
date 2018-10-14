@@ -2,7 +2,6 @@
 <rdf:RDF xmlns="http://medmatch.global/ontology/pharmacology#"
      xml:base="http://medmatch.global/ontology/pharmacology"
      xmlns:schema="https://schema.org/"
-     xmlns:dbo="http://dbpedia.org/ontology/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -10,14 +9,15 @@
      xmlns:lifesci="https://health-lifesci.schema.org/"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ontology="http://dbpedia.org/ontology/">
     <owl:Ontology rdf:about="http://medmatch.global/ontology/pharmacology#">
-        <rdfs:comment xml:lang="pt">Pharmacoly é uma ontologia de conceitos abstratos para dados sobre drogas medicinais.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Pharmacology is an ontology of abstract concepts for data on medical drugs.</rdfs:comment>
         <rdfs:label xml:lang="en">Pharmacology v.1</rdfs:label>
         <terms:licence>https://creativecommons.org/licenses/by/4.0/</terms:licence>
         <rdfs:isDefinedBy xml:lang="en">www.medmatch.global</rdfs:isDefinedBy>
         <owl:priorVersion xml:lang="en">v.1 [beta]</owl:priorVersion>
-        <rdfs:comment xml:lang="en">Pharmacoly is an ontology of abstract concepts for data on medical drugs.</rdfs:comment>
+        <rdfs:comment xml:lang="pt">Pharmacology é uma ontologia de conceitos abstratos para dados sobre drogas medicinais.</rdfs:comment>
         <terms:creator>Douglas Xavier</terms:creator>
     </owl:Ontology>
     
@@ -85,22 +85,10 @@
 
     <owl:ObjectProperty rdf:about="http://medmatch.global/ontology/pharmacology#alike">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://medmatch.global/ontology/pharmacology#ActiveIngredient"/>
-                    <rdf:Description rdf:about="https://health-lifesci.schema.org/Drug"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://medmatch.global/ontology/pharmacology#ActiveIngredient"/>
-                    <rdf:Description rdf:about="https://health-lifesci.schema.org/Drug"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#ActiveIngredient"/>
+        <rdfs:domain rdf:resource="https://health-lifesci.schema.org/Drug"/>
+        <rdfs:range rdf:resource="http://medmatch.global/ontology/pharmacology#ActiveIngredient"/>
+        <rdfs:range rdf:resource="https://health-lifesci.schema.org/Drug"/>
     </owl:ObjectProperty>
     
 
@@ -252,14 +240,9 @@
 
     <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#isAllowed">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://medmatch.global/ontology/pharmacology#ActiveIngredient"/>
-                    <rdf:Description rdf:about="https://health-lifesci.schema.org/Drug"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#ActiveIngredient"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Formulation"/>
+        <rdfs:domain rdf:resource="https://health-lifesci.schema.org/Drug"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
@@ -278,11 +261,22 @@
     
 
 
+    <!-- http://medmatch.global/ontology/pharmacology#similarity -->
+
+    <owl:DatatypeProperty rdf:about="http://medmatch.global/ontology/pharmacology#similarity">
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#ActiveIngredient"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Formulation"/>
+        <rdfs:domain rdf:resource="https://health-lifesci.schema.org/Drug"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://health-lifesci.schema.org/isAvailableGenerically -->
 
     <owl:DatatypeProperty rdf:about="https://health-lifesci.schema.org/isAvailableGenerically">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://health-lifesci.schema.org/Drug"/>
+        <rdfs:domain rdf:resource="http://medmatch.global/ontology/pharmacology#Formulation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     

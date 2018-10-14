@@ -28,10 +28,10 @@ public class DrugSearch {
 		
 		String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
 		OntologyManager ontologyManager = new OntologyManager("pharmacology.owl", ontologyIRI);
-		Property hasCompound = ontologyManager.findProperty("hasCompound");
-		Property name = ontologyManager.findProperty("name");
+		Property hasFormulationProp = ontologyManager.findProperty("hasFormulation");
+		Property nameProp = ontologyManager.findProperty("name");
 		Property brandProp = ontologyManager.findProperty("brand");
-		Property strengthValue = ontologyManager.findProperty("strength");
+		Property strengthValueProp = ontologyManager.findProperty("strengthValue");
 		
 		
 		Map<MockDrug,Double> finalMetrics = new HashMap<MockDrug,Double>();		
@@ -42,7 +42,7 @@ public class DrugSearch {
 		//Iterate the query solution for the origin ingredients and store the ingredient names in one map  
 		while(originQueryIterator.hasNext()) {
 			int originIndex = originQueryIterator.getRowNumber() + 1;
-			String ingredientName = originQueryIterator.next().get("ingredientName").toString(); 
+			String ingredientName = originQueryIterator.next().get("activeIngredientName").toString(); 
 			originIngredients.put(originIndex, ingredientName);
 		}
 		
@@ -50,7 +50,7 @@ public class DrugSearch {
 		int numberOfOriginIngredients = originIngredients.size();
 		double weight = Functions.weightByNumberOfElements(numberOfOriginIngredients);
 
-		ResIterator targetDrugs = targetModel.listResourcesWithProperty(hasCompound);
+		ResIterator targetDrugs = targetModel.listResourcesWithProperty(hasFormulationProp);
 		
 		//Comparison between the ingredients from both drugs		
 		while(targetDrugs.hasNext()) {
@@ -65,8 +65,8 @@ public class DrugSearch {
 				continue;
 			
 			String targetBrandName = brandResource.getObject().toString();
-			String targetStrength = targetDrug.getProperty(strengthValue).getObject().toString();
-			Resource targetFormulation = targetDrug.listProperties(hasCompound).next().getObject().asResource();
+			String targetStrength = targetDrug.getProperty(strengthValueProp).getObject().toString();
+			Resource targetFormulation = targetDrug.listProperties(hasFormulationProp).next().getObject().asResource();
 			StmtIterator targetIngredientsIterator = targetFormulation.listProperties();
 			
 			//In case, there are no ingredients for the current drug, got to next
@@ -86,7 +86,7 @@ public class DrugSearch {
 					break;
 				
 				Resource targetIngredient = targetIngredientStatemennt.getObject().asResource(); 
-				String targetIngredientName = targetIngredient.getProperty(name).getObject().toString(); 
+				String targetIngredientName = targetIngredient.getProperty(nameProp).getObject().toString(); 
 				drugObject.addIngredient(targetIngredientName);
 				
 				//Iterate the ingredients of the drugs from the origin country

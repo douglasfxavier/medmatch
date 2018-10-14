@@ -16,6 +16,24 @@ import org.apache.jena.rdf.model.Model;
 
 public class SparqlQuery {
 		
+		public static Boolean askActiveIngredienExist(String activeIngedientName,Model model) {
+			String queryString = 
+        			"PREFIX pharm: <http://medmatch.global/ontology/pharmacology#>\n" + 
+        			"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
+        			"ASK" + 
+        			"WHERE {\n" + 
+        			"  ?activeIngredient rdf:type pharm:ActiveIngredient;\n" + 
+        			String.format("pharm:name \"%s\" .\n",activeIngedientName) + 
+        			"}\n";
+			Query query = QueryFactory.create(queryString) ;
+        	QueryExecution qexec = QueryExecutionFactory.create(query,model);
+        	boolean result = qexec.execAsk();
+        	
+        	qexec.close();
+        	
+			return result; 
+		}
+	
 		public static String queryURIByBrand(String drugBrand, String countrURI) {
 
 			FusekiConnector fusekiConnector = new FusekiConnector();
@@ -39,9 +57,9 @@ public class SparqlQuery {
 			Query query = QueryFactory.create(queryString) ;    	
 			QueryExecution qexec = QueryExecutionFactory.sparqlService(originSparqlService, query);
 			ResultSet resultSet = qexec.execSelect();
-			ResultSetRewindable originDrugsIterator = ResultSetFactory.copyResults(resultSet);
-			String drugURI = originDrugsIterator.next().get("drugURI").toString();
+			String drugURI = resultSet.next().get("drugURI").toString();
 			qexec.close();
+			
 			return drugURI;
 
 	}
@@ -57,13 +75,13 @@ public class SparqlQuery {
 	    					"PREFIX  rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
 	    					"PREFIX  pharm: <http://medmatch.global/ontology/pharmacology#>\n" + 
 	    					"PREFIX  lifesci: <https://health-lifesci.schema.org/>\n" +
-	    					"SELECT ?drugURI ?brand ?seq ?ingredientName\n" + 
+	    					"SELECT ?drugURI ?brand ?seq ?activeIngredientName\n" + 
 	    					"WHERE {\n" + 
 	    					"  			?drugURI rdf:type lifesci:Drug ;\n" + 
 	    					"       			       pharm:brand ?brand ;\n" + 
-	    					"   			  pharm:hasCompound ?compound .\n" + 
-	    					"   			 ?compound ?seq ?ingredient .\n" + 
-	    					"  		      ?ingredient pharm:name ?ingredientName .\n" + 
+	    					"   			  pharm:hasFormulation ?formulation.\n" + 
+	    					"   			 ?formulation ?seq ?activeIngredient .\n" + 
+	    					"  		      ?activeIngredient pharm:name ?activeIngredientName .\n" + 
 	    					String.format("FILTER (?drugURI = <%s>)\n",originDrugURI) + 
 	    					"}"; 
 	    				
@@ -127,8 +145,8 @@ public class SparqlQuery {
 				"WHERE {\n" + 
 				"  			?drugURI rdf:type lifesci:Drug ;\n" + 
 				"       			       pharm:brand ?brand ;\n" + 
-				"   			  pharm:hasCompound ?compound .\n" + 
-				"   			 ?compound ?seq ?ingredient .\n" + 
+				"   			  pharm:hasFormulation ?formulation .\n" + 
+				"   			 ?formulation ?seq ?activeIngredient .\n" + 
 				"}"; 
 					
 			Query query = QueryFactory.create(queryString) ;    	

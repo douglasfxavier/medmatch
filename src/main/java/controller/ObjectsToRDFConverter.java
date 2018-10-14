@@ -4,10 +4,6 @@ import java.io.FileNotFoundException;
 
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntProperty;
-import org.apache.jena.query.Query;
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QueryFactory;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
@@ -22,6 +18,7 @@ import model.Manufacturer;
 import model.Country;
 
 import util.FusekiConnector;
+import util.SparqlQuery;
 
 
 
@@ -37,13 +34,13 @@ public class ObjectsToRDFConverter {
 	public Model convertDataToRDF(CSVDataReader csvDataReader, Country country) throws FileNotFoundException {
         OntClass drugClass = ontologyManager.findClass("Drug");
         OntClass manufacturerClass = ontologyManager.findClass("Manufacturer");
-        OntClass ingredientClass = ontologyManager.findClass("Ingredient");
+        OntClass activeIngredientClass = ontologyManager.findClass("ActiveIngredient");
         OntClass drugClass_Class = ontologyManager.findClass("DrugClass");        
         OntProperty nameProp = ontologyManager.findProperty("name");
         OntProperty brandProp = ontologyManager.findProperty("brand");
-        OntProperty hasCompound = ontologyManager.findProperty("hasCompound");
+        OntProperty hasFormulationPro = ontologyManager.findProperty("hasFormulation");
         OntProperty ofDrugClass = ontologyManager.findProperty("ofDrugClass");
-		OntProperty strength = ontologyManager.findProperty("strength");            	
+		OntProperty strengthValueProp = ontologyManager.findProperty("strengthValue");            	
 		OntProperty hasManufacturerProp = ontologyManager.findProperty("hasManufacturer");    	
 		
 		Model rdfModel = ModelFactory.createDefaultModel();
@@ -65,26 +62,12 @@ public class ObjectsToRDFConverter {
         for(ActiveIngredient ai: csvDataReader.activeIngredientsList) {
         	
         	//Query the model for any ingredient with the same name of ai instance
-        	String queryString = 
-        			String.format("PREFIX pharm: <%s>\n",ontologyManager.getOntologyNamespace()) + 
-        						  "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
-        						  "ASK" + 
-        						  "WHERE {\n" + 
-        						  "  ?ingredient rdf:type pharm:Ingredient;\n" + 
-        							 String.format("pharm:name \"%s\" .\n",ai.getName()) + 
-        						  "}\n"; 
-        				
-        	Query query = QueryFactory.create(queryString) ;
-        	QueryExecution qexec = QueryExecutionFactory.create(query,rdfModel);
-        	boolean result = qexec.execAsk();
-        	qexec.close();
-
         	//if no ingredient with the same name of ai instance was found in the model,
         	//create a new ingredient based on ai instance
-        	if (!result) {
-        		String instanceURI = String.format("%singredient/%s",namespaceIRI,ai.getId());
-        		Resource ingredient = rdfModel.createResource(instanceURI,ingredientClass);        	
-        		ingredient.addProperty(nameProp, ai.getName());
+        	if (SparqlQuery.askActiveIngredienExist(ai.getName(), rdfModel) == false) {
+        		String instanceURI = String.format("%sactiveIngredient/%s",namespaceIRI,ai.getId());
+        		Resource activeIngredient = rdfModel.createResource(instanceURI,activeIngredientClass);        	
+        		activeIngredient.addProperty(nameProp, ai.getName());
         	}
         	
         }      
@@ -118,8 +101,8 @@ public class ObjectsToRDFConverter {
         	}
         	
         	if (d.getStrength() != null){
-        		if (drug.getPropertyResourceValue(strength) == null)
-        			drug.addProperty(strength, d.getStrength());
+        		if (drug.getPropertyResourceValue(strengthValueProp) == null)
+        			drug.addProperty(strengthValueProp, d.getStrength());
         	}
         	
         	if (d.getManufacturer() != null) {
@@ -132,17 +115,17 @@ public class ObjectsToRDFConverter {
         	
         	if (d.getActiveIngredients() != null && d.getActiveIngredients().size() > 0) {
         		
-        		if (drug.getPropertyResourceValue(hasCompound) == null) {
-	        		instanceURI = String.format("%scompound/%s", namespaceIRI,d.getDrugCode());
-        			Seq ingredientsSeq = rdfModel.getSeq(instanceURI);
+        		if (drug.getPropertyResourceValue(hasFormulationPro) == null) {
+	        		instanceURI = String.format("%sformulation/%s", namespaceIRI,d.getDrugCode());
+        			Seq activeIngredientsSeq = rdfModel.getSeq(instanceURI);
 	        		
-	        		for (ActiveIngredient ingredientObject : d.getActiveIngredients()) {        			
-	                	instanceURI = String.format("%singredient/%s", namespaceIRI,ingredientObject.getId());
-	        			Resource ingredientResource = rdfModel.getResource(instanceURI);                	
-	                	ingredientsSeq.add(ingredientResource);                	
+	        		for (ActiveIngredient activeIngredientObject : d.getActiveIngredients()) {        			
+	                	instanceURI = String.format("%sactiveIngredient/%s", namespaceIRI,activeIngredientObject.getId());
+	        			Resource activeIngredientResource = rdfModel.getResource(instanceURI);                	
+	                	activeIngredientsSeq.add(activeIngredientResource);                	
 	        		}
 	        		
-	        		drug.addProperty(hasCompound, ingredientsSeq);
+	        		drug.addProperty(hasFormulationPro, activeIngredientsSeq);
         		}
         		
         	}

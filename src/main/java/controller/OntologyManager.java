@@ -2,7 +2,6 @@ package controller;
 
 import javax.faces.context.FacesContext;
 
-import org.apache.jena.ontology.DatatypeProperty;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModel;
@@ -19,7 +18,7 @@ public class OntologyManager {
 	public OntologyManager(String fileName, String ontologyIRI) {
 		super();		
 		FacesContext fc= FacesContext.getCurrentInstance();
-		String path = fc.getExternalContext().getRealPath("WEB-INF\\classes\\ontology\\"+ fileName);	
+		String path = fc.getExternalContext().getRealPath("resources/ontology/"+ fileName);	
 		
 		this.ontologyModel = ModelFactory.createOntologyModel();
 		this.ontologyIRI = ontologyIRI;

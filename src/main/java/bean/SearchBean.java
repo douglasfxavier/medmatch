@@ -1,23 +1,18 @@
 package bean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ValueChangeEvent;
 
 import org.apache.jena.rdf.model.Model;
 
-import controller.CountryController;
 import controller.DrugSearch;
-import model.Country;
 import model.MockDrug;
 import util.FusekiConnector;
 import util.SparqlQuery;
@@ -34,20 +29,6 @@ public class SearchBean implements Serializable{
 	private Model targetModel;
 	private List<String> brandList;
 	private Set<Entry<MockDrug,Double>> matchedDrugs;
-
-	
-//	public ArrayList<Country> getCountryList() {
-//		if (countryList == null) {
-//			CountryController countryController = new CountryController();
-//			this.countryList = countryController.getCountryList();
-//		}
-//		return this.countryList;
-//	}
-
-//	public void setCountryList(ArrayList<Country> countryList) {
-//		this.countryList = countryList;
-//	}
-	
 	
 	public String getOriginCountry() {
 		return originCountry;
