@@ -59,7 +59,7 @@ public class WikiData {
 	            		this.allCountries.add(newCountry);
             		}
             	}
-             
+             qexec.close();
         }catch(Exception e) {
             e.printStackTrace();
         }

@@ -63,7 +63,9 @@ public class FusekiConnector {
         
         	request.setEntity(entity);
                
-            this.client.execute(request);
+        	this.client.execute(request);
+        	request.releaseConnection();
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -96,7 +98,7 @@ public class FusekiConnector {
 			request.setEntity(entity);
 			
 			this.client.execute(request);
-			
+			request.releaseConnection();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -138,7 +140,7 @@ public class FusekiConnector {
             	}
            		qexec.close();
            		return services;
-             
+           		
 	    } catch (IOException e) {
 	      e.printStackTrace();
 	      return null;
@@ -154,7 +156,7 @@ public class FusekiConnector {
 		  	request.setEntity(entity);
 		  	
 	        this.client.execute(request);
-	        
+	        request.releaseConnection();
 	      } catch (IOException e) {
 	          e.printStackTrace();
 	      }		  
@@ -172,7 +174,9 @@ public class FusekiConnector {
 		  	rdfReader.setProperty("error-mode", "strict") ; // Warning will be errors.
 		  	rdfReader.read(rdfModel, inputStream, null) ;
 		  	inputStream.close();	  	
- 	
+		  	
+		  	request.releaseConnection();
+		  	
 		  	return rdfModel;
 
 		}catch (Exception e) {

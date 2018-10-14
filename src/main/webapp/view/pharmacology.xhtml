@@ -9,10 +9,11 @@
 	<ui:define name="title">MedMatch - About</ui:define>
 	<ui:define name="content">
 		<div class="container">
-			<div class='owlselector'>
+			<div>
 				<h1>Pharmacology</h1>
 				<div class="card">
-					<div class="card-body">
+					<div class="card-body bg-light">
+						<h2>Metadata</h2>
 						<p class="text-secondary">
 							<strong>dcterms:creator </strong><span class="literal">"Douglas
 								Xavier"</span>
@@ -24,12 +25,12 @@
 							</span>
 						</p>
 						<p class="text-secondary">
-							<strong>rdfs:comment </strong><span class="literal">"Pharmacoly
+							<strong>rdfs:comment </strong><span class="literal">"Pharmacology
 								is an ontology of abstract concepts for data on medicinal
 								drugs."</span> <span style="color: black;">@en</span>
 						</p>
 						<p class="text-secondary">
-							<strong>rdfs:comment </strong><span class="literal">"Pharmacoly
+							<strong>rdfs:comment </strong><span class="literal">"Pharmacology
 								é uma ontologia de conceitos abstratos para dados sobre drogas
 								medicinais."</span> <span style="color: black;">@pt</span>
 						</p>
@@ -42,39 +43,40 @@
 								v.1"</span> <span style="color: black;">@en</span>
 						</p>
 						<div class="text-lg-right">
-							<a class="text-secondary" href="#{request.contextPath}/resources/ontology/pharmacology.owl">
+							<a class="text-secondary" href="#{request.contextPath}/resources/ontology/pharmacology.owl" target="_blank">
 								<img src="#{request.contextPath}/resources/images/si-glyph-file-download.svg" alt="Download icon" />
-								<span> Download the ontology as OWL file</span> 
 							</a>
+							<span> <a class="text-secondary" href="#{request.contextPath}/resources/ontology/pharmacology.owl" target="_blank">Download the ontology</a></span>
 						</div>
 					</div>
+					<hr />					
 					<div class="row">
 						<div class="col-md-6">
 							<div class="card bg-light">
 								<div class="card-body">
-									<h5 class="card-title">Classes</h5>
+									<h2 class="card-title">Classes</h2>
 									<div class='codebox' id='ID-287859955384353279'>
 										<span class="badge badge-secondary"><a
-											class="text-white" href="" title="">ActiveIngredient</a></span> <span
+											class="text-white" href="#" title="">ActiveIngredient</a></span> <span
 											class="badge badge-secondary"><a class="text-white"
-											href="" title="">AdministrationRoute</a></span> <span
+											href="#" title="">AdministrationRoute</a></span> <span
 											class="badge badge-secondary"><a class="text-white"
-											href="" title="">ATCCode</a></span> <span
+											href="#" title="">ATCCode</a></span> <span
 											class="badge badge-secondary"><a class="text-white"
-											href="" title="">Combination</a></span> <span
+											href="#" title="">Combination</a></span> <span
 											class="badge badge-secondary"><a class="text-white"
-											href="" title="">Country</a></span> <span
+											href="#" title="">Country</a></span> <span
 											class="badge badge-secondary"><a class="text-white"
-											href="" title="">Drug</a></span> <span class="badge badge-secondary"><a
-											class="text-white" href="" title="">DrugClass</a></span> <span
+											href="#" title="">Drug</a></span> <span class="badge badge-secondary"><a
+											class="text-white" href="#" title="">DrugClass</a></span> <span
 											class="badge badge-secondary"><a class="text-white"
-											href="" title="">Formulation</a></span> <span
+											href="#" title="">Formulation</a></span> <span
 											class="badge badge-secondary"><a class="text-white"
-											href="" title="">Manufacturer</a></span> <span
+											href="#" title="">Manufacturer</a></span> <span
 											class="badge badge-secondary"><a class="text-white"
-											href="" title="">Organization</a></span> <span
+											href="#" title="">Organization</a></span> <span
 											class="badge badge-secondary"><a class="text-white"
-											href="" title="">PlainFormulation</a></span>
+											href="#" title="">PlainFormulation</a></span>
 									</div>
 								</div>
 							</div>
@@ -82,46 +84,86 @@
 						<div class="col-md-6">
 							<div class="card bg-light">
 								<div class="card-body">
-									<h5 class="card-title">Properties</h5>
-									<span class="badge badge-secondary"><a
-										class="text-white" href="" title="">abbreviation</a></span> <span
-										class="badge badge-secondary"><a class="text-white"
-										href="" title="">brand</a></span> <span class="badge badge-secondary"><a
-										class="text-white" href="" title="">code</a></span> <span
-										class="badge badge-secondary"><a class="text-white"
-										href="" title="">isAllowed</a></span> <span
-										class="badge badge-secondary"><a class="text-white"
-										href="" title="">isAvailableGenerically</a></span> <span
-										class="badge badge-secondary"><a class="text-white"
-										href="" title="">name</a></span> <span class="badge badge-secondary"><a
-										class="text-white" href="" title="">strengthValue</a></span> <span
-										class="badge badge-secondary"><a href=""
-										class="text-white" title="">activeIngredient</a></span> <span
-										class="badge badge-secondary"><a href=""
-										class="text-white" title="">alike</a></span> <span
-										class="badge badge-secondary"><a href=""
-										class="text-white" title="">atcCode</a></span> <span
-										class="badge badge-secondary"><a href=""
-										class="text-white" title="">hasFormulation</a></span> <span
-										class="badge badge-secondary"><a href=""
-										class="text-white" title="">hasManufacturer</a></span> <span
-										class="badge badge-secondary"><a href=""
-										class="text-white" title="">ofDrugClass</a></span> <span
-										class="badge badge-secondary"><a href=""
-										class="text-white" title="">producedInCountry</a></span> <span
-										class="badge badge-secondary"><a href=""
-										class="text-white" title="">producesDrug</a></span> <span
-										class="badge badge-secondary"><a href=""
-										class="text-white" title="">member</a></span> <span
-										class="badge badge-secondary"><a href=""
-										class="text-white" title="">administrationRoute</a></span>
+									<h2 class="card-title">Properties</h2>
+									<span class="badge badge-secondary">
+										<a class="text-white" href="#" title="">abbreviation</a>
+									</span> 
+									<span class="badge badge-secondary">
+										<a href="#" class="text-white" title="">activeIngredient</a>
+									</span>			
+									<span class="badge badge-secondary">
+										<a href="#" class="text-white" title="">administrationRoute</a>
+									</span>
+									<span class="badge badge-secondary">
+										<a href="#" class="text-white" title="">alike</a>
+									</span>												
+									<span class="badge badge-secondary">
+										<a href="#" class="text-white" title="">atcCode</a>
+									</span>														
+									<span class="badge badge-secondary">
+										<a class="text-white" href="#" title="">brand</a></span> 
+									<span class="badge badge-secondary">
+										<a class="text-white" href="#" title="">code</a>
+									</span> 
+									<span class="badge badge-secondary">
+										<a class="text-white" href="#" title="">isAllowed</a>
+									</span> 
+									<span class="badge badge-secondary">
+										<a class="text-white" href="#" title="">isAvailableGenerically</a>
+									</span> 
+									<span class="badge badge-secondary">
+										<a class="text-white" href="#" title="">name</a>
+									</span> <span class="badge badge-secondary">
+										<a class="text-white" href="#" title="">strengthValue</a>
+									</span> 
+									<span class="badge badge-secondary">
+										<a href="#" class="text-white" title="">hasFormulation</a>
+									</span>
+									<span class="badge badge-secondary">
+										<a href="#" class="text-white" title="">hasManufacturer</a>
+									</span>
+									<span class="badge badge-secondary">
+										<a href="#" class="text-white" title="">ofDrugClass</a>
+									</span>
+									<span class="badge badge-secondary">
+										<a href="#" class="text-white" title="">producedInCountry</a>
+									</span>
+									<span class="badge badge-secondary">
+										<a href="#" class="text-white" title="">producesDrug</a>
+									</span>
+									<span class="badge badge-secondary">
+										<a href="#" class="text-white" title="">similarity</a>
+									</span>									
 								</div>
 							</div>
 						</div>
 					</div>
+					<hr />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card bg-light">
+								<div class="card-body">
+									<h2 class="card-title">Graph representation of Pharmacology</h2>
+									<img src="#{request.contextPath}/resources/images/pharmacology-graph.svg" alt="Graph representation of the Pharmacology ontology" style="width:100%;"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr />
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card bg-light">
+								<div class="card-body">
+									<h2 class="card-title">Example of Pharmacology usage</h2>
+									<div class="text-center">
+										<img src="#{request.contextPath}/resources/images/graph_example.svg" alt="Example of Pharmacology usage"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>						
 				</div>
 			</div>
-			<!-- owlselector -->
 		</div>
 		<!-- container -->
 	</ui:define>

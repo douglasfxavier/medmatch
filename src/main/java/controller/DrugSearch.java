@@ -1,18 +1,11 @@
 package controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.swing.plaf.synth.SynthSeparatorUI;
-
 import java.util.Set;
-import java.util.TreeMap;
 
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
@@ -103,7 +96,7 @@ public class DrugSearch {
 				
 					String originIngredientName = ingredient.getValue();
 				
-					double metric = StringComparison.levenshteinDistance(originIngredientName, targetIngredientName);
+					double metric = StringComparison.cosineSimilarity(originIngredientName, targetIngredientName);
 					
 					metric = metric + (weight * Math.abs(targetPosition-originPosition));
 					
@@ -122,14 +115,20 @@ public class DrugSearch {
 			
 			meanOfDrug = meanOfDrug/ingredientsByDrug.size();
 		
-			if (meanOfDrug < 5) {
+			if (meanOfDrug> 0.7 && meanOfDrug <= 1) {
 				drugObject.setMetric(meanOfDrug);
 				finalMetrics.put(drugObject,meanOfDrug);
 			}
 		}
 		
-		Map<MockDrug,Double> sortedFinalMetrics = MapUtil.sortByValue(finalMetrics);
-		return sortedFinalMetrics.entrySet();
+		Map<MockDrug, Double> reversedSortedFinalMetrics = MapUtil.sortByValue(finalMetrics);
+		
+		return reversedSortedFinalMetrics.entrySet();
+	}
+	
+	public static List<String> getOriginDrugBrands(String originCountryURI){
+		List<String> drugsList = SparqlQuery.getDrugBrandsByCountry(originCountryURI);
+		return drugsList;		
 	}
 
 }

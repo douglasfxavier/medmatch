@@ -10,17 +10,18 @@
 	<ui:composition template="/view/template/layout.xhtml">
 		<ui:define name="title">MedMatch - Searching for drugs</ui:define>
 		<ui:define name="content">	
-			<h:messages id="msgs" errorClass="errors"></h:messages>		
+			<p:growl id="msgs" errorClass="errors"/>		
 			<div class="container">
-				<h1>Drugs search</h1>	
-				<ui:param name="countryList" value="#{searchBean.countryList}" />
+				<h1>Drug search</h1>
+					
+				<ui:param name="countryList" value="#{countryListBean.countryList}" />
 				<h:form id="search-form" class="form-group">
 						<div class="form-row">
 							<div class="col-md-5 mb-3">			
 								<h:outputLabel for="originCountry" value="Origin Country" />
-								<h:selectOneMenu id="originCountry" class="custom-select custom-select-md" required="true" 
-									value="#{searchBean.originCountry}" >
-									<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
+								<h:selectOneMenu id="originCountry" class="custom-select custom-select-md" required="true"
+									value="#{searchBean.originCountry}" onchange="submit()" immediate="true" valueChangeListener="#{searchBean.onOriginCountryChange}">
+									<f:selectItem noSelectionOption="true" itemLabel="Select a country" />	
 									<f:selectItems value="#{countryList}"
 										var="country"
 										itemValue="#{country.uri}"
@@ -33,7 +34,7 @@
 							<div class="col-md-5 mb-3">			
 								<h:outputLabel for="targetCountry" value="Target Country" />
 								<h:selectOneMenu id="targetCountry" class="custom-select custom-select-md" required="true" 
-									value="#{searchBean.targetCountry}" >
+									value="#{searchBean.targetCountry}" onchange="submit()" immediate="true" valueChangeListener="#{searchBean.onTargetCountryChange}">
 									<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
 									<f:selectItems value="#{countryList}"
 										var="country"
@@ -45,30 +46,38 @@
 						<div class="form-row">
 							<div class="col-md-12 mb-3">			
 								<h:outputLabel for="drugBrand" value="Drug brand" />
-								<h:inputText id="drugBrand" class="form-control" required="true" value="#{searchBean.drugBrand}" role="Drug brand"/> 
+								<h:inputText id="drugBrand" value="#{searchBean.drugBrand}" 
+									class="form-control" />
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="col-md-12 mb-3 text-right">
-								<h:commandButton class="btn btn-primary" id="searchButton" value="Search" action="#{searchBean.search()}" />
+								<h:commandButton class="btn btn-primary" id="searchButton" 
+									value="Search" action="#{searchBean.search()}"/>
 							</div>
 						</div>										
 				</h:form>
-				
+				<p:progressBar id="progressBarClient" widgetVar="pbClient" style="width:300px"/>
 				<h:form id="drug-list-form">
-					<p:dataList var="entry" value="#{searchBean.matchedDrugs}" type="ordered" >
+					<p:dataGrid var="entry" value="#{searchBean.matchedDrugs}" columns="2" >
 					 		<p:panel>	
-					 			<h:panelGrid columns="1" style="width:100%">
-					 				<h:outputFormat class="badge badge-primary badge-pill" id="metric" value="#{entry.getValue() == 0 ? 1 : 1 - (entry.getValue()/100)}" >
-					 					<f:convertNumber pattern="##%"/>
+					 			<h:panelGrid columns="1"  style="width:100%" >
+					 				<h:outputFormat class="badge badge-primary badge-pill" id="metric" value="#{entry.getValue()}" >
+					 					<f:convertNumber pattern="##% of similarity"/>
 					 				</h:outputFormat>
 					 				<h:outputText value="#{entry.getKey().getBrand()}"/>
+					 				<h:outputText value="#{entry.getKey().getStrength()}"/>
+					 				<strong><h:outputLabel class="bg-light text-secondary" value="Active ingredients:"/></strong>
+					 				<ui:repeat var="ingredient" value="#{entry.getKey().getActiveIngredients()}">
+					 					<span class="badge badge-secondary badge-pill">
+					 						<h:outputText class="text-white" value="#{ingredient}"/>
+					 					</span>					 										 					
+					 				</ui:repeat>
 					 			</h:panelGrid>
 					 		</p:panel>
-					</p:dataList>
+					</p:dataGrid>
 				</h:form>
-	
 			</div>
 		</ui:define>
-	</ui:composition>	
+	</ui:composition>
 </html>

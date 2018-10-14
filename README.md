@@ -4,7 +4,7 @@ Running the app on Eclipse
 
 Clone the project into the Eclipse (see how) or download the project and import it on Eclipse.
 
-Install TomCat on your machine (version 8.5 recommended)
+Install TomCat on your machine (version 8.5 recommended). See the documentation and download the installer from TomCat's webpage. http://tomcat.apache.org/
 
 Configure the server to run from the Eclipse (see how).
 Set the limit 

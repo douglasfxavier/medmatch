@@ -1,0 +1,1812 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with WebVOWL (version 0.0.2), http://vowl.visualdataweb.org -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   class="vowlGraph"
+   width="463.20245"
+   height="345.72864"
+   version="1.1"
+   id="svg2840"
+   sodipodi:docname="pharmacology-graph.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:export-filename="D:\Google Drive\MSc Web Technology - University of Southampton\MSc Project\Imagens\pharmacology-graph.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
+  <metadata
+     id="metadata2846">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2844">
+    <defs
+       id="defs2277" />
+    <defs
+       id="defs2324">
+      <marker
+         id="marker5"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2279"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker14"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2282"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker16"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2285"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker8"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2288"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker20"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2291"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker22"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2294"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker25"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2297"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker26"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2300"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker29"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2303"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker30"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2306"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker32"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2309"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker34"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2312"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker35"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2315"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="marker36"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2318"
+           inkscape:connector-curvature="0" />
+      </marker>
+      <marker
+         id="markerobjectProperty0"
+         viewBox="-14 -10 28 20"
+         markerWidth="10"
+         markerHeight="10"
+         orient="auto">
+        <path
+           d="M 0,0 -12,8 V -8 L 0,0"
+           class="filled"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           id="path2321"
+           inkscape:connector-curvature="0" />
+      </marker>
+    </defs>
+    <marker
+       id="marker5-3"
+       viewBox="-14 -10 28 20"
+       markerWidth="10"
+       markerHeight="10"
+       orient="auto">
+      <path
+         d="M 0,0 -12,8 V -8 L 0,0"
+         class="filled"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         id="path2279-9"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       id="marker5-3-8"
+       viewBox="-14 -10 28 20"
+       markerWidth="10"
+       markerHeight="10"
+       orient="auto">
+      <path
+         d="M 0,0 -12,8 V -8 L 0,0"
+         class="filled"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         id="path2279-9-3"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       id="marker5-3-8-0"
+       viewBox="-14 -10 28 20"
+       markerWidth="10"
+       markerHeight="10"
+       orient="auto">
+      <path
+         d="M 0,0 -12,8 V -8 L 0,0"
+         class="filled"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         id="path2279-9-3-1"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       id="marker5-3-8-0-9"
+       viewBox="-14 -10 28 20"
+       markerWidth="10"
+       markerHeight="10"
+       orient="auto">
+      <path
+         d="M 0,0 -12,8 V -8 L 0,0"
+         class="filled"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         id="path2279-9-3-1-1"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerdatatypeProperty4-8">
+      <path
+         inkscape:connector-curvature="0"
+         id="path13-4"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="689"
+     id="namedview2842"
+     showgrid="false"
+     inkscape:zoom="1.2727508"
+     inkscape:cx="348.39616"
+     inkscape:cy="199.95375"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g5352"
+     inkscape:lockguides="true"
+     inkscape:snap-center="true" />
+  <g
+     id="g2388"
+     class="cardinalityContainer"
+     transform="matrix(0.57907108,0,0,0.57907108,-62.761945,32.672677)" />
+  <g
+     id="g2713"
+     style="display:none"
+     class="linkContainer hidden-in-export"
+     transform="matrix(0.57907108,0,0,0.57907108,-62.761945,32.672677)">
+    <g
+       id="g2684">
+      <line
+         id="line2682"
+         style="stroke:#000000;stroke-width:2"
+         y2="432.21579"
+         x2="663.79877"
+         y1="407.57114"
+         x1="639.15411"
+         class="classNodeDragPath hidden" />
+    </g>
+    <g
+       id="g2688">
+      <line
+         id="line2686"
+         style="stroke:#000000;stroke-width:2"
+         y2="0"
+         x2="0"
+         y1="0"
+         x1="0"
+         class="classNodeDragPath hidden" />
+    </g>
+    <g
+       id="g2692">
+      <line
+         id="line2690"
+         style="stroke:#000000;stroke-width:2"
+         y2="0"
+         x2="0"
+         y1="0"
+         x1="0"
+         class="classNodeDragPath hidden" />
+    </g>
+    <g
+       id="g2711">
+      <marker
+         class="hidden"
+         orient="auto"
+         markerHeight="10"
+         markerWidth="10"
+         viewBox="-14 -10 28 20"
+         id="shadowCloneMarker">
+        <path
+           inkscape:connector-curvature="0"
+           id="path2694"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           class="filled"
+           d="M 0,0 -12,8 V -8 L 0,0" />
+      </marker>
+      <marker
+         class="hidden"
+         orient="auto"
+         markerHeight="10"
+         markerWidth="10"
+         viewBox="-14 -10 28 20"
+         id="marker2699">
+        <path
+           inkscape:connector-curvature="0"
+           id="path2697"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           class="filled"
+           d="M 0,0 -12,8 V -8 L 0,0" />
+      </marker>
+      <marker
+         orient="auto"
+         markerHeight="10"
+         markerWidth="10"
+         viewBox="-14 -10 28 20"
+         id="marker2703">
+        <path
+           inkscape:connector-curvature="0"
+           id="path2701"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           class="filled"
+           d="M 0,0 -12,8 V -8 L 0,0" />
+      </marker>
+      <line
+         id="line2705"
+         style="stroke:#000000;stroke-width:2;marker-end:url(#shadowCloneMarker)"
+         class="normal hidden"
+         y2="245.9413"
+         x2="893.64221"
+         y1="162.68643"
+         x1="960.61938" />
+      <marker
+         orient="auto"
+         markerHeight="10"
+         markerWidth="10"
+         viewBox="-14 -10 28 20"
+         id="marker2709">
+        <path
+           inkscape:connector-curvature="0"
+           id="path2707"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           class="filled"
+           d="M 0,0 -12,8 V -8 L 0,0" />
+      </marker>
+    </g>
+  </g>
+  <g
+     id="g2802"
+     style="display:none"
+     class="editContainer hidden-in-export"
+     transform="matrix(0.57907108,0,0,0.57907108,-62.761945,32.672677)">
+    <g
+       style="display:none"
+       id="10001"
+       class="node hidden-in-export">
+      <g
+         id="g2719">
+        <path
+           inkscape:connector-curvature="0"
+           id="path2715"
+           style="fill:none;stroke:#000000;stroke-width:2"
+           transform="rotate(-135,421.41421,78.630668)"
+           class="classDraggerNode hidden"
+           d="M 20,40 C 0,15 0,-15 20,-40 L -40,0 Z" />
+        <circle
+           id="circle2717"
+           transform="translate(663.79878,432.21579)"
+           class="superHiddenElement superOpacityElement hidden"
+           cy="0"
+           cx="0"
+           r="40" />
+      </g>
+    </g>
+    <g
+       style="display:none"
+       id="10003"
+       class="node hidden-in-export">
+      <g
+         id="g2728"
+         class="hidden"
+         transform="translate(927.1308,204.31386)">
+        <rect
+           id="rect2722"
+           style="fill:#99cc66"
+           height="28"
+           width="63"
+           y="-14"
+           x="-31.5"
+           class="datatypeproperty property" />
+        <text
+           id="text2726"
+           y="-6.90625"
+           style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+           class="text">
+          <tspan
+             id="tspan2724"
+             style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+             dy="12"
+             x="0"
+             class="text">strength</tspan>
+        </text>
+      </g>
+    </g>
+    <g
+       id="g2731" />
+    <g
+       id="g2733" />
+    <g
+       id="g2735" />
+    <g
+       id="g2737" />
+    <g
+       id="g2739" />
+    <g
+       id="g2741" />
+    <g
+       id="g2743" />
+    <g
+       id="g2745" />
+    <g
+       id="g2747" />
+    <g
+       id="g2749" />
+    <g
+       style="display:none"
+       id="10002"
+       class="node hidden-in-export">
+      <g
+         id="g2755">
+        <path
+           inkscape:connector-curvature="0"
+           id="path2751"
+           style="fill:none;stroke:#000000;stroke-width:2"
+           transform="rotate(128.81609,441.3506,311.38612)"
+           class="classDraggerNode hidden"
+           d="M 61,40 C 41,15 41,-15 61,-40 L 1,0 Z" />
+        <circle
+           id="circle2753"
+           transform="translate(935.54647,193.85291)"
+           class="superHiddenElement superOpacityElement hidden"
+           cy="0"
+           cx="0"
+           r="40" />
+      </g>
+    </g>
+    <g
+       id="g2758" />
+    <g
+       id="g2760" />
+    <g
+       id="g2762" />
+    <g
+       id="g2764" />
+    <g
+       id="g2766" />
+    <g
+       id="g2768" />
+    <g
+       id="g2770" />
+    <g
+       id="g2772" />
+    <g
+       id="g2774" />
+    <g
+       id="g2776" />
+    <g
+       id="g2778" />
+    <g
+       id="g2780" />
+    <g
+       id="g2782" />
+    <g
+       id="g2784" />
+    <g
+       id="g2786" />
+    <g
+       style="display:none"
+       id="g2794"
+       class="node hidden-in-export">
+      <g
+         id="g2792">
+        <path
+           inkscape:connector-curvature="0"
+           id="path2788"
+           style="fill:none;stroke:#000000;stroke-width:2"
+           transform="rotate(128.81609,387.92468,336.9743)"
+           class="classDraggerNode hidden"
+           d="M 10,40 C -10,15 -10,-15 10,-40 -8.8233455,-13.641384 -36.711107,-5.1228436 -50,0 -36.696429,4.9079017 -8.6403157,13.745728 10,40 Z" />
+        <circle
+           id="circle2790"
+           transform="translate(906.17868,230.35806)"
+           class="superHiddenElement superOpacityElement hidden"
+           cy="0"
+           cx="0"
+           r="40" />
+      </g>
+    </g>
+    <g
+       id="g2796" />
+    <g
+       id="g2798" />
+    <g
+       id="g2800" />
+  </g>
+  <g
+     class="hidden-in-export addDataPropertyElement hidden"
+     transform="matrix(0.57907108,0,0,0.57907108,266.40722,268.68533)"
+     style="display:none"
+     id="g2818">
+    <circle
+       r="12"
+       cx="0"
+       cy="0"
+       id="circle2806">
+      <title
+         id="title2804">Add Datatype Property</title>
+    </circle>
+    <line
+       x1="-8"
+       y1="0"
+       x2="8"
+       y2="0"
+       style="stroke:#000000;stroke-width:2"
+       id="line2810">
+      <title
+         id="title2808">Add Datatype Property</title>
+    </line>
+    <line
+       x1="0"
+       y1="-8"
+       x2="0"
+       y2="8"
+       style="stroke:#000000;stroke-width:2"
+       id="line2814">
+      <title
+         id="title2812">Add Datatype Property</title>
+    </line>
+    <circle
+       r="25"
+       cx="0"
+       cy="0"
+       class="superHiddenElement superOpacityElement"
+       id="circle2816" />
+  </g>
+  <g
+     class="hidden-in-export deleteParentElement hidden"
+     transform="matrix(0.57907108,0,0,0.57907108,307.35373,227.73882)"
+     style="display:none"
+     id="g2834">
+    <circle
+       r="12"
+       cx="0"
+       cy="0"
+       id="circle2822">
+      <title
+         id="title2820">Delete This Node</title>
+    </circle>
+    <line
+       x1="-5"
+       y1="-5"
+       x2="5"
+       y2="5"
+       style="stroke:#000000;stroke-width:2"
+       id="line2826">
+      <title
+         id="title2824">Delete This Node</title>
+    </line>
+    <line
+       x1="5"
+       y1="-5"
+       x2="-5"
+       y2="5"
+       style="stroke:#000000;stroke-width:2"
+       id="line2830">
+      <title
+         id="title2828">Delete This Node</title>
+    </line>
+    <circle
+       r="25"
+       cx="0"
+       cy="0"
+       class="superHiddenElement superOpacityElement"
+       id="circle2832" />
+  </g>
+  <g
+     id="g1787"
+     inkscape:export-xdpi="300"
+     inkscape:export-ydpi="300"
+     transform="translate(-290.75395,-54.126512)">
+    <g
+       id="g2498"
+       transform="matrix(0.57907108,0,0,0.57907108,606.68062,93.107354)"
+       class="labelGroup">
+      <g
+         id="32"
+         class="label" />
+    </g>
+    <g
+       id="g1520">
+      <g
+         id="g5352"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300"
+         style="opacity:0.97999998">
+        <g
+           transform="matrix(0.26643418,0.36015175,-0.36015175,0.26643418,359.12021,78.973903)"
+           style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#markerdatatypeProperty4-8)"
+           id="g41-7"
+           class="link">
+          <path
+             sodipodi:nodetypes="cc"
+             inkscape:connector-curvature="0"
+             id="path39-2"
+             style="fill:none;stroke:#000000;stroke-width:2;marker-end:url(#markerdatatypeProperty4-8)"
+             d="m 442.20675,-148.33695 c 6.02193,-8.37382 55.73943,-74.27245 79.82718,-107.76775"
+             class="link-path nodeClass15 nodeNodeId16 normal" />
+        </g>
+        <g
+           inkscape:export-ydpi="300"
+           inkscape:export-xdpi="300"
+           id="g2487"
+           transform="matrix(0.57907108,0,0,0.57907108,444.81757,316.6802)"
+           class="labelGroup">
+          <g
+             id="29"
+             class="label"
+             transform="translate(4.6450973,17.916804)" />
+        </g>
+        <g
+           id="g1512"
+           transform="matrix(0.98982334,0,0,0.98863605,5.6729315,2.5437617)">
+          <g
+             class="node"
+             id="19"
+             transform="matrix(0.57907108,0,0,0.57907108,668.12108,196.3871)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <circle
+               class="class"
+               r="50"
+               style="fill:#aaccff;stroke:#000000;stroke-width:2"
+               id="circle2655"
+               cx="0"
+               cy="0">
+              <title
+                 id="title2653">Ingredient</title>
+            </circle>
+            <text
+               x="-0.50097656"
+               class="text"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               y="3.0322266"
+               id="text2659">
+              <tspan
+                 class="text"
+                 x="-0.50097656"
+                 dy="0"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 id="tspan2657">:Ingredient</tspan>
+            </text>
+          </g>
+          <g
+             class="link"
+             id="g2328"
+             style="marker-end:url(#marker5)"
+             transform="matrix(0.57907108,0,0,0.57907108,227.99201,86.799189)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <path
+               class="link-path node6 node7 normal"
+               d="m 416.08223,293.28469 q 62.91571,8.80235 77.28906,14.11381 14.37336,5.31145 66.44448,39.00072"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               id="path2326"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             class="link"
+             id="g2336"
+             style="marker-end:url(#marker16)"
+             transform="matrix(0.57907108,0,0,0.57907108,227.99201,86.799189)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <path
+               class="link-path node6 node17 normal"
+               d="m 316.08216,273.26027 q -57.8471,-9.32966 -69.70574,-15.19572 -11.85865,-5.86605 -48.88067,-43.46486"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               id="path2334"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             class="link"
+             id="g2340"
+             style="marker-end:url(#marker8)"
+             transform="matrix(0.57907108,0,0,0.57907108,227.99201,86.799189)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <path
+               class="link-path node7 node6 normal"
+               d="M 553.75116,362.40581 Q 493.5799,353.13111 479.24218,347.80108 464.90446,342.47104 410.374,309.10543"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               id="path2338"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             class="link"
+             id="g2344"
+             style="marker-end:url(#marker20)"
+             transform="matrix(0.57907108,0,0,0.57907108,227.99201,86.799189)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <path
+               class="link-path node23 node6 normal"
+               d="m 237.92534,408.77252 q 46.75962,-19.63791 56.52618,-28.00207 9.76657,-8.36417 41.13946,-55.63955"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               id="path2342"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             class="link"
+             id="g2348"
+             style="marker-end:url(#marker22)"
+             transform="matrix(0.57907108,0,0,0.57907108,227.99201,86.799189)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <path
+               class="link-path node6 node23 normal"
+               d="m 320.37022,307.0786 q -51.67877,22.73228 -61.53015,31.01466 -9.85138,8.28237 -36.98361,51.8091"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               id="path2346"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             class="link"
+             id="g2356"
+             style="marker-end:url(#marker26)"
+             transform="matrix(0.47277009,-0.45272955,0.39727153,0.41485716,129.03147,430.89331)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <path
+               class="link-path node7 node19 normal"
+               d="m 654.7114,369.23172 q 57.22034,-3.35377 71.52542,-4.19222 14.30509,-0.83844 71.52543,-4.19222"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               id="path2354"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             class="link"
+             id="g2360"
+             style="marker-end:url(#marker29)"
+             transform="matrix(0.57907108,0,0,0.57907108,227.99201,86.799189)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <path
+               class="link-path node6 node15 normal"
+               d="m 369.75329,334.97817 q 3.74686,49.60337 4.68358,62.00421 0.93671,12.40084 4.68358,62.00421"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               id="path2358"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             class="link"
+             id="g2364"
+             style="marker-end:url(#marker32)"
+             transform="matrix(0.57907108,0,0,0.57907108,227.99201,86.799189)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <path
+               class="link-path node33 node18 normal"
+               d="m 631.41065,52.678884 q 18.0385,-33.428232 22.54812,-41.78529 4.50963,-8.3570585 22.54813,-41.785291"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               id="path2362"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             class="link"
+             id="g2372"
+             style="marker-end:url(#marker35)"
+             transform="matrix(0.57907108,0,0,0.57907108,227.99201,86.799189)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <path
+               class="link-path node6 node28 normal"
+               d="m 372.81054,233.59179 q 8.36909,-61.30174 10.46136,-76.62717 2.09227,-15.32543 10.46135,-76.62717"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               id="path2370"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             class="link"
+             id="g2376"
+             style="marker-end:url(#markerobjectProperty0)"
+             transform="matrix(0.57907108,0,0,0.57907108,227.99201,86.799189)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <path
+               class="link-path node17 node6 normal"
+               d="m 208.2283,195.38071 q 48.71464,12.24817 60.35503,18.12743 11.64039,5.87926 56.04884,40.66519"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               id="path2374"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             class="link"
+             id="g2380"
+             style="marker-end:url(#marker36)"
+             transform="matrix(0.57907108,0,0,0.57907108,227.99201,86.799189)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <path
+               class="link-path node28 node33 normal"
+               d="m 449.0915,45.701762 q 43.85609,14.385551 54.82011,17.981939 10.96403,3.596388 54.82012,17.981939"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               id="path2378"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             class="link"
+             id="g2384"
+             style="marker-end:url(#marker30)"
+             transform="matrix(0.93544869,0,0,0.55368645,-211.06756,146.29143)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <path
+               class="link-path node19 node13 normal"
+               d="m 872.07205,285.9118 q 41.09806,1.57151 51.37258,1.96439 10.27451,0.39288 51.37258,1.96439"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               id="path2382"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             class="labelGroup"
+             transform="matrix(0.57907108,0,0,0.57907108,513.68906,264.80477)"
+             id="g2399"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <g
+               class="label"
+               id="5">
+              <rect
+                 class="objectproperty property object"
+                 x="-49"
+                 y="-14"
+                 width="98"
+                 height="28"
+                 style="fill:#aaccff"
+                 id="rect2392">
+                <title
+                   id="title2390">hasCompound</title>
+              </rect>
+              <text
+                 x="-0.10546875"
+                 class="text"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+                 y="3.1757812"
+                 id="text2396">
+                <tspan
+                   class="text"
+                   x="-0.10546875"
+                   dy="0"
+                   style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   id="tspan2394">:hasFormulation</tspan>
+              </text>
+            </g>
+          </g>
+          <g
+             class="labelGroup"
+             transform="matrix(0.57907108,0,0,0.57907108,370.66147,236.23691)"
+             id="g2421"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <g
+               class="label"
+               id="16">
+              <rect
+                 class="objectproperty property object"
+                 x="-55"
+                 y="-14"
+                 width="110"
+                 height="28"
+                 style="fill:#aaccff"
+                 id="rect2414">
+                <title
+                   id="title2412">hasManufacturer</title>
+              </rect>
+              <text
+                 x="-1.990756"
+                 class="text"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+                 y="4.5622005"
+                 id="text2418">
+                <tspan
+                   class="text"
+                   x="-1.990756"
+                   dy="0"
+                   style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   id="tspan2416">:hasManufacturer</tspan>
+              </text>
+            </g>
+          </g>
+          <g
+             class="labelGroup"
+             transform="matrix(0.57907108,0,0,0.57907108,505.5073,288.20074)"
+             id="g2432"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <g
+               class="label"
+               id="8">
+              <rect
+                 class="objectproperty property object"
+                 x="-32.5"
+                 y="-14"
+                 width="65"
+                 height="28"
+                 style="fill:#aaccff"
+                 id="rect2425">
+                <title
+                   id="title2423">isInDrug</title>
+              </rect>
+              <text
+                 x="-0.13769531"
+                 class="text"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+                 y="3.0322266"
+                 id="text2429">
+                <tspan
+                   class="text"
+                   x="-0.13769531"
+                   dy="0"
+                   style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   id="tspan2427">:isInDrug</tspan>
+              </text>
+            </g>
+          </g>
+          <g
+             class="labelGroup"
+             transform="matrix(0.57907108,0,0,0.57907108,398.50037,307.29234)"
+             id="g2443"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <g
+               class="label"
+               id="20">
+              <rect
+                 class="objectproperty property object"
+                 x="-47.5"
+                 y="-14"
+                 width="95"
+                 height="28"
+                 style="fill:#aaccff"
+                 id="rect2436">
+                <title
+                   id="title2434">producesDrug</title>
+              </rect>
+              <text
+                 x="-0.13769531"
+                 class="text"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+                 y="3.0322266"
+                 id="text2440">
+                <tspan
+                   class="text"
+                   x="-0.13769531"
+                   dy="0"
+                   style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   id="tspan2438">:producesDrug</tspan>
+              </text>
+            </g>
+          </g>
+          <g
+             class="labelGroup"
+             transform="matrix(0.57907108,0,0,0.57907108,377.87881,282.57922)"
+             id="g2454"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <g
+               class="label"
+               id="22">
+              <rect
+                 class="objectproperty property object"
+                 x="-61"
+                 y="-14"
+                 width="122"
+                 height="28"
+                 style="fill:#aaccff"
+                 id="rect2447">
+                <title
+                   id="title2445">producedInCountry</title>
+              </rect>
+              <text
+                 x="-0.48925781"
+                 class="text"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+                 y="3.1054688"
+                 id="text2451">
+                <tspan
+                   class="text"
+                   x="-0.48925781"
+                   dy="0"
+                   style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   id="tspan2449">:producedInCountry</tspan>
+              </text>
+              <text
+                 id="text1187"
+                 y="3.6495881"
+                 x="-44.209217"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.84061432px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.72690368"
+                 xml:space="preserve"><tspan
+                   style="stroke-width:1.72690368"
+                   y="36.833935"
+                   x="-44.209217"
+                   id="tspan1185"
+                   sodipodi:role="line" /></text>
+            </g>
+          </g>
+          <g
+             class="labelGroup"
+             transform="matrix(0.57907108,0,0,0.57907108,619.50777,254.77516)"
+             id="g2476"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <g
+               class="label"
+               id="26">
+              <rect
+                 class="objectproperty property object"
+                 x="-65.771706"
+                 y="-16.126637"
+                 width="124.24397"
+                 height="28"
+                 style="fill:#3366cc;stroke-width:1.08778489"
+                 id="rect2469">
+                <title
+                   id="title2467">activeIngredient</title>
+              </rect>
+              <text
+                 x="-4.6450973"
+                 class="text"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#ffffff"
+                 y="1.5760666"
+                 id="text2473">
+                <tspan
+                   class="text"
+                   x="-4.6450973"
+                   dy="0 0 0 0 0 0 0 0"
+                   style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   id="tspan2471">lifesci:activeIngredient</tspan>
+              </text>
+            </g>
+          </g>
+          <rect
+             class="datatypeproperty property datatype"
+             x="423.7655"
+             y="318.9483"
+             width="47.483829"
+             height="16.213991"
+             style="fill:#99cc66;stroke-width:0.5790711"
+             id="rect2480">
+            <title
+               id="title2478">brandName</title>
+          </rect>
+          <text
+             inkscape:export-ydpi="300"
+             inkscape:export-xdpi="300"
+             x="447.33945"
+             class="text"
+             style="font-size:6.94885302px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000;stroke-width:0.5790711"
+             y="329.50165"
+             id="text2484">
+            <tspan
+               class="text"
+               x="447.33945"
+               dy="0"
+               style="font-size:6.94885302px;font-family:Helvetica, Arial, sans-serif;stroke-width:0.5790711"
+               id="tspan2482">:brand</tspan>
+          </text>
+          <rect
+             class="datatypeproperty property datatype"
+             x="593.362"
+             y="85.000359"
+             width="26.63727"
+             height="16.213991"
+             style="fill:#99cc66;stroke-width:0.5790711"
+             id="rect2491"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <title
+               id="title2489">code</title>
+          </rect>
+          <text
+             x="606.67383"
+             class="text"
+             style="font-size:6.94885302px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000;stroke-width:0.5790711"
+             y="95.596115"
+             id="text2495"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <tspan
+               class="text"
+               x="606.67383"
+               style="font-size:6.94885302px;font-family:Helvetica, Arial, sans-serif;stroke-width:0.5790711"
+               id="tspan2493">:code</tspan>
+          </text>
+          <g
+             class="labelGroup"
+             transform="matrix(0.57907108,0,0,0.57907108,449.93368,169.69286)"
+             id="g2520"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <g
+               class="label"
+               id="35">
+              <rect
+                 class="objectproperty property object"
+                 x="-43"
+                 y="-14"
+                 width="86"
+                 height="28"
+                 style="fill:#aaccff"
+                 id="rect2513">
+                <title
+                   id="title2511">ofDrugClass</title>
+              </rect>
+              <text
+                 class="text"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+                 y="3.1054688"
+                 id="text2517"
+                 x="-0.31054688">
+                <tspan
+                   class="text"
+                   x="-0.31054688"
+                   style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   id="tspan2515">:ofDrugClass</tspan>
+              </text>
+            </g>
+          </g>
+          <g
+             class="labelGroup"
+             transform="matrix(0.57907108,0,0,0.57907108,383.52085,210.43558)"
+             id="g2531"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <g
+               class="label"
+               id="objectProperty0">
+              <rect
+                 class="objectproperty property"
+                 x="-47.5"
+                 y="-14"
+                 width="95"
+                 height="28"
+                 style="fill:#aaccff"
+                 id="rect2524">
+                <title
+                   id="title2522">producesDrug</title>
+              </rect>
+              <text
+                 x="-1.3271706"
+                 class="text"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+                 y="4.5622005"
+                 id="text2528">
+                <tspan
+                   class="text"
+                   x="-1.3271706"
+                   dy="0"
+                   style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   id="tspan2526">:producesDrug</tspan>
+              </text>
+            </g>
+          </g>
+          <g
+             class="labelGroup"
+             transform="matrix(0.57907108,0,0,0.57907108,519.79265,123.67658)"
+             id="g2544"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <g
+               class="label"
+               id="36">
+              <rect
+                 class="objectproperty property object"
+                 x="-32.5"
+                 y="-14"
+                 width="65"
+                 height="28"
+                 style="fill:#aaccff"
+                 id="rect2535">
+                <title
+                   id="title2533">atcCode</title>
+              </rect>
+              <text
+                 class="text"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+                 y="-13.21875"
+                 id="text2541">
+                <tspan
+                   class="text"
+                   x="0"
+                   dy="12"
+                   style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   id="tspan2537">atcCode,</tspan>
+                <tspan
+                   class="text"
+                   x="0"
+                   dy="13"
+                   style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   id="tspan2539">P267</tspan>
+              </text>
+            </g>
+          </g>
+          <g
+             class="labelGroup"
+             transform="matrix(0.57907108,0,0,0.57907108,629.56172,305.64618)"
+             id="g2555"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <g
+               class="label"
+               id="30">
+              <rect
+                 class="datatypeproperty property datatype"
+                 x="-31.5"
+                 y="-14"
+                 width="125.98119"
+                 height="28"
+                 style="fill:#99cc66;stroke-width:1.41410804"
+                 id="rect2548">
+                <title
+                   id="title2546">strength</title>
+              </rect>
+              <text
+                 x="31.358761"
+                 class="text"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+                 y="3.1054688"
+                 id="text2552">
+                <tspan
+                   class="text"
+                   x="31.358761"
+                   dy="0 0 0 0 0 0 0 0"
+                   style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   id="tspan2550">lifesci:strengthValue</tspan>
+              </text>
+            </g>
+          </g>
+          <g
+             class="node"
+             id="13"
+             transform="matrix(0.57907108,0,0,0.57907108,717.91442,306.19607)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <rect
+               class="class literal datatype dashed"
+               x="-26.5"
+               y="-10"
+               width="53"
+               height="20"
+               style="fill:#ffcc33;stroke:#000000;stroke-width:2;stroke-dasharray:8"
+               id="rect2588">
+              <title
+                 id="title2586">Literal</title>
+            </rect>
+            <text
+               class="text"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               y="-6.71875"
+               id="text2592">
+              <tspan
+                 class="text"
+                 x="0"
+                 dy="12"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 id="tspan2590">Literal</tspan>
+            </text>
+          </g>
+          <g
+             class="node"
+             id="15"
+             transform="matrix(0.57907108,0,0,0.57907108,448.01072,358.95319)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <rect
+               class="class literal datatype dashed"
+               x="-26.5"
+               y="-10"
+               width="53"
+               height="20"
+               style="fill:#ffcc33;stroke:#000000;stroke-width:2;stroke-dasharray:8"
+               id="rect2597">
+              <title
+                 id="title2595">Literal</title>
+            </rect>
+            <text
+               class="text"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               y="-6.71875"
+               id="text2601">
+              <tspan
+                 class="text"
+                 x="0"
+                 dy="12"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 id="tspan2599">Literal</tspan>
+            </text>
+          </g>
+          <g
+             class="node"
+             id="23"
+             transform="matrix(0.57907108,0,0,0.57907108,339.30421,336.61708)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <circle
+               class="class"
+               r="50"
+               style="fill:#3366cc;fill-opacity:1;stroke:#000000;stroke-width:2"
+               id="circle2615"
+               cx="0"
+               cy="0">
+              <title
+                 id="title2613">Country</title>
+            </circle>
+            <text
+               x="-0.15234375"
+               class="text"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#ffffff;fill-opacity:1"
+               y="3.1054688"
+               id="text2619">
+              <tspan
+                 class="text"
+                 x="-0.15234375"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;fill:#ffffff;fill-opacity:1"
+                 id="tspan2617">schema:Country</tspan>
+            </text>
+          </g>
+          <g
+             class="node"
+             id="6"
+             transform="matrix(0.57907108,0,0,0.57907108,439.88099,251.32663)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <circle
+               class="class"
+               r="50"
+               style="fill:#3366cc;stroke:#000000;stroke-width:2"
+               id="circle2624"
+               cx="0"
+               cy="0">
+              <title
+                 id="title2622">Drug</title>
+            </circle>
+            <text
+               x="0.020507812"
+               class="text"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#ffffff"
+               y="3.1054688"
+               id="text2630">
+              <tspan
+                 dy="0 0 0 0 0 0 0 0"
+                 class="text"
+                 x="0.020507812"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 id="tspan2626">lifesci:Drug</tspan>
+              <tspan
+                 class="text subtext"
+                 x="0.020507812"
+                 style="font-size:9px;font-family:Helvetica, Arial, sans-serif"
+                 id="tspan2628" />
+            </text>
+          </g>
+          <g
+             class="node"
+             id="17"
+             transform="matrix(0.57907108,0,0,0.57907108,320.28658,191.44337)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <circle
+               class="class"
+               r="50"
+               style="fill:#aaccff;stroke:#000000;stroke-width:2"
+               id="circle2635"
+               cx="0"
+               cy="0">
+              <title
+                 id="title2633">Manufacturer</title>
+            </circle>
+            <text
+               x="0.46922567"
+               class="text"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               y="-6.0149121"
+               id="text2639">
+              <tspan
+                 class="text"
+                 x="0.46922567"
+                 dy="0"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 id="tspan2637">:Manufacturer</tspan>
+            </text>
+            <text
+               class="text"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000;stroke-width:1"
+               y="8.5741615"
+               id="text2639-4"
+               x="-0.17387253">
+              <tspan
+                 class="text"
+                 x="-0.17387253"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;stroke-width:1"
+                 id="tspan2637-2">dbo:Organisation</tspan>
+            </text>
+          </g>
+          <g
+             class="node"
+             id="28"
+             transform="matrix(0.57907108,0,0,0.57907108,459.98637,104.05909)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <circle
+               class="class"
+               r="50"
+               style="fill:#3366cc;stroke:#000000;stroke-width:2"
+               id="circle2644"
+               cx="0"
+               cy="0">
+              <title
+                 id="title2642">DrugClass</title>
+            </circle>
+            <text
+               x="-0.15234375"
+               class="text"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#ffffff"
+               y="3.1054688"
+               id="text2650">
+              <tspan
+                 class="text"
+                 x="-0.15234375"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 id="tspan2646"
+                 dy="0 0 0 0 0 0 0 0">lifesci:DrugClass</tspan>
+              <tspan
+                 class="text subtext"
+                 x="-0.15234375"
+                 style="font-size:9px;font-family:Helvetica, Arial, sans-serif"
+                 id="tspan2648" />
+            </text>
+          </g>
+          <g
+             class="node"
+             id="33"
+             transform="matrix(0.57907108,0,0,0.57907108,579.59894,143.29407)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <circle
+               class="class"
+               r="50"
+               style="fill:#aaccff;stroke:#000000;stroke-width:2"
+               id="circle2664"
+               cx="0"
+               cy="0">
+              <title
+                 id="title2662">ATCCode</title>
+            </circle>
+            <text
+               x="-3.4538074"
+               class="text"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               y="3.6426725"
+               id="text2668">
+              <tspan
+                 class="text"
+                 x="-3.4538074"
+                 dy="0"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 id="tspan2666">:ATCCode</tspan>
+            </text>
+          </g>
+          <g
+             class="node"
+             id="7"
+             transform="matrix(0.57907108,0,0,0.57907108,577.63442,302.33859)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <circle
+               class="class"
+               r="50"
+               style="fill:#aaccff;stroke:#000000;stroke-width:2"
+               id="circle2673"
+               cx="0"
+               cy="0">
+              <title
+                 id="title2671">Compound</title>
+            </circle>
+            <text
+               x="-0.10546875"
+               class="text"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               y="3.1757812"
+               id="text2677">
+              <tspan
+                 class="text"
+                 x="-0.10546875"
+                 dy="0"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 id="tspan2675">:Formulation</tspan>
+            </text>
+          </g>
+          <path
+             sodipodi:nodetypes="csc"
+             inkscape:connector-curvature="0"
+             id="path2326-6-5"
+             style="fill:none;stroke:#000000;stroke-width:1.15814221;marker-end:url(#marker5-3-8)"
+             d="m 454.39728,229.07363 c 24.89965,-40.50481 68.59337,-36.89249 70.49242,-33.21497 7.82436,15.1519 -27.41219,57.42229 -55.6904,53.69836"
+             class="link-path node6 node7 normal"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300" />
+          <g
+             id="g1345"
+             transform="matrix(0.57907108,0,0,0.57907108,513.1488,199.64607)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <rect
+               id="rect2425-3"
+               style="fill:#aaccff"
+               height="28"
+               width="65"
+               y="-16.760618"
+               x="-32.5"
+               class="objectproperty property object">
+              <title
+                 id="title2423-8">isInDrug</title>
+            </rect>
+            <text
+               x="-0.55212373"
+               id="text2429-2"
+               y="1.5631058"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               class="text">
+              <tspan
+                 id="tspan2427-5"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 x="-0.55212373"
+                 class="text">:alike</tspan>
+            </text>
+          </g>
+          <path
+             sodipodi:nodetypes="csc"
+             inkscape:connector-curvature="0"
+             id="path2326-6-5-6"
+             style="fill:none;stroke:#000000;stroke-width:1.15814221;marker-end:url(#marker5-3-8-0)"
+             d="m 674.78953,168.73846 c 24.89965,-40.50481 60.00251,-43.67475 61.90156,-39.99723 7.82436,15.1519 -13.39552,57.42229 -41.67373,53.69836"
+             class="link-path node6 node7 normal"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300" />
+          <g
+             id="g1345-1"
+             transform="matrix(0.57907108,0,0,0.57907108,735.13661,134.67576)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <rect
+               id="rect2425-3-7"
+               style="fill:#aaccff"
+               height="28"
+               width="65"
+               y="-16.760618"
+               x="-32.5"
+               class="objectproperty property object">
+              <title
+                 id="title2423-8-8">isInDrug</title>
+            </rect>
+            <text
+               x="-0.55212373"
+               id="text2429-2-4"
+               y="1.5631058"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               class="text">
+              <tspan
+                 id="tspan2427-5-2"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 x="-0.55212373"
+                 class="text">:alike</tspan>
+            </text>
+          </g>
+          <g
+             class="node"
+             id="15-6"
+             transform="matrix(0.57907108,0,0,0.57907108,625.58028,60.496294)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <rect
+               class="class literal datatype dashed"
+               x="-26.5"
+               y="-10"
+               width="53"
+               height="20"
+               style="fill:#ffcc33;stroke:#000000;stroke-width:2;stroke-dasharray:8"
+               id="rect2597-5">
+              <title
+                 id="title2595-2">Literal</title>
+            </rect>
+            <text
+               class="text"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               y="-6.71875"
+               id="text2601-6">
+              <tspan
+                 class="text"
+                 x="0"
+                 dy="12"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 id="tspan2599-3">Literal</tspan>
+            </text>
+          </g>
+          <path
+             sodipodi:nodetypes="csc"
+             inkscape:connector-curvature="0"
+             id="path2326-6-5-6-5"
+             style="fill:none;stroke:#000000;stroke-width:1.15814221;marker-end:url(#marker5-3-8-0-9)"
+             d="m 585.93007,329.55284 c -3.15867,47.44107 -32.7412,66.6018 -36.13502,64.23273 -13.98303,-9.76094 -14.90293,-57.04966 11.85319,-66.93069"
+             class="link-path node6 node7 normal"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300" />
+          <g
+             id="g1345-1-0"
+             transform="matrix(0.57907108,0,0,0.57907108,552.92905,393.34675)"
+             inkscape:export-xdpi="300"
+             inkscape:export-ydpi="300">
+            <rect
+               id="rect2425-3-7-2"
+               style="fill:#aaccff"
+               height="28"
+               width="65"
+               y="-16.760618"
+               x="-32.5"
+               class="objectproperty property object">
+              <title
+                 id="title2423-8-8-0">isInDrug</title>
+            </rect>
+            <text
+               x="-0.55212373"
+               id="text2429-2-4-6"
+               y="1.5631058"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               class="text">
+              <tspan
+                 id="tspan2427-5-2-4"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 x="-0.55212373"
+                 class="text">:alike</tspan>
+            </text>
+          </g>
+        </g>
+        <g
+           transform="matrix(0.58521941,0,0,0.58521941,763.63716,198.19861)"
+           id="NodeId16-2"
+           class="node"
+           style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+          <text
+             id="text198-2"
+             y="-6.5"
+             style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+             class="text">
+            <tspan
+               id="tspan196-9"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+               x="0"
+               class="text" />
+          </text>
+          <g
+             id="g1584"
+             transform="matrix(0.66047611,0,0,0.66047611,-266.48152,4.6231399)">
+            <rect
+               class="class literal dashed"
+               x="-36.21825"
+               y="-18.704039"
+               width="62.664013"
+               height="28.184875"
+               style="fill:#ffcc33;stroke:#000000;stroke-width:2.58163142;stroke-dasharray:10.32652541"
+               id="rect194-9">
+              <title
+                 id="title192-1">Literal</title>
+            </rect>
+            <text
+               xml:space="preserve"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.46000004px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.58406246"
+               x="-4.2390189"
+               y="-0.51041114"
+               id="text4843-1"><tspan
+                 sodipodi:role="line"
+                 id="tspan4841-6"
+                 x="-4.2390189"
+                 y="-0.51041114"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.58406246">Double</tspan></text>
+          </g>
+        </g>
+        <g
+           transform="matrix(0.75988149,0,0,0.75988149,667.73799,449.17645)"
+           style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="g2290-4-3">
+          <rect
+             class="datatypeproperty property"
+             x="-162.45006"
+             y="-336.75604"
+             width="41.735924"
+             height="12.581958"
+             style="fill:#99cc66;stroke-width:0.3953298"
+             id="rect94-5-4-7">
+            <title
+               id="title92-33-0-2">newDatatypeProperty</title>
+          </rect>
+          <text
+             id="text4803-7-6-1"
+             y="-327.47809"
+             x="-141.3638"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.2274437px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.38566136"
+             xml:space="preserve"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.38566136"
+               y="-327.47809"
+               x="-141.3638"
+               id="tspan4801-3-7-7"
+               sodipodi:role="line">similarity</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

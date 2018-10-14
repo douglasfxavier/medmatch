@@ -1,0 +1,1451 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with WebVOWL (version 0.0.2), http://vowl.visualdataweb.org -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   class="vowlGraph"
+   width="571.0799"
+   height="650.4635"
+   version="1.1"
+   id="svg295"
+   sodipodi:docname="graph_example.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:export-filename="D:\Google Drive\MSc Web Technology - University of Southampton\MSc Project\Imagens\graph_example.png"
+   inkscape:export-xdpi="78"
+   inkscape:export-ydpi="78">
+  <metadata
+     id="metadata301">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs299">
+    <defs
+       id="defs2" />
+    <defs
+       id="defs25">
+      <marker
+         orient="auto"
+         markerHeight="10"
+         markerWidth="10"
+         viewBox="-14 -10 28 20"
+         id="markerdatatypeProperty1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path4"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           class="filled"
+           d="M 0,0 -12,8 V -8 L 0,0" />
+      </marker>
+      <marker
+         orient="auto"
+         markerHeight="10"
+         markerWidth="10"
+         viewBox="-14 -10 28 20"
+         id="markerdatatypeProperty2">
+        <path
+           inkscape:connector-curvature="0"
+           id="path7"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           class="filled"
+           d="M 0,0 -12,8 V -8 L 0,0" />
+      </marker>
+      <marker
+         orient="auto"
+         markerHeight="10"
+         markerWidth="10"
+         viewBox="-14 -10 28 20"
+         id="markerdatatypeProperty3">
+        <path
+           inkscape:connector-curvature="0"
+           id="path10"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           class="filled"
+           d="M 0,0 -12,8 V -8 L 0,0" />
+      </marker>
+      <marker
+         orient="auto"
+         markerHeight="10"
+         markerWidth="10"
+         viewBox="-14 -10 28 20"
+         id="markerdatatypeProperty4">
+        <path
+           inkscape:connector-curvature="0"
+           id="path13"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           class="filled"
+           d="M 0,0 -12,8 V -8 L 0,0" />
+      </marker>
+      <marker
+         orient="auto"
+         markerHeight="10"
+         markerWidth="10"
+         viewBox="-14 -10 28 20"
+         id="markerobjectProperty6">
+        <path
+           inkscape:connector-curvature="0"
+           id="path16"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           class="filled"
+           d="M 0,0 -12,8 V -8 L 0,0" />
+      </marker>
+      <marker
+         orient="auto"
+         markerHeight="10"
+         markerWidth="10"
+         viewBox="-14 -10 28 20"
+         id="markerobjectProperty7">
+        <path
+           inkscape:connector-curvature="0"
+           id="path19"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           class="filled"
+           d="M 0,0 -12,8 V -8 L 0,0" />
+      </marker>
+      <marker
+         orient="auto"
+         markerHeight="10"
+         markerWidth="10"
+         viewBox="-14 -10 28 20"
+         id="markerobjectProperty9">
+        <path
+           inkscape:connector-curvature="0"
+           id="path22"
+           style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+           class="filled"
+           d="M 0,0 -12,8 V -8 L 0,0" />
+      </marker>
+    </defs>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty6-4">
+      <path
+         inkscape:connector-curvature="0"
+         id="path16-7"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty9-1">
+      <path
+         inkscape:connector-curvature="0"
+         id="path22-7"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty9-1-7">
+      <path
+         inkscape:connector-curvature="0"
+         id="path22-7-8"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty9-1-7-9">
+      <path
+         inkscape:connector-curvature="0"
+         id="path22-7-8-4"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty6-7">
+      <path
+         inkscape:connector-curvature="0"
+         id="path16-5"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerdatatypeProperty4-1">
+      <path
+         inkscape:connector-curvature="0"
+         id="path13-3"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty7-0">
+      <path
+         inkscape:connector-curvature="0"
+         id="path19-3"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty6-4-6">
+      <path
+         inkscape:connector-curvature="0"
+         id="path16-7-9"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty6-4-3">
+      <path
+         inkscape:connector-curvature="0"
+         id="path16-7-1"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty6-4-5">
+      <path
+         inkscape:connector-curvature="0"
+         id="path16-7-90"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty6-4-5-7">
+      <path
+         inkscape:connector-curvature="0"
+         id="path16-7-90-4"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty6-4-5-3">
+      <path
+         inkscape:connector-curvature="0"
+         id="path16-7-90-0"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty6-4-5-3-2">
+      <path
+         inkscape:connector-curvature="0"
+         id="path16-7-90-0-9"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty6-4-5-3-9">
+      <path
+         inkscape:connector-curvature="0"
+         id="path16-7-90-0-3"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerobjectProperty6-4-5-3-3">
+      <path
+         inkscape:connector-curvature="0"
+         id="path16-7-90-0-5"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+    <marker
+       orient="auto"
+       markerHeight="10"
+       markerWidth="10"
+       viewBox="-14 -10 28 20"
+       id="markerdatatypeProperty4-8">
+      <path
+         inkscape:connector-curvature="0"
+         id="path13-4"
+         style="fill:#000000;stroke:#000000;stroke-width:2;stroke-dasharray:100"
+         class="filled"
+         d="M 0,0 -12,8 V -8 L 0,0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="689"
+     id="namedview297"
+     showgrid="false"
+     inkscape:zoom="3.0074858"
+     inkscape:cx="497.56715"
+     inkscape:cy="121.11015"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g5483"
+     inkscape:snap-smooth-nodes="true" />
+  <g
+     transform="matrix(0.7375821,0,0,0.7375821,-124.14033,243.80756)"
+     id="g293">
+    <g
+       class="cardinalityContainer"
+       id="g57" />
+    <text
+       id="text131"
+       y="197.1178"
+       style="font-size:20.12190247px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000;stroke-width:1.67682528"
+       class="text"
+       x="272.20367"
+       transform="scale(0.94586056,1.0572383)">
+      <tspan
+         id="tspan129"
+         style="font-size:20.12190247px;font-family:Helvetica, Arial, sans-serif;stroke-width:1.67682528"
+         x="272.20367"
+         class="text" />
+    </text>
+    <g
+       class="linkContainer hidden-in-export"
+       style="display:none"
+       id="g228">
+      <g
+         id="g214">
+        <line
+           class="classNodeDragPath hidden"
+           x1="251.93112"
+           y1="406.26028"
+           x2="276.57578"
+           y2="430.90494"
+           style="stroke:#000000;stroke-width:2"
+           id="line212" />
+      </g>
+      <g
+         id="g218">
+        <line
+           class="classNodeDragPath hidden"
+           x1="0"
+           y1="0"
+           x2="0"
+           y2="0"
+           style="stroke:#000000;stroke-width:2"
+           id="line216" />
+      </g>
+      <g
+         id="g222">
+        <line
+           class="classNodeDragPath hidden"
+           x1="0"
+           y1="0"
+           x2="0"
+           y2="0"
+           style="stroke:#000000;stroke-width:2"
+           id="line220" />
+      </g>
+      <g
+         id="g226">
+        <line
+           x1="0"
+           y1="0"
+           x2="0"
+           y2="0"
+           class="hidden"
+           style="stroke:#000000;stroke-width:2"
+           id="line224" />
+      </g>
+    </g>
+    <g
+       class="editContainer hidden-in-export"
+       style="display:none"
+       id="g257">
+      <g
+         class="node hidden-in-export"
+         id="10001"
+         style="display:none">
+        <g
+           id="g234">
+          <path
+             d="M 20,40 C 0,15 0,-15 20,-40 L -40,0 Z"
+             class="classDraggerNode hidden"
+             transform="rotate(-135,227.53123,158.17175)"
+             style="fill:none;stroke:#000000;stroke-width:2"
+             id="path230"
+             inkscape:connector-curvature="0" />
+          <circle
+             r="40"
+             cx="0"
+             cy="0"
+             class="superHiddenElement superOpacityElement hidden"
+             transform="translate(276.57578,430.90495)"
+             id="circle232" />
+        </g>
+      </g>
+      <g
+         class="node hidden-in-export"
+         id="10002"
+         style="display:none">
+        <g
+           id="g241">
+          <path
+             d="M 61,40 C 41,15 41,-15 61,-40 L 1,0 Z"
+             class="classDraggerNode hidden"
+             transform="rotate(52.39974,175.18649,796.42464)"
+             style="fill:none;stroke:#000000;stroke-width:2"
+             id="path237"
+             inkscape:connector-curvature="0" />
+          <circle
+             r="40"
+             cx="0"
+             cy="0"
+             class="superHiddenElement superOpacityElement hidden"
+             transform="translate(723.69941,203.38065)"
+             id="circle239" />
+        </g>
+      </g>
+      <g
+         class="node hidden-in-export"
+         id="g250"
+         style="display:none">
+        <g
+           id="g248">
+          <path
+             d="M 10,40 C -10,15 -10,-15 10,-40 -8.8233455,-13.641384 -36.711107,-5.1228436 -50,0 -36.696429,4.9079017 -8.6403157,13.745728 10,40 Z"
+             class="classDraggerNode hidden"
+             transform="rotate(52.39974,57.459623,1035.6786)"
+             style="fill:none;stroke:#000000;stroke-width:2"
+             id="path244"
+             inkscape:connector-curvature="0" />
+          <circle
+             r="40"
+             cx="0"
+             cy="0"
+             class="superHiddenElement superOpacityElement hidden"
+             transform="translate(830.75229,342.39034)"
+             id="circle246" />
+        </g>
+      </g>
+      <g
+         class="node hidden-in-export"
+         id="10003"
+         style="display:none">
+        <g
+           class="hidden"
+           id="g252" />
+      </g>
+      <g
+         id="g255" />
+    </g>
+    <g
+       class="editContainer hidden-in-export"
+       style="display:none"
+       id="g291">
+      <g
+         class="hidden-in-export addDataPropertyElement hidden"
+         transform="translate(181.22044,406.26029)"
+         style="display:none"
+         id="g273">
+        <circle
+           r="12"
+           cx="0"
+           cy="0"
+           id="circle261">
+          <title
+             id="title259">Add Datatype Property</title>
+        </circle>
+        <line
+           x1="-8"
+           y1="0"
+           x2="8"
+           y2="0"
+           style="stroke:#000000;stroke-width:2"
+           id="line265">
+          <title
+             id="title263">Add Datatype Property</title>
+        </line>
+        <line
+           x1="0"
+           y1="-8"
+           x2="0"
+           y2="8"
+           style="stroke:#000000;stroke-width:2"
+           id="line269">
+          <title
+             id="title267">Add Datatype Property</title>
+        </line>
+        <circle
+           r="25"
+           cx="0"
+           cy="0"
+           class="superHiddenElement superOpacityElement"
+           id="circle271" />
+      </g>
+      <g
+         class="hidden-in-export deleteParentElement hidden"
+         transform="translate(251.93112,335.54961)"
+         style="display:none"
+         id="g289">
+        <circle
+           r="12"
+           cx="0"
+           cy="0"
+           id="circle277">
+          <title
+             id="title275">Delete This Node</title>
+        </circle>
+        <line
+           x1="-5"
+           y1="-5"
+           x2="5"
+           y2="5"
+           style="stroke:#000000;stroke-width:2"
+           id="line281">
+          <title
+             id="title279">Delete This Node</title>
+        </line>
+        <line
+           x1="5"
+           y1="-5"
+           x2="-5"
+           y2="5"
+           style="stroke:#000000;stroke-width:2"
+           id="line285">
+          <title
+             id="title283">Delete This Node</title>
+        </line>
+        <circle
+           r="25"
+           cx="0"
+           cy="0"
+           class="superHiddenElement superOpacityElement"
+           id="circle287" />
+      </g>
+    </g>
+    <text
+       id="text4843-7-0"
+       y="570.97162"
+       x="759.31525"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.45039368px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.81798714"
+       xml:space="preserve"
+       transform="scale(0.98074845,1.0196294)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.81798714"
+         y="587.00757"
+         x="759.31525"
+         id="tspan4841-4-2"
+         sodipodi:role="line" /></text>
+    <g
+       id="g112-5"
+       transform="matrix(1.8372042,0,0,1.8372042,557.80105,376.86179)"
+       class="labelGroup"
+       style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+      <g
+         id="g5410">
+        <g
+           class="link"
+           id="g45-7-3-1"
+           style="opacity:0.43000004;stroke:#000000;stroke-width:1.00037336;stroke-miterlimit:4;stroke-dasharray:1.00037332, 2.00074664;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#markerobjectProperty6-4-5-7)"
+           transform="matrix(-1.0468161,0.12673076,-0.08669329,-0.71610039,512.83562,-60.016967)" />
+        <g
+           id="g5483"
+           inkscape:export-xdpi="78"
+           inkscape:export-ydpi="78">
+          <g
+             transform="matrix(0.11893592,-0.52290117,0.52290117,0.11893592,-237.50579,59.137245)"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#markerdatatypeProperty4-1)"
+             id="g41-6"
+             class="link">
+            <path
+               inkscape:connector-curvature="0"
+               id="path39-3"
+               style="fill:none;stroke:#000000;stroke-width:2;marker-end:url(#markerdatatypeProperty4-1)"
+               d="M 682.17681,85.717592 Q 729.29604,45.597468 741.07585,35.567436 752.85566,25.537405 799.9749,-14.582716"
+               class="link-path nodeClass15 nodeNodeId16 normal" />
+          </g>
+          <g
+             transform="matrix(0.53625683,0,0,0.53625683,-291.65554,-230.26911)"
+             style="marker-end:url(#markerdatatypeProperty1)"
+             id="g29"
+             class="link">
+            <path
+               inkscape:connector-curvature="0"
+               id="path27"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               d="m 246.60043,412.13019 q 37.66613,51.71738 47.08267,64.64673 9.41653,12.92934 47.08267,64.64672"
+               class="link-path nodeClass1 nodeNodeId7 normal" />
+          </g>
+          <g
+             transform="matrix(0.53625683,0,0,0.53625683,-291.65554,-230.26911)"
+             style="marker-end:url(#markerdatatypeProperty3)"
+             id="g37"
+             class="link">
+            <path
+               inkscape:connector-curvature="0"
+               id="path35"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               d="m 840.61417,413.94818 q -37.48171,50.56527 -46.85213,63.20659 -9.37043,12.64132 -46.85214,63.20659"
+               class="link-path nodeClass13 nodeNodeId14 normal" />
+          </g>
+          <g
+             transform="matrix(0.52924271,-0.08644965,0.08644965,0.52924271,-271.67444,-263.43894)"
+             style="marker-end:url(#markerdatatypeProperty4)"
+             id="g41"
+             class="link">
+            <path
+               inkscape:connector-curvature="0"
+               id="path39"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               d="M 691.20274,68.918745 Q 727.33435,18.6758 736.36725,6.1150639 q 9.0329,-12.5607362 45.16452,-62.8036809"
+               class="link-path nodeClass15 nodeNodeId16 normal" />
+          </g>
+          <g
+             transform="matrix(0.40786821,-0.0975543,0.07276317,0.5315437,-212.27417,-270.00352)"
+             style="marker-end:url(#markerobjectProperty6)"
+             id="g45"
+             class="link">
+            <path
+               inkscape:connector-curvature="0"
+               id="path43"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               d="M 611.30066,100.92289 Q 516.99314,83.235734 493.41626,78.813945 469.83938,74.392156 375.53187,56.705"
+               class="link-path nodeClass15 nodeClass2 normal" />
+          </g>
+          <g
+             transform="matrix(0.32568725,0.42602723,-0.42602723,0.32568725,-88.228073,-583.35412)"
+             style="marker-end:url(#markerobjectProperty7)"
+             id="g49"
+             class="link">
+            <path
+               inkscape:connector-curvature="0"
+               id="path47"
+               style="fill:none;stroke:#000000;stroke-width:2"
+               d="M 839.17719,333.11074 Q 780.79986,259.94244 766.20553,241.65037 751.6112,223.35829 693.23387,150.19"
+               class="link-path nodeClass13 nodeClass15 normal" />
+          </g>
+          <g
+             transform="matrix(0.62826462,0,0,0.62826462,-10.921551,-75.274121)"
+             id="g2340">
+            <rect
+               class="objectproperty property"
+               x="81.653549"
+               y="-219.15979"
+               width="111.90205"
+               height="27.000002"
+               style="fill:#aaccff;stroke-width:0.94826829"
+               id="rect127-9">
+              <title
+                 id="title125-9">newObjectProperty</title>
+            </rect>
+            <text
+               id="text5097-9"
+               y="-199.93134"
+               x="136.69693"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.15369129px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.66345423"
+               xml:space="preserve"><tspan
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.66345423"
+                 y="-199.93134"
+                 x="136.69693"
+                 id="tspan5095-7"
+                 sodipodi:role="line">activeIngredient</tspan></text>
+          </g>
+          <g
+             transform="matrix(0.78428752,0,0,0.78428752,-96.526052,-274.4377)"
+             id="Class2"
+             class="node">
+            <circle
+               cy="0"
+               cx="0"
+               id="circle140"
+               style="fill:#aaccff;stroke:#000000;stroke-width:2"
+               r="50"
+               class="class">
+              <title
+                 id="title138">:Ingredient_BR_1</title>
+            </circle>
+            <text
+               id="text144"
+               y="3.055321"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               class="text"
+               x="-0.30823615">
+              <tspan
+                 id="tspan142"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 x="-0.30823615"
+                 class="text">Ingredient_BR_1</tspan>
+            </text>
+          </g>
+          <circle
+             class="class"
+             r="37.538494"
+             style="fill:#aaccff;stroke:#000000;stroke-width:1.50153971"
+             id="circle185"
+             cx="85.162338"
+             cy="-274.69168">
+            <title
+               id="title183">Ingredient_CA_1</title>
+          </circle>
+          <text
+             class="text"
+             style="font-size:9.00923729px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000;stroke-width:0.75076985"
+             y="-279.57169"
+             id="text189"
+             x="85.162338">
+            <tspan
+               class="text"
+               x="85.162338"
+               dy="9.0092373"
+               style="font-size:9.00923729px;font-family:Helvetica, Arial, sans-serif;stroke-width:0.75076985"
+               id="tspan187">Ingredient_SA_1</tspan>
+          </text>
+          <g
+             transform="matrix(0.53625683,0,0,0.53625683,141.90985,-368.69395)"
+             id="NodeId16"
+             class="node">
+            <rect
+               id="rect194"
+               style="fill:#ffcc33;stroke:#000000;stroke-width:3.34181261;stroke-dasharray:13.36725083"
+               height="32.683861"
+               width="90.547554"
+               y="-23.354767"
+               x="-48.142662"
+               class="class literal dashed">
+              <title
+                 id="title192">Literal</title>
+            </rect>
+            <text
+               id="text198"
+               y="-6.5"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               class="text">
+              <tspan
+                 id="tspan196"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 x="0"
+                 class="text" />
+            </text>
+            <text
+               id="text4843"
+               y="-0.51041114"
+               x="-4.2390189"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.46000004px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.58406246"
+               xml:space="preserve"><tspan
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.58406246"
+                 y="-0.51041114"
+                 x="-4.2390189"
+                 id="tspan4841"
+                 sodipodi:role="line">CLONAZEPAM</tspan></text>
+          </g>
+          <g
+             transform="matrix(0.81110167,0,0,0.81110167,-179.37316,-3.5508572)"
+             id="Class1"
+             class="node">
+            <circle
+               cy="-32.188992"
+               cx="11.921848"
+               id="circle203"
+               style="fill:#aaccff;stroke:#000000;stroke-width:2"
+               r="50"
+               class="class">
+              <title
+                 id="title201">:Drug_BR_1</title>
+            </circle>
+            <text
+               id="text207"
+               y="-25.417807"
+               style="font-size:16.91821671px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000;stroke-width:1.40985131"
+               class="text"
+               x="12.780902">
+              <tspan
+                 id="tspan205"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.91821671px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:1.40985131"
+                 x="12.780902"
+                 class="text">Drug_BR_1</tspan>
+            </text>
+            <flowRoot
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+               id="flowRoot6629"
+               xml:space="preserve"><flowRegion
+                 id="flowRegion6631"><rect
+                   y="-69.84655"
+                   x="127.6814"
+                   height="1087.9519"
+                   width="1356.6149"
+                   id="rect6633" /></flowRegion><flowPara
+                 id="flowPara6635" /></flowRoot>          </g>
+          <g
+             transform="matrix(0.9852133,0,0,0.9852133,-124.13204,-177.08797)"
+             id="g1652">
+            <rect
+               class="class literal dashed"
+               x="-56.620037"
+               y="-206.10774"
+               width="49.285515"
+               height="17.789999"
+               style="fill:#ffcc33;stroke:#000000;stroke-width:1.81896639;stroke-dasharray:7.27586561"
+               id="rect194-1">
+              <title
+                 id="title192-3">Literal</title>
+            </rect>
+            <text
+               xml:space="preserve"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.78204441px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31790829"
+               x="-32.723042"
+               y="-193.67343"
+               id="text4843-7"><tspan
+                 sodipodi:role="line"
+                 id="tspan4841-4"
+                 x="-32.723042"
+                 y="-193.67343"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.31790829">CLONAZEPAM</tspan></text>
+          </g>
+          <g
+             transform="matrix(0.94992394,-0.26132309,0.26132309,0.94992394,85.45858,-50.011883)"
+             id="g2290">
+            <rect
+               class="datatypeproperty property"
+               x="-162.45006"
+               y="-336.75604"
+               width="41.735924"
+               height="12.581958"
+               style="fill:#99cc66;stroke-width:0.3953298"
+               id="rect94-5">
+              <title
+                 id="title92-33">newDatatypeProperty</title>
+            </rect>
+            <text
+               id="text4803-7"
+               y="-328.03546"
+               x="-140.95547"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.86377335px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.50923932"
+               xml:space="preserve"><tspan
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.50923932"
+                 y="-328.03546"
+                 x="-140.95547"
+                 id="tspan4801-3"
+                 sodipodi:role="line">name</tspan></text>
+          </g>
+          <g
+             transform="matrix(0.9370571,0.30425193,-0.30425193,0.9370571,2.6119402,-34.881476)"
+             id="g2334">
+            <g
+               id="g2290-4"
+               style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               transform="translate(164.15813,4.8548812)">
+              <rect
+                 id="rect94-5-4"
+                 style="fill:#99cc66;stroke-width:0.3953298"
+                 height="12.581958"
+                 width="41.735924"
+                 y="-336.75604"
+                 x="-162.45006"
+                 class="datatypeproperty property">
+                <title
+                   id="title92-33-0">newDatatypeProperty</title>
+              </rect>
+              <text
+                 xml:space="preserve"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.86377335px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.50923932"
+                 x="-140.95547"
+                 y="-328.03546"
+                 id="text4803-7-6"><tspan
+                   sodipodi:role="line"
+                   id="tspan4801-3-7"
+                   x="-140.95547"
+                   y="-328.03546"
+                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.50923932">name</tspan></text>
+            </g>
+          </g>
+          <g
+             id="g68-6-3"
+             transform="matrix(0.64957628,0,0,0.73478138,-130.08343,34.599627)"
+             class="labelGroup">
+            <g
+               id="datatypeProperty1-1-6"
+               class="label">
+              <rect
+                 id="rect61-6-4"
+                 style="fill:#99cc66"
+                 height="28"
+                 width="82"
+                 y="-14"
+                 x="-41"
+                 class="datatypeproperty property">
+                <title
+                   id="title59-7-4">brandName</title>
+              </rect>
+              <text
+                 id="text65-9-1"
+                 y="-6.5"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+                 class="text">
+                <tspan
+                   id="tspan63-8-7"
+                   style="font-weight:normal;font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   dy="12"
+                   x="0"
+                   class="text">brand</tspan>
+              </text>
+            </g>
+          </g>
+          <rect
+             id="rect194-1-2"
+             style="fill:#ffcc33;stroke:#000000;stroke-width:2.76111412;stroke-dasharray:11.044456"
+             height="24.894447"
+             width="81.154388"
+             y="64.501984"
+             x="69.048111"
+             class="class literal dashed">
+            <title
+               id="title192-3-8">Literal</title>
+          </rect>
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.51033592px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.72704697"
+             x="108.94436"
+             y="83.476357"
+             id="text5069"><tspan
+               sodipodi:role="line"
+               id="tspan5067"
+               x="110.27728"
+               y="83.476357"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.72704697">CLONAM </tspan></text>
+          <rect
+             id="rect194-1-2-3"
+             style="fill:#ffcc33;stroke:#000000;stroke-width:2.71309423;stroke-dasharray:10.85237639"
+             height="24.932753"
+             width="78.235764"
+             y="65.208084"
+             x="-126.48738"
+             class="class literal dashed">
+            <title
+               id="title192-3-8-6">Literal</title>
+          </rect>
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.51033783px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.72704697"
+             x="-87.111458"
+             y="84.201637"
+             id="text5069-6"><tspan
+               sodipodi:role="line"
+               id="tspan5067-8"
+               x="-87.111458"
+               y="84.201637"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.72704697">RIVOTRIL</tspan></text>
+          <g
+             transform="matrix(1.0461187,-0.13236422,0.09054701,0.71562332,-522.37038,-14.945032)"
+             style="opacity:0.43000004;stroke:#000000;stroke-width:1.00037336;stroke-miterlimit:4;stroke-dasharray:1.00037332, 2.00074664;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#markerobjectProperty6-4)"
+             id="g45-7"
+             class="link">
+            <path
+               inkscape:connector-curvature="0"
+               id="path43-9"
+               style="fill:none;stroke:#000000;stroke-width:1.00037336;stroke-miterlimit:4;stroke-dasharray:1.00037332, 2.00074664;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#markerobjectProperty6-4)"
+               d="M 611.30066,100.92289 Q 516.99314,83.235734 493.41626,78.813945 469.83938,74.392156 375.53187,56.705"
+               class="link-path nodeClass15 nodeClass2 normal" />
+          </g>
+          <text
+             class="text"
+             style="font-size:9.00308037px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.75020754;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             y="-36.674381"
+             id="text109-2"
+             x="-7.9236159">
+            <tspan
+               class="text"
+               x="-7.9236159"
+               dy="9.0030804"
+               style="font-size:9.00308037px;font-family:Helvetica, Arial, sans-serif;stroke:none;stroke-width:0.75020754;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="tspan107-1">alike</tspan>
+          </text>
+          <g
+             transform="matrix(0.9852133,0,0,0.9852133,1.9018164,-41.723955)"
+             id="g1557">
+            <g
+               style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="g1066"
+               transform="matrix(0.7960586,0,0,0.7960586,-34.352797,-127.83212)">
+              <circle
+                 class="class"
+                 r="50"
+                 style="fill:#aaccff;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                 id="circle140-5-4"
+                 cx="104.80029"
+                 cy="40.68718">
+                <title
+                   id="title138-0-0">:Ingredient_BR_1</title>
+              </circle>
+            </g>
+            <text
+               id="text144-2-9"
+               y="-92.677109"
+               style="font-size:8.16577911px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000;stroke:#000000;stroke-width:0.68043697;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               class="text"
+               x="48.343967">
+              <tspan
+                 id="tspan142-3-7"
+                 style="font-size:8.16577911px;font-family:Helvetica, Arial, sans-serif;stroke-width:0.68043697"
+                 x="48.343967"
+                 class="text">Formulation_SA_1</tspan>
+            </text>
+          </g>
+          <g
+             transform="matrix(0.52169193,0.12413268,-0.12413268,0.52169193,-309.08953,-316.45247)"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#markerobjectProperty9-1-7)"
+             id="g53-7-9"
+             class="link">
+            <path
+               sodipodi:nodetypes="cc"
+               inkscape:connector-curvature="0"
+               id="path51-9-3"
+               style="fill:none;stroke:#000000;stroke-width:2;marker-end:url(#markerobjectProperty9-1-7)"
+               d="m 416.71705,395.64926 c 9.51236,-12.81641 33.29325,-44.85744 71.34268,-96.12307"
+               class="link-path nodeClass1 nodeClass2 normal" />
+          </g>
+          <g
+             transform="matrix(-0.02396982,-0.69518312,0.63276718,-0.02633419,-99.794039,239.89205)"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#markerobjectProperty9-1-7-9)"
+             id="g53-7-9-4"
+             class="link">
+            <path
+               sodipodi:nodetypes="cc"
+               inkscape:connector-curvature="0"
+               id="path51-9-3-2"
+               style="fill:none;stroke:#000000;stroke-width:2;marker-end:url(#markerobjectProperty9-1-7-9)"
+               d="m 411.36526,387.99672 c 10.93792,-10.77596 38.2827,-37.71585 82.03435,-80.81965"
+               class="link-path nodeClass1 nodeClass2 normal" />
+          </g>
+          <g
+             transform="matrix(-0.40799317,0.09703033,-0.07208036,-0.53163672,201.99459,-275.057)"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#markerobjectProperty6-7)"
+             id="g45-6"
+             class="link">
+            <path
+               inkscape:connector-curvature="0"
+               id="path43-1"
+               style="fill:none;stroke:#000000;stroke-width:2;marker-end:url(#markerobjectProperty6-7)"
+               d="M 611.30066,100.92289 Q 516.99314,83.235734 493.41626,78.813945 469.83938,74.392156 375.53187,56.705"
+               class="link-path nodeClass15 nodeClass2 normal" />
+          </g>
+          <g
+             transform="matrix(0.32568725,0.42602723,-0.42602723,0.32568725,-218.121,-580.6477)"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#markerobjectProperty7-0)"
+             id="g49-1"
+             class="link">
+            <path
+               inkscape:connector-curvature="0"
+               id="path47-2"
+               style="fill:none;stroke:#000000;stroke-width:2;marker-end:url(#markerobjectProperty7-0)"
+               d="M 876.78402,282.75896 Q 789.06196,250.10391 767.13145,241.94015 745.20093,233.77638 657.47887,201.12133"
+               class="link-path nodeClass13 nodeClass15 normal" />
+          </g>
+          <g
+             id="g1062"
+             transform="matrix(0.78428752,0,0,0.78428752,-67.956019,-133.80966)"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+            <circle
+               cy="0"
+               cx="0"
+               id="circle140-5"
+               style="fill:#aaccff;stroke:#000000;stroke-width:2"
+               r="50"
+               class="class">
+              <title
+                 id="title138-0">:Ingredient_BR_1</title>
+            </circle>
+            <text
+               id="text144-2"
+               y="3.4741454"
+               style="font-size:10.257761px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000;stroke-width:0.85475737"
+               class="text"
+               x="-0.91752803">
+              <tspan
+                 id="tspan142-3"
+                 style="font-size:10.257761px;font-family:Helvetica, Arial, sans-serif;stroke-width:0.85475737"
+                 x="-0.91752803"
+                 class="text">Formulation_BR_1</tspan>
+            </text>
+          </g>
+          <g
+             transform="matrix(0.62826461,0,0,0.62826461,-163.36426,-73.372333)"
+             id="g2340-5"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+            <rect
+               class="objectproperty property"
+               x="81.653549"
+               y="-219.15979"
+               width="111.90205"
+               height="27.000002"
+               style="fill:#aaccff;stroke-width:0.94826829"
+               id="rect127-9-5">
+              <title
+                 id="title125-9-0">newObjectProperty</title>
+            </rect>
+            <text
+               id="text5097-9-0"
+               y="-199.93134"
+               x="136.69693"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.15369129px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.66345423"
+               xml:space="preserve"><tspan
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.66345423"
+                 y="-199.93134"
+                 x="136.69693"
+                 id="tspan5095-7-8"
+                 sodipodi:role="line">activeIngredient</tspan></text>
+          </g>
+          <g
+             transform="matrix(-1.0468161,0.12673076,-0.08669329,-0.71610039,521.38065,-41.764552)"
+             style="opacity:0.43000004;stroke:#000000;stroke-width:1.00037336;stroke-miterlimit:4;stroke-dasharray:1.00037332, 2.00074664;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#markerobjectProperty6-4-5)"
+             id="g45-7-3"
+             class="link">
+            <path
+               inkscape:connector-curvature="0"
+               id="path43-9-5"
+               style="fill:none;stroke:#000000;stroke-width:1.00037336;stroke-miterlimit:4;stroke-dasharray:1.00037332, 2.00074664;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#markerobjectProperty6-4-5)"
+               d="M 611.30066,100.92289 Q 516.99314,83.235734 493.41626,78.813945 469.83938,74.392156 375.53187,56.705"
+               class="link-path nodeClass15 nodeClass2 normal" />
+          </g>
+          <g
+             transform="matrix(-1.0468161,0.12673076,-0.08669329,-0.71610039,491.07849,-54.215068)"
+             style="opacity:0.43000004;stroke:#000000;stroke-width:1.00037336;stroke-miterlimit:4;stroke-dasharray:1.00037332, 2.00074664;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#markerobjectProperty6-4-5-3)"
+             id="g45-7-3-13"
+             class="link">
+            <path
+               sodipodi:nodetypes="cc"
+               inkscape:connector-curvature="0"
+               id="path43-9-5-9"
+               style="fill:none;stroke:#000000;stroke-width:1.00037336;stroke-miterlimit:4;stroke-dasharray:1.00037332, 2.00074664;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#markerobjectProperty6-4-5-3)"
+               d="m 479.09518,221.38872 -40.76752,-6.55163"
+               class="link-path nodeClass15 nodeClass2 normal" />
+            <path
+               sodipodi:nodetypes="cc"
+               inkscape:connector-curvature="0"
+               id="path43-9-5-9-4"
+               style="opacity:0.43000004;fill:none;stroke:#000000;stroke-width:1.00037336;stroke-miterlimit:4;stroke-dasharray:1.00037331, 2.00074662;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#markerobjectProperty6-4-5-3-3)"
+               d="m 443.23577,159.90493 40.78324,6.33906"
+               class="link-path nodeClass15 nodeClass2 normal" />
+          </g>
+          <text
+             class="text"
+             style="font-size:9.00307941px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.75020754;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             y="-137.58388"
+             id="text109-2-7"
+             x="-11.442036">
+            <tspan
+               class="text"
+               x="-11.442036"
+               dy="9.0030794"
+               style="font-size:9.00307941px;font-family:Helvetica, Arial, sans-serif;stroke:none;stroke-width:0.75020754;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="tspan107-1-0">alike</tspan>
+          </text>
+          <g
+             transform="matrix(0.4318679,0,0,0.4318679,-4.5882639,-363.76432)"
+             id="NodeId16-2"
+             class="node"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+            <rect
+               id="rect194-9"
+               style="fill:#ffcc33;stroke:#000000;stroke-width:3.34181261;stroke-dasharray:13.36725083"
+               height="32.683861"
+               width="90.547554"
+               y="-23.354767"
+               x="-48.142662"
+               class="class literal dashed">
+              <title
+                 id="title192-1">Literal</title>
+            </rect>
+            <text
+               id="text198-2"
+               y="-6.5"
+               style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+               class="text">
+              <tspan
+                 id="tspan196-9"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                 x="0"
+                 class="text" />
+            </text>
+            <text
+               id="text4843-1"
+               y="-0.51041114"
+               x="-4.2390189"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.46000004px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.58406246"
+               xml:space="preserve"><tspan
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.58406246"
+                 y="-0.51041114"
+                 x="-4.2390189"
+                 id="tspan4841-6"
+                 sodipodi:role="line">1,0</tspan></text>
+          </g>
+          <g
+             transform="matrix(0.42926166,-0.32141222,0.32141222,0.42926166,-147.9192,-76.482971)"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#markerdatatypeProperty4-8)"
+             id="g41-7"
+             class="link">
+            <path
+               sodipodi:nodetypes="cc"
+               inkscape:connector-curvature="0"
+               id="path39-2"
+               style="fill:none;stroke:#000000;stroke-width:2;marker-end:url(#markerdatatypeProperty4-8)"
+               d="m 442.20675,-148.33695 c 6.02193,-8.37382 55.73943,-74.27245 79.82718,-107.76775"
+               class="link-path nodeClass15 nodeNodeId16 normal" />
+          </g>
+          <g
+             transform="matrix(0.9852133,0,0,0.9852133,133.88901,3.0591157)"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="g2290-4-3">
+            <rect
+               class="datatypeproperty property"
+               x="-162.45006"
+               y="-336.75604"
+               width="41.735924"
+               height="12.581958"
+               style="fill:#99cc66;stroke-width:0.3953298"
+               id="rect94-5-4-7">
+              <title
+                 id="title92-33-0-2">newDatatypeProperty</title>
+            </rect>
+            <text
+               id="text4803-7-6-1"
+               y="-327.47809"
+               x="-141.3638"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.2274437px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.38566136"
+               xml:space="preserve"><tspan
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.38566136"
+                 y="-327.47809"
+                 x="-141.3638"
+                 id="tspan4801-3-7-7"
+                 sodipodi:role="line">similarity</tspan></text>
+          </g>
+          <g
+             transform="matrix(0.77088048,0,0,0.77088048,164.81748,-37.437226)"
+             id="Class13"
+             class="node">
+            <circle
+               cy="0"
+               cx="0"
+               id="circle167"
+               style="fill:#aaccff;stroke:#000000;stroke-width:2"
+               r="50"
+               class="class">
+              <title
+                 id="title165">Drug_CA_1</title>
+            </circle>
+            <text
+               id="text171"
+               y="-6.7447162"
+               style="font-size:17.79872131px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000;stroke-width:1.48322666"
+               class="text"
+               x="3.0248024">
+              <tspan
+                 id="tspan169"
+                 style="font-size:17.79872131px;font-family:Helvetica, Arial, sans-serif;stroke-width:1.48322666"
+                 dy="17.798721"
+                 x="3.0248024"
+                 class="text">Drug_SA_1</tspan>
+            </text>
+          </g>
+          <g
+             id="g68-6-3-5"
+             transform="matrix(0.64957628,0,0,0.73478138,138.47781,35.281572)"
+             class="labelGroup"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+            <g
+               transform="translate(-9.6158121,-4.7226469)"
+               id="datatypeProperty1-1-6-2"
+               class="label">
+              <rect
+                 id="rect61-6-4-6"
+                 style="fill:#99cc66"
+                 height="28"
+                 width="82"
+                 y="-14"
+                 x="-41"
+                 class="datatypeproperty property">
+                <title
+                   id="title59-7-4-9">brandName</title>
+              </rect>
+              <text
+                 id="text65-9-1-0"
+                 y="-6.5"
+                 style="font-size:12px;font-family:Helvetica, Arial, sans-serif;text-anchor:middle;fill:#000000"
+                 class="text"
+                 inkscape:export-xdpi="78"
+                 inkscape:export-ydpi="78">
+                <tspan
+                   id="tspan63-8-7-5"
+                   style="font-weight:normal;font-size:12px;font-family:Helvetica, Arial, sans-serif"
+                   dy="12"
+                   x="0"
+                   class="text">brand</tspan>
+              </text>
+            </g>
+          </g>
+          <g
+             transform="matrix(0.77725902,0,0,0.77725902,-217.6307,82.700836)"
+             id="g2340-5-0"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+            <g
+               transform="matrix(0.77046197,0.18488065,-0.18488065,0.77046197,-18.154643,-75.549123)"
+               id="g5171">
+              <rect
+                 id="rect127-9-5-0"
+                 style="fill:#aaccff;stroke-width:0.94826829"
+                 height="27.000002"
+                 width="111.90205"
+                 y="-219.15979"
+                 x="81.653549"
+                 class="objectproperty property">
+                <title
+                   id="title125-9-0-8">newObjectProperty</title>
+              </rect>
+              <text
+                 xml:space="preserve"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.15369129px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.66345423"
+                 x="136.69693"
+                 y="-199.93134"
+                 id="text5097-9-0-8"><tspan
+                   sodipodi:role="line"
+                   id="tspan5095-7-8-3"
+                   x="136.69693"
+                   y="-199.93134"
+                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.66345423">hasFormulation</tspan></text>
+            </g>
+          </g>
+          <g
+             transform="matrix(0.63057467,-0.4544306,0.4544306,0.63057467,119.86641,97.690101)"
+             id="g2340-5-0-2"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+            <g
+               transform="matrix(0.77046197,0.18488065,-0.18488065,0.77046197,-18.154643,-75.549123)"
+               id="g5171-1">
+              <rect
+                 id="rect127-9-5-0-1"
+                 style="fill:#aaccff;stroke-width:0.94826829"
+                 height="27.000002"
+                 width="111.90205"
+                 y="-219.15979"
+                 x="81.653549"
+                 class="objectproperty property">
+                <title
+                   id="title125-9-0-8-2">newObjectProperty</title>
+              </rect>
+              <text
+                 xml:space="preserve"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.15369129px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.66345423"
+                 x="136.69693"
+                 y="-199.93134"
+                 id="text5097-9-0-8-1"><tspan
+                   sodipodi:role="line"
+                   id="tspan5095-7-8-3-4"
+                   x="136.69693"
+                   y="-199.93134"
+                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.66345423">hasFormulation</tspan></text>
+            </g>
+          </g>
+          <g
+             transform="matrix(0.62826462,0,0,0.62826462,-92.839588,-125.72711)"
+             id="g2340-7"
+             style="stroke:#000000;stroke-width:0.99993438;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+            <g
+               transform="translate(0,-28.901324)"
+               id="g5234">
+              <rect
+                 id="rect127-9-1"
+                 style="fill:#aaccff;stroke-width:0.65505117"
+                 height="27.16169"
+                 width="53.080254"
+                 y="-219.24063"
+                 x="109.3115"
+                 class="objectproperty property">
+                <title
+                   id="title125-9-6">newObjectProperty</title>
+              </rect>
+              <text
+                 xml:space="preserve"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.15369129px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.66345423"
+                 x="136.69693"
+                 y="-199.93134"
+                 id="text5097-9-3"><tspan
+                   sodipodi:role="line"
+                   id="tspan5095-7-7"
+                   x="136.69693"
+                   y="-199.93134"
+                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.66345423">alike</tspan></text>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

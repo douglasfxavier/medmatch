@@ -1,4 +1,6 @@
 package controller;
+
+import org.apache.commons.lang3.StringUtils;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.query.Query;
@@ -17,6 +19,8 @@ import org.apache.jena.util.FileManager;
 import org.apache.jena.util.iterator.ExtendedIterator;
 
 import com.github.andrewoma.dexx.collection.HashMap;
+
+import controller.StringComparison;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -39,13 +43,8 @@ public class App
 	
 	public static void main( String[] args ) throws FileNotFoundException
     {
-//			int n = 5;
-//			for(int i = 1; i<=n;i++) {
-//				System.out.println(Functions.weightByPosition(n,i));
-//			}
 
         	
-//
 //    	String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
 //    	OntologyManager om = new OntologyManager("pharmacology.owl", ontologyIRI);
 //    	try {
@@ -88,11 +87,14 @@ public class App
 //		
 //		System.out.println(sparqlString);
 //    	
-//		String str1 = "ACEPONATO DE METILPREDNISOLONA";
-//		String str2 = "ACEPONATO DA METILPREDNISOLONA";
-//		System.out.println(str1 + " vs. " + str2);
-//    	System.out.println(StringMatching.calculateEuclideanDistance(str1,str2));
-//    	
+		
+		String str1 = "simeticona";
+		String str2 = "simethicone";
+		System.out.println(str1 + " vs. " + str2);
+    	System.out.println(StringComparison.cosineSimilarity(str1, str2));
+
+//
+    	
 //		str1 = "METHYLPREDNISOLONE ACETATE";
 //		str2 = "METHYLPREDNISOLONE ACETATE";
 //		System.out.println(str1 + " vs. " + str2);

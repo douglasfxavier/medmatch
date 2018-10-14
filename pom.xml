@@ -1,43 +1,46 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>ecs.soton.ac.uk</groupId>
-  <artifactId>medmatch</artifactId>
-  <version>1.0.0</version>
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.7.0</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.0.0</version>
-      </plugin>
-    </plugins>
-  </build>
-  <name>medmatch</name>
-  <url>http://maven.apache.org</url>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-     <maven.compiler.target>1.8</maven.compiler.target>
-     <maven.compiler.source>1.8</maven.compiler.source>
-  </properties>
-  <dependencies>
+	<groupId>ecs.soton.ac.uk</groupId>
+	<artifactId>medmatch</artifactId>
+	<version>1.0.0</version>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
+		</plugins>
+	</build>
+	<name>medmatch</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
+	<dependencies>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
 			<version>2.2.8</version>
+			 <scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
 			<version>2.2.8</version>
+			 <scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -49,56 +52,65 @@
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>6.1</version>
-		</dependency>		
-	<!-- https://mvnrepository.com/artifact/jstl/jstl -->
-	<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>jstl</artifactId>
-		<version>1.2</version>
-	  </dependency>
-    <dependency>
-	    <groupId>junit</groupId>
-	    <artifactId>junit</artifactId>
-	    <version>3.8.1</version>
-	    <scope>test</scope>
-    </dependency>
-	<!-- https://mvnrepository.com/artifact/com.github.mpkorstanje/simmetrics -->
-	<dependency>
-	  <groupId>com.github.mpkorstanje</groupId>
-	  <artifactId>simmetrics-core</artifactId>
-	  <version>4.1.1</version>
-	</dependency>
-    <!-- Jena Dependencies -->
-  	<dependency>
-  		<groupId>org.apache.jena</groupId>
-  		<artifactId>jena-core</artifactId>
-  		<version>3.8.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.apache.jena</groupId>
-  		<artifactId>jena-arq</artifactId>
-  		<version>3.8.0</version>
-  	</dependency>
-	<dependency>
-	  <groupId>org.apache.jena</groupId>
-	  <artifactId>jena-fuseki-embedded</artifactId>
-	  <version>3.8.0</version> <!-- Set the version -->
-	</dependency>
-	<dependency>
-	    <groupId>org.apache.httpcomponents</groupId>
-	    <artifactId>httpclient</artifactId>
-	    <version>4.5.3</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.apache.httpcomponents</groupId>
-	    <artifactId>httpmime</artifactId>
-	    <version>4.5.3</version>
-	</dependency>	
-    <!-- CSV Dependencies -->
-	<dependency>
-	    <groupId>com.opencsv</groupId>
-	    <artifactId>opencsv</artifactId>
-	    <version>3.3</version>
-	</dependency>
-  </dependencies>
+			 <scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			 <scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			 <scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.github.mpkorstanje/simmetrics -->
+		<dependency>
+			<groupId>com.github.mpkorstanje</groupId>
+			<artifactId>simmetrics-core</artifactId>
+			<version>4.1.1</version>
+			 <scope>provided</scope>
+		</dependency>
+		<!-- Jena Dependencies -->
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-core</artifactId>
+			<version>3.8.0</version>
+			 <scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-arq</artifactId>
+			<version>3.8.0</version>
+			 <scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-fuseki-embedded</artifactId>
+			<version>3.8.0</version> <!-- Set the version -->
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.3</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.5.3</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- CSV Dependencies -->
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>3.3</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
 </project>
