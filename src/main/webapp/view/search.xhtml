@@ -45,9 +45,11 @@
 						</div>
 						<div class="form-row">
 							<div class="col-md-12 mb-3">			
-								<h:outputLabel for="drugBrand" value="Drug brand" />
+								<h:outputLabel for="drugBrand" value="Drug brand for the origin country" />
 								<h:inputText id="drugBrand" value="#{searchBean.drugBrand}" 
-									class="form-control" />
+									class="form-control" >
+									<f:passThroughAttribute name="placeholder" value="Tylenol"/>
+								</h:inputText>
 							</div>
 						</div>
 						<div class="form-row">

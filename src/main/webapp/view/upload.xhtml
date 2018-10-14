@@ -4,8 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:f="http://xmlns.jcp.org/jsf/core" >
 	
 	<ui:composition template="/view/template/layout.xhtml">
 		<ui:define name="title">MedMatch - Uploading data and metadata</ui:define>
@@ -21,7 +20,9 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text">http://</span>
 								</div>
-								<h:inputText class="form-control" id="namespaceID" p:placeholder="example.com/" required="true" value="#{uploadBean.namespaceIRI}" /> 
+								<h:inputText class="form-control" id="namespaceID" required="true" value="#{uploadBean.namespaceIRI}" >
+									<f:passThroughAttribute name="placeholder" value="example.com/" />
+								</h:inputText> 
 							</div>
 						</div>
 					</div>
@@ -32,7 +33,9 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text">/</span>
 								</div>
-								<h:inputText class="form-control" id="datasetID" p:placeholder="drugs_uk" required="true" value="#{uploadBean.datasetName}" /> 
+								<h:inputText class="form-control" id="datasetID" required="true" value="#{uploadBean.datasetName}" >
+									<f:passThroughAttribute name="placeholder" value="drugs_uk" />
+								</h:inputText> 
 							</div>
 						</div>
 					</div>					
@@ -71,8 +74,8 @@
 					</div>
 					<div class="form-row">
 						<div class="col-md-6 mb-3 text-right">
-							<h:commandButton class="btn btn-primary" id="loadButton" value="Load dataset" action="#{uploadBean.uploadFile()}" />
-							
+							<h:commandButton class="btn btn-primary" id="loadButton" value="Load dataset" action="#{uploadBean.uploadFile()}" >
+							</h:commandButton>							
 						</div>
 					</div>				
 				</h:form>

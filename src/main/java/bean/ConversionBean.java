@@ -192,6 +192,8 @@ public class ConversionBean {
 			//Upload RDF file on the country's dataset on Fuseki
 			fusekiConnector.uploadRDF(filePath,datasetUploadService);
 
+			//Invalidate session and destroy all attributes
+			
 			return "conversion?faces-redirect=true";
 		
 		}catch (Exception e) {
