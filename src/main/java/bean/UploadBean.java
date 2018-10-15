@@ -87,7 +87,7 @@ public class UploadBean {
 				String msgtext = "No file was selected.";
 				FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, msgtext, null);
 				FacesContext facesContext = FacesContext.getCurrentInstance();
-				facesContext.addMessage("upload-form:dataset-file", msg);
+				facesContext.addMessage(null, msg);
 			}
 		}
 

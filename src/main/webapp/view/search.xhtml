@@ -10,16 +10,24 @@
 	<ui:composition template="/view/template/layout.xhtml">
 		<ui:define name="title">MedMatch - Searching for drugs</ui:define>
 		<ui:define name="content">	
-			<p:growl id="msgs" errorClass="errors"/>		
 			<div class="container">
 				<h1>Drug search</h1>
-					
-				<ui:param name="countryList" value="#{countryListBean.countryList}" />
+				<ui:param name="countryList" value="#{searchBean.registeredCountries}" />
 				<h:form id="search-form" class="form-group">
 						<div class="form-row">
-							<div class="col-md-5 mb-3">			
+							<div class="col-md-5 mb-3">
+								<h:message for="originCountry" errorStyle="color:red;" />
+							</div>
+							<div class="col-md-2">
+							</div>							
+							<div class="col-md-5 mb-3">
+								<h:message for="targetCountry" errorStyle="color:red;" />
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-5 mb-3">
 								<h:outputLabel for="originCountry" value="Origin Country" />
-								<h:selectOneMenu id="originCountry" class="custom-select custom-select-md" required="true"
+								<h:selectOneMenu id="originCountry" class="custom-select custom-select-md" required="true" requiredMessage="Select one option from the Country list"
 									value="#{searchBean.originCountry}" onchange="submit()" immediate="true" valueChangeListener="#{searchBean.onOriginCountryChange}">
 									<f:selectItem noSelectionOption="true" itemLabel="Select a country" />	
 									<f:selectItems value="#{countryList}"
@@ -31,9 +39,9 @@
 							<div class="col-md-2">
 							
 							</div>
-							<div class="col-md-5 mb-3">			
+							<div class="col-md-5 mb-3">
 								<h:outputLabel for="targetCountry" value="Target Country" />
-								<h:selectOneMenu id="targetCountry" class="custom-select custom-select-md" required="true" 
+								<h:selectOneMenu id="targetCountry" class="custom-select custom-select-md" required="true" requiredMessage="Select one option from the Country list"
 									value="#{searchBean.targetCountry}" onchange="submit()" immediate="true" valueChangeListener="#{searchBean.onTargetCountryChange}">
 									<f:selectItem noSelectionOption="true" itemLabel="Select a country"/>
 									<f:selectItems value="#{countryList}"
@@ -43,14 +51,16 @@
 								</h:selectOneMenu>
 							</div>
 						</div>
+						<h:message for="drugBrand" errorStyle="color:red;" />
 						<div class="form-row">
 							<div class="col-md-12 mb-3">			
 								<h:outputLabel for="drugBrand" value="Drug brand for the origin country" />
 								<h:inputText id="drugBrand" value="#{searchBean.drugBrand}" 
-									class="form-control" >
+									class="form-control" required="true" requiredMessage="Fill the 'Drug Brand' input">
 									<f:passThroughAttribute name="placeholder" value="Tylenol"/>
 								</h:inputText>
 							</div>
+							
 						</div>
 						<div class="form-row">
 							<div class="col-md-12 mb-3 text-right">
@@ -59,7 +69,6 @@
 							</div>
 						</div>										
 				</h:form>
-				<p:progressBar id="progressBarClient" widgetVar="pbClient" style="width:300px"/>
 				<h:form id="drug-list-form">
 					<p:dataGrid var="entry" value="#{searchBean.matchedDrugs}" columns="2" >
 					 		<p:panel>	

@@ -3,9 +3,11 @@ package bean;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ValueChangeEvent;
@@ -29,6 +31,12 @@ public class SearchBean implements Serializable{
 	private Model targetModel;
 	private List<String> brandList;
 	private Set<Entry<MockDrug,Double>> matchedDrugs;
+	private Map<String,String> registeredCountries;
+	
+	@PostConstruct 
+	public void Init() {
+		this.registeredCountries = SparqlQuery.getRegisteredCountries();
+	}
 	
 	public String getOriginCountry() {
 		return originCountry;
@@ -59,7 +67,7 @@ public class SearchBean implements Serializable{
 	}
 	
 	public void onOriginCountryChange(ValueChangeEvent event){
-			String contryURI = event.getNewValue().toString();
+			//String contryURI = event.getNewValue().toString();
 			//this.brandList = DrugSearch.getOriginDrugBrands(contryURI);
 
 	}
@@ -77,6 +85,14 @@ public class SearchBean implements Serializable{
 		this.brandList = brandList;
 	}
 	
+	public Map<String, String> getRegisteredCountries() {
+		return registeredCountries;
+	}
+
+	public void setRegisteredCountries(Map<String, String> registeredCountries) {
+		this.registeredCountries = registeredCountries;
+	}
+
 	public String search() throws Exception  {
 		try {
 			this.matchedDrugs = null;

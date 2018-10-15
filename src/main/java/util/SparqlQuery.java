@@ -1,8 +1,11 @@
 package util;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
@@ -12,7 +15,12 @@ import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFactory;
 import org.apache.jena.query.ResultSetRewindable;
+import org.apache.jena.query.Syntax;
 import org.apache.jena.rdf.model.Model;
+
+import controller.AppConfig;
+import controller.CountryController;
+import model.Country;
 
 public class SparqlQuery {
 		
@@ -192,4 +200,45 @@ public class SparqlQuery {
 			return drugsList;
 			
 		}
+		
+		public static Map<String,String> getRegisteredCountries() {
+			try {
+				String queryString = 
+					"SELECT ?country\n" +
+					"WHERE\n" +
+					"{\n" + 
+						"?datasetEndpoint rdf:type void:Dataset;\n" +
+						"wdt:P17 ?country .\n" +									
+					"}";
+			
+	            	Query query = QueryFactory.create();
+	            	query.setPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+	            	query.setPrefix("wdt", "http://www.wikidata.org/prop/direct/");
+	            	query.setPrefix("void", "http://rdfs.org/ns/void#");
+	            	
+		        	QueryFactory.parse(query, queryString, "", Syntax.syntaxSPARQL_11);
+	            	QueryExecution qexec = QueryExecutionFactory.sparqlService(AppConfig.getProperty("sparqlService"), query);
+	            	ResultSet result = qexec.execSelect();
+	            	
+	            	Map<String,String> countrysMap = new HashMap<>();
+	            	CountryController countryController = new CountryController();
+	            		
+	            	while(result.hasNext()) {
+	            		QuerySolution row = result.next();
+	            		String countryURI = row.get("country").toString();
+	            		Country c = countryController.findCountryByURI(countryURI);
+	            		countrysMap.put(c.getCountryName(),c.getUri());
+	            	}
+	            	
+	           		qexec.close();
+	           		
+	           		Map<String,String> sortedMap = new TreeMap<>(countrysMap); 
+	           		
+	           		return sortedMap;
+	             
+		    } catch (IOException e) {
+		      e.printStackTrace();
+		      return null;
+		    }	
+		}		
 }
