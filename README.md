@@ -20,3 +20,12 @@
 1. Copy the WAR file with the deployed project and paste it inside the folder webapps of TomCats's directory.
 
 2. Start the server and access the app by the home page: localhost:[port]/medmatch/view/home.xhtml
+
+
+## Running Fuseki
+
+1. Fuseki is the Sparql server used on the project. Access the documentation page, download it and install it on your machine.  [See the documentation](https://jena.apache.org/documentation/fuseki2/).
+
+2. Copy the configuration files from webapp/resources/data/fuseki-configuration and place them inside the folder run/configuration on the Fuseki directory.
+
+3. Run the fuseki-server batch file to start the server.
