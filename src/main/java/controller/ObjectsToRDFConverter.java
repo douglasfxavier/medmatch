@@ -24,11 +24,11 @@ import util.SparqlQuery;
 
 public class ObjectsToRDFConverter {
 	private final OntologyManager ontologyManager;
-	private final String namespaceIRI;
+	private final String ontologyIRI;
 		
-	public ObjectsToRDFConverter(String namespaceIRI, OntologyManager ontologyManager) {
-		this.namespaceIRI = String.format("http://%s",namespaceIRI);
-		this.ontologyManager = ontologyManager;
+	public ObjectsToRDFConverter() {
+		this.ontologyManager = new OntologyManager();
+		this.ontologyIRI = ontologyManager.getOntologyIRI();
 	}
 	
 	public Model convertDataToRDF(CSVDataReader csvDataReader, Country country) throws FileNotFoundException {
@@ -53,7 +53,7 @@ public class ObjectsToRDFConverter {
 		
 		//Converting objects from Manufacturer class to resources
         for(Manufacturer m: csvDataReader.manufacturerList) {
-        	String instanceURI = String.format("%smanufacturer/%s",namespaceIRI, m.getId());
+        	String instanceURI = String.format("%smanufacturer/%s",ontologyIRI, m.getId());
         	//Look for the instance in the Model. If does not exist, instantiate it
         	Resource manufacturer = rdfModel.createResource(instanceURI,manufacturerClass);        	
         	manufacturer.addProperty(nameProp, m.getName());        	
@@ -65,7 +65,7 @@ public class ObjectsToRDFConverter {
         	//if no ingredient with the same name of ai instance was found in the model,
         	//create a new ingredient based on ai instance
         	if (SparqlQuery.askActiveIngredienExist(ai.getName(), rdfModel) == false) {
-        		String instanceURI = String.format("%sactiveIngredient/%s",namespaceIRI,ai.getId());
+        		String instanceURI = String.format("%sactiveIngredient/%s",ontologyIRI,ai.getId());
         		Resource activeIngredient = rdfModel.createResource(instanceURI,activeIngredientClass);        	
         		activeIngredient.addProperty(nameProp, ai.getName());
         	}
@@ -77,7 +77,7 @@ public class ObjectsToRDFConverter {
 /*        	WikiData wikiData = new WikiData();
         	ArrayList<ATCClass> allATCCodes = wikiData.getAllATCClasses();    */    	
         	
-        	String instanceURI = String.format("%sdrugclass/%s",namespaceIRI,c.getCode());
+        	String instanceURI = String.format("%sdrugclass/%s",ontologyIRI,c.getCode());
         	Resource category = rdfModel.createResource(instanceURI,drugClass_Class);        	
         	if (c.getName() != null && c.getName().length() > 0) {
         		if (category.getPropertyResourceValue(nameProp) == null)
@@ -88,7 +88,7 @@ public class ObjectsToRDFConverter {
         //Converting objects from Drug class to resources and creating relationships between resources
         for(Drug d: csvDataReader.drugsList) {        	
         	
-    		String instanceURI = String.format("%sdrug/%s", namespaceIRI,d.getDrugCode());
+    		String instanceURI = String.format("%sdrug/%s", ontologyIRI,d.getDrugCode());
     		
     		//Obtain the drug from the model, if it already exists
     		//If it does not exist, it is created as result of the method getResource
@@ -107,7 +107,7 @@ public class ObjectsToRDFConverter {
         	
         	if (d.getManufacturer() != null) {
         		if (drug.getPropertyResourceValue(hasManufacturerProp) == null) {
-        			instanceURI = String.format("%smanufacturer/%s",namespaceIRI,d.getManufacturer().getId());
+        			instanceURI = String.format("%smanufacturer/%s",ontologyIRI,d.getManufacturer().getId());
         			Resource manufacturer = rdfModel.getResource(instanceURI);
         			drug.addProperty(hasManufacturerProp,manufacturer);
         		}
@@ -116,11 +116,11 @@ public class ObjectsToRDFConverter {
         	if (d.getActiveIngredients() != null && d.getActiveIngredients().size() > 0) {
         		
         		if (drug.getPropertyResourceValue(hasFormulationPro) == null) {
-	        		instanceURI = String.format("%sformulation/%s", namespaceIRI,d.getDrugCode());
+	        		instanceURI = String.format("%sformulation/%s", ontologyIRI,d.getDrugCode());
         			Seq activeIngredientsSeq = rdfModel.getSeq(instanceURI);
 	        		
 	        		for (ActiveIngredient activeIngredientObject : d.getActiveIngredients()) {        			
-	                	instanceURI = String.format("%sactiveIngredient/%s", namespaceIRI,activeIngredientObject.getId());
+	                	instanceURI = String.format("%sactiveIngredient/%s", ontologyIRI,activeIngredientObject.getId());
 	        			Resource activeIngredientResource = rdfModel.getResource(instanceURI);                	
 	                	activeIngredientsSeq.add(activeIngredientResource);                	
 	        		}
@@ -132,7 +132,7 @@ public class ObjectsToRDFConverter {
         	
         	if (d.getAtcClass() != null) {     
         		if (drug.getPropertyResourceValue(ofDrugClass) == null) {
-        			instanceURI = String.format("%sdrugclass/%s",namespaceIRI,d.getAtcClass().getCode());
+        			instanceURI = String.format("%sdrugclass/%s",ontologyIRI,d.getAtcClass().getCode());
         			Resource drugClassResource = rdfModel.getResource(instanceURI);
         			drug.addProperty(ofDrugClass, drugClassResource);
         		}

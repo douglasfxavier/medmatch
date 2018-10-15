@@ -43,7 +43,8 @@ public class App
 	
 	public static void main( String[] args ) throws FileNotFoundException
     {
-
+		System.out.println(CSVDelimiter.valueOf("TAB"));
+		System.out.println(CSVDelimiter.valueOf("TAB").getDelimiter());
         	
 //    	String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
 //    	OntologyManager om = new OntologyManager("pharmacology.owl", ontologyIRI);

@@ -43,14 +43,16 @@ public class CSVDataReader {
 						.withSeparator(this.delimiter)
 						.withIgnoreQuotations(true)
 						.build();
-		this.reader = new CSVReaderBuilder(new StringReader(this.csvData))
-						.withSkipLines(0)
-						.withCSVParser(parser)
-						.build();		
 	}
 
 	public Map<String, String> getMetadata() throws FileNotFoundException{
 		try {
+			
+			this.reader = new CSVReaderBuilder(new StringReader(this.csvData))
+					.withSkipLines(0)
+					.withCSVParser(parser)
+					.build();	
+			
 			String[] header = this.reader.readNext(); 
 		
 			Map<String, String>  headers = new HashMap<>();
@@ -79,7 +81,12 @@ public class CSVDataReader {
 							String manufacturerNameIndex,
 							String strengthIndex) throws Exception {
 	    try {
-
+			
+	    	this.reader = new CSVReaderBuilder(new StringReader(this.csvData))
+					.withSkipLines(1)
+					.withCSVParser(parser)
+					.build();
+	    	
 	    	String[] line;
 	    	Country country = currentCountry;
 	    	

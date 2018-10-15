@@ -15,13 +15,13 @@ public class OntologyManager {
 	private final String ontologyNamespace;	
 	private final OntDocumentManager documentManager;
 	
-	public OntologyManager(String fileName, String ontologyIRI) {
+	public OntologyManager() {
 		super();		
 		FacesContext fc= FacesContext.getCurrentInstance();
-		String path = fc.getExternalContext().getRealPath("resources/ontology/"+ fileName);	
+		String path = fc.getExternalContext().getRealPath("resources/ontology/pharmacology.owl");	
 		
 		this.ontologyModel = ModelFactory.createOntologyModel();
-		this.ontologyIRI = ontologyIRI;
+		this.ontologyIRI = "http://medmatch.global/ontology/pharmacology";
 		this.ontologyNamespace = ontologyIRI + "#";
 		this.documentManager = ontologyModel.getDocumentManager();		
 		this.documentManager.addAltEntry(this.ontologyIRI, "file:" + path);

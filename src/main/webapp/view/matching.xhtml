@@ -5,109 +5,108 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/view/template/layout.xhtml">
 
-	<ui:composition template="/view/template/layout.xhtml">
-			<ui:define name="title">MedMatch - Matching concepts</ui:define>
-			<ui:define name="content">
-				<div class="container">
-					<h1>CSV to RDF Conversion</h1>	
-					<h2>Step 2: Concepts matching</h2>						
-					<ui:param name="csvFields" value="#{csvDataReaderBean.loadCSVDataReader().getMetadata()}" />
-					<h:form id="matching-form" class="form-group">
-						<div class="col-md-5 mb-3">
-							<div class="row mb-3 input-group-prepend">		
-								<h:outputLabel class="input-group-text col-md-5" for="DrugCodeSelect">Drug Code</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="DrugCodeSelect" required="true" value="#{conversionBean.drugCodeIndex}">
-									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
-									<f:selectItems value="#{csvFields}" 
-										var="field" 
-										itemValue="#{field}"
-										itemLabel="#{field}" />	
-								</h:selectOneMenu>
-							</div>
-						</div>
-						<div class="col-md-5 mb-3">	
-							<div class="row mb-3 input-group-prepend">
-								<h:outputLabel class="input-group-text col-md-5" for="BrandSelect">Brand</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="BrandSelect" value="#{conversionBean.brandIndex}">
-									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
-									<f:selectItems value="#{csvFields}" 
-										var="field" 
-										itemValue="#{field}"
-										itemLabel="#{field}" />	
-								</h:selectOneMenu>
-							</div>		
-						</div>				
-						<div class="col-md-5 mb-3">	
-							<div class="row mb-3 input-group-prepend">
-								<h:outputLabel class="input-group-text col-md-5" for="DrugClassSelect">Drug Class</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="DrugClassSelect" value="#{conversionBean.drugClassIndex}">
-									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
-									<f:selectItems value="#{csvFields}" 
-										var="field" 
-										itemValue="#{field}"
-										itemLabel="#{field}" />	
-								</h:selectOneMenu>
-							</div>
-						</div>
-						<div class="col-md-5 mb-3">	
-							<div class="row mb-3 input-group-prepend">
-								<h:outputLabel class="input-group-text col-md-5" for="ATCCodeSelect">ATC Code</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="ATCCodeSelect" value="#{conversionBean.atcCodeIndex}">
-									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
-									<f:selectItems value="#{csvFields}" 
-										var="field" 
-										itemValue="#{field}"
-										itemLabel="#{field}" />	
-								</h:selectOneMenu>
-							</div>							
-							<div class="row mb-3 input-group-prepend">	
-								<h:outputLabel class="input-group-text col-md-5" for="activeIngredientNameSelect">Active Ingredient</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="activeIngredientNameSelect" value="#{conversionBean.activeIngredientNameIndex}">
-									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
-									<f:selectItems value="#{csvFields}" 
-										var="field" 
-										itemValue="#{field}"
-										itemLabel="#{field}" />	
-								</h:selectOneMenu>
-							</div>
-							<div class="row mb-3 input-group-prepend">
-	    						<h:outputLabel class="input-group-text col-md-5" for="ManufacturerIDSelect">Manufacturer ID</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="ManufacturerIDSelect" value="#{conversionBean.manufacturerIDIndex}">
-									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
-									<f:selectItems value="#{csvFields}" 
-										var="field" 
-										itemValue="#{field}"
-										itemLabel="#{field}" />	
-								</h:selectOneMenu>
-							</div>	
-							<div class="row mb-3 input-group-prepend">
-	    						<h:outputLabel class="input-group-text col-md-5" for="ManufacturerNameSelect">Manufacturer name</h:outputLabel>
-								<h:selectOneMenu class="custom-select col-md-7" id="ManufacturerNameSelect" value="#{conversionBean.manufacturerNameIndex}">
-									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
-									<f:selectItems value="#{csvFields}" 
-										var="field" 
-										itemValue="#{field}"
-										itemLabel="#{field}" />	
-								</h:selectOneMenu>
-							</div>	
-							<div class="row mb-3 input-group-prepend">
-	    						<h:outputLabel class="input-group-text col-md-5" for="StrengthSelect">Strength</h:outputLabel>
-	  							<h:selectOneMenu class="custom-select col-md-7" id="StrengthSelect" value="#{conversionBean.strengthIndex}">
-									<f:selectItem noSelectionOption="true" itemLabel="Select a field"/>
-									<f:selectItems value="#{csvFields}" 
-										var="field" 
-										itemValue="#{field}"
-										itemLabel="#{field}" />	
-								</h:selectOneMenu>
-							</div>																																	
-							<div class="text-right">
-								<h:commandButton class="btn btn-primary" id="convertButton" value="Convert" action="#{conversionBean.convert()}" >
-								</h:commandButton>
-							</div>
-						</div>
-					</h:form>					
-				</div>				
-			</ui:define>
-	</ui:composition>
+	<ui:define name="title">MedMatch - Matching concepts</ui:define>
+	<ui:define name="content">
+		<div class="container">
+			<h1>CSV to RDF Conversion</h1>
+			<h2>Step 2: Concepts matching</h2>
+			<ui:param name="csvFields"
+				value="#{conversionBean.csvDataReader.metadata}" />
+			<h:form id="matching-form" class="form-group">
+				<div class="col-md-7 mb-3">
+					<div class="row mb-3 input-group-prepend">
+						<h:outputLabel class="input-group-text col-md-5"
+							for="DrugCodeSelect">Drug Code</h:outputLabel>
+						<h:selectOneMenu class="custom-select col-md-7"
+							id="DrugCodeSelect" required="true"
+							value="#{conversionBean.drugCodeIndex}">
+							<f:selectItem noSelectionOption="true" itemLabel="Select a field" />
+							<f:selectItems value="#{csvFields}" var="field"
+								itemValue="#{field}" itemLabel="#{field}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="row mb-3 input-group-prepend">
+						<h:outputLabel class="input-group-text col-md-5" for="BrandSelect">Brand</h:outputLabel>
+						<h:selectOneMenu class="custom-select col-md-7" id="BrandSelect"
+							value="#{conversionBean.brandIndex}">
+							<f:selectItem noSelectionOption="true" itemLabel="Select a field" />
+							<f:selectItems value="#{csvFields}" var="field"
+								itemValue="#{field}" itemLabel="#{field}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="row mb-3 input-group-prepend">
+						<h:outputLabel class="input-group-text col-md-5"
+							for="DrugClassSelect">Drug Class</h:outputLabel>
+						<h:selectOneMenu class="custom-select col-md-7"
+							id="DrugClassSelect" value="#{conversionBean.drugClassIndex}">
+							<f:selectItem noSelectionOption="true" itemLabel="Select a field" />
+							<f:selectItems value="#{csvFields}" var="field"
+								itemValue="#{field}" itemLabel="#{field}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="row mb-3 input-group-prepend">
+						<h:outputLabel class="input-group-text col-md-5"
+							for="ATCCodeSelect">ATC Code</h:outputLabel>
+						<h:selectOneMenu class="custom-select col-md-7" id="ATCCodeSelect"
+							value="#{conversionBean.atcCodeIndex}">
+							<f:selectItem noSelectionOption="true" itemLabel="Select a field" />
+							<f:selectItems value="#{csvFields}" var="field"
+								itemValue="#{field}" itemLabel="#{field}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="row mb-3 input-group-prepend">
+						<h:outputLabel class="input-group-text col-md-5"
+							for="activeIngredientNameSelect">Active Ingredient</h:outputLabel>
+						<h:selectOneMenu class="custom-select col-md-7"
+							id="activeIngredientNameSelect"
+							value="#{conversionBean.activeIngredientNameIndex}">
+							<f:selectItem noSelectionOption="true" itemLabel="Select a field" />
+							<f:selectItems value="#{csvFields}" var="field"
+								itemValue="#{field}" itemLabel="#{field}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="row mb-3 input-group-prepend">
+						<h:outputLabel class="input-group-text col-md-5"
+							for="ManufacturerIDSelect">Manufacturer ID</h:outputLabel>
+						<h:selectOneMenu class="custom-select col-md-7"
+							id="ManufacturerIDSelect"
+							value="#{conversionBean.manufacturerIDIndex}">
+							<f:selectItem noSelectionOption="true" itemLabel="Select a field" />
+							<f:selectItems value="#{csvFields}" var="field"
+								itemValue="#{field}" itemLabel="#{field}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="row mb-3 input-group-prepend">
+						<h:outputLabel class="input-group-text col-md-5"
+							for="ManufacturerNameSelect">Manufacturer name</h:outputLabel>
+						<h:selectOneMenu class="custom-select col-md-7"
+							id="ManufacturerNameSelect"
+							value="#{conversionBean.manufacturerNameIndex}">
+							<f:selectItem noSelectionOption="true" itemLabel="Select a field" />
+							<f:selectItems value="#{csvFields}" var="field"
+								itemValue="#{field}" itemLabel="#{field}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="row mb-3 input-group-prepend">
+						<h:outputLabel class="input-group-text col-md-5"
+							for="StrengthSelect">Strength</h:outputLabel>
+						<h:selectOneMenu class="custom-select col-md-7"
+							id="StrengthSelect" value="#{conversionBean.strengthIndex}">
+							<f:selectItem noSelectionOption="true" itemLabel="Select a field" />
+							<f:selectItems value="#{csvFields}" var="field"
+								itemValue="#{field}" itemLabel="#{field}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="text-right">
+						<h:commandButton class="btn btn-primary" id="convertButton"
+							value="Convert" action="#{conversionBean.convert()}">
+						</h:commandButton>
+					</div>
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
 </html>

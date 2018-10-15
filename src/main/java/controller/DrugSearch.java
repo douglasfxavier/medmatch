@@ -26,8 +26,7 @@ public class DrugSearch {
 														 String originCountry,
 														 Model targetModel) {
 		
-		String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
-		OntologyManager ontologyManager = new OntologyManager("pharmacology.owl", ontologyIRI);
+		OntologyManager ontologyManager = new OntologyManager();
 		Property hasFormulationProp = ontologyManager.findProperty("hasFormulation");
 		Property nameProp = ontologyManager.findProperty("name");
 		Property brandProp = ontologyManager.findProperty("brand");

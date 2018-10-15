@@ -1,28 +1,33 @@
 package bean;
 
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 
 import org.apache.jena.rdf.model.Model;
 
+import controller.CSVDataReader;
 import controller.ObjectsToRDFConverter;
-import controller.OntologyManager;
 import controller.RDFManager;
 import model.Country;
+import util.CSVDelimiter;
 import util.FusekiConnector;
 
 @ManagedBean (name = "conversionBean")
-@SessionScoped
-public class ConversionBean {
-	@ManagedProperty (value = "#{matchingBean}")
-	private MatchingBean matchingBean;
-	@ManagedProperty (value = "#{csvDataReaderBean}")
-	private CSVDataReaderBean csvDataReaderBean;
-	private OntologyManager ontologyManager;
+@ViewScoped
+public class ConversionBean implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@ManagedProperty (value = "#{countryListBean}")
+	private CountryListBean countryListBean;
 	private Model rdfModel;
 	private String rdfString;
 	//Fields send by post from the view matching.xhtml
@@ -34,7 +39,49 @@ public class ConversionBean {
 	private String manufacturerIDIndex;
 	private String manufacturerNameIndex;
 	private String strengthIndex;
+	private String csvData;
+	private String selectedDelimiter;
+	private String datasetName;
+	private String selectedCountryNumericCode;
+	private CSVDataReader csvDataReader;
+	
+	@PostConstruct
+	public void Init() {
+		Flash flash = FacesContext.getCurrentInstance()
+				.getExternalContext().getFlash();
+		this.csvData = (String) flash.get("csvData");
+		this.selectedDelimiter = (String) flash.get("selectedDelimiter");
+		this.datasetName = (String) flash.get("datasetName");
+		this.selectedCountryNumericCode = (String) flash.get("selectedCountryNumericCode");
+		char delimiter = CSVDelimiter.valueOf(this.selectedDelimiter).getDelimiter().charAt(0);
+		this.csvDataReader = new CSVDataReader(csvData, delimiter);
+	}
+	
+	public Country getSelectedCountry() {
+		int numericCode = Integer.parseInt(this.selectedCountryNumericCode); 
+		Country selectedCountry = this.countryListBean.getCountry(numericCode);		
+		return selectedCountry;
+	}
 
+	public CountryListBean getCountryListBean() {
+		return this.countryListBean;
+	}
+
+	public void setCountryListBean(CountryListBean countryListBean) {
+		this.countryListBean = countryListBean;
+	}
+
+	public CSVDataReader getCsvDataReader() {
+		return csvDataReader;
+	}
+
+	public void setCsvDataReader(CSVDataReader csvDataReader) {
+		this.csvDataReader = csvDataReader;
+	}
+
+	public String getCsvData() {
+		return this.csvData;
+	}
 
 	public String getDrugCodeIndex() {
 		return drugCodeIndex;
@@ -115,49 +162,21 @@ public class ConversionBean {
 	public void setRdfString(String rdfString) {
 		this.rdfString = rdfString;
 	}
-	
-
-	public MatchingBean getMatchingBean() {
-		return matchingBean;
-	}
-
-	public void setMatchingBean(MatchingBean matchingBean) {
-		this.matchingBean = matchingBean;
-	}
-
-	public CSVDataReaderBean getCsvDataReaderBean() {
-		return this.csvDataReaderBean;
-	}
-
-	public void setCsvDataReaderBean(CSVDataReaderBean csvDataReaderBean) {
-		this.csvDataReaderBean = csvDataReaderBean;
-	}
-	
-	public OntologyManager getOntologyManager() {
-		return ontologyManager;
-	}
-
-	public void setOntologyManager(OntologyManager ontologyManager) {
-		this.ontologyManager = ontologyManager;
-	}
-
+		
 	public String convert() throws NumberFormatException, FileNotFoundException, ArrayIndexOutOfBoundsException {
 		try {
 			String filePath;
-			String datasetName = this.matchingBean.getUploadBean().getDatasetName();
-			Country country = this.matchingBean.getSelectedCountry();
-			String namespaceIRI = this.matchingBean.getUploadBean().getNamespaceIRI();
+
+			Country country = countryListBean.getCountry(Integer.parseInt(this.selectedCountryNumericCode)); 
+			 
 						
 			RDFManager manager = new RDFManager();
 			FusekiConnector fusekiConnector = new FusekiConnector();
-			
-			String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
-			OntologyManager ontologyManager = new OntologyManager("pharmacology.owl", ontologyIRI);
-			ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter(namespaceIRI, ontologyManager);
+						
+			ObjectsToRDFConverter rdfConverter = new ObjectsToRDFConverter();
 			FacesContext facesContext= FacesContext.getCurrentInstance();
 			
-			this.csvDataReaderBean.getCsvDataReader()
-				.loadData(country, 
+				this.csvDataReader.loadData(country, 
 						  drugCodeIndex, 
 					      brandIndex, 
 					      activeIngredientNameIndex,
@@ -178,23 +197,22 @@ public class ConversionBean {
 											datasetDumpDataService,
 											datasetSparqlService);
 			
-			this.rdfModel = rdfConverter.convertDataToRDF(this.csvDataReaderBean.getCsvDataReader(),country);
+			this.rdfModel = rdfConverter.convertDataToRDF(this.csvDataReader,country);
 						
 /*			String path = facesContext.getExternalContext().getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.ttl",country.getCountryName().replace('\n', '_')));
 			manager.saveFile(rdfModel, path, "TURTLE",base);	*/	
 		
 			filePath = facesContext
 					.getExternalContext()
-					.getRealPath(String.format("WEB-INF\\classes\\data\\Drugs_%s.rdf",country.getCountryName().replace('\n', '_')));
+					.getRealPath(String.format("resources/data/Drugs_%s.rdf",country.getCountryName().replace('\n', '_')));
 			
-			manager.saveFile(rdfModel, filePath, "RDF/XML",namespaceIRI);
+			String ontologyIRI = "http://medmatch.global/ontology/pharmacology";
+			manager.saveFile(rdfModel, filePath, "RDF/XML",ontologyIRI);
 			
 			//Upload RDF file on the country's dataset on Fuseki
 			fusekiConnector.uploadRDF(filePath,datasetUploadService);
-
-			//Invalidate session and destroy all attributes
 			
-			return "conversion?faces-redirect=true";
+			return "null";
 		
 		}catch (Exception e) {
 			e.printStackTrace();
